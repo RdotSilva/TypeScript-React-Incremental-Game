@@ -12,7 +12,8 @@ const useStat = (): any => {
    * @param amount The amount to use when incrementing a stat
    */
   const incrementStat = (amount: number): void => {
-    setStat(stat + amount);
+    const amountWithMultiplier = amount * statPerClick;
+    setStat(stat + amountWithMultiplier);
   };
 
   /**
