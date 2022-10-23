@@ -11,7 +11,13 @@ type Props = {
  * Generate a resource type
  */
 const Resource = ({ image }: Props) => {
-  const [stat, statPerClick, incrementStat, incrementStatPerClick] = useStat();
+  const [
+    stat,
+    statPerClick,
+    incrementStat,
+    incrementStatPerClick,
+    autoIncrementStat,
+  ] = useStat();
   const [totalUpgrades, setTotalUpgrades] = useState<number>(0);
 
   /**
@@ -21,6 +27,11 @@ const Resource = ({ image }: Props) => {
   const upgrade = (amount: number) => {
     incrementStatPerClick(amount);
     setTotalUpgrades(totalUpgrades + 1);
+
+    // Add the auto stat click after the 3rd upgrade
+    if (totalUpgrades >= 2) {
+      autoIncrementStat();
+    }
   };
 
   return (
