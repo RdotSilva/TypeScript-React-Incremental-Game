@@ -24,7 +24,18 @@ const useStat = (): any => {
     setStatPerClick(statPerClick + amount);
   };
 
-  return [stat, statPerClick, incrementStat, incrementStatPerClick];
+  const autoIncrementStat = (): void => {
+    const fixedAmount = 10;
+    setInterval(() => setStat(stat + fixedAmount), 1000);
+  };
+
+  return [
+    stat,
+    statPerClick,
+    incrementStat,
+    incrementStatPerClick,
+    autoIncrementStat,
+  ];
 };
 
 export default useStat;
