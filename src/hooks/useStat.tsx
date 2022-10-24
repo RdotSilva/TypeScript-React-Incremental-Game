@@ -25,8 +25,7 @@ const useStat = (): any => {
   };
 
   const autoIncrementStat = (): void => {
-    const fixedAmount = 10;
-    setInterval(() => setStat(stat + fixedAmount), 1000);
+    setInterval(() => setStat((prevState) => prevState + statPerClick), 1000);
   };
 
   return [
