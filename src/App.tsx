@@ -1,11 +1,14 @@
 import React from "react";
 import Main from "./components/Main/Main";
+import StatProvider from "./context/GameContext";
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <StatProvider>
+      <div className="App">
+        <Main />
+      </div>
+    </StatProvider>
   );
 }
 
