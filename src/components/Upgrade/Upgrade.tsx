@@ -25,7 +25,7 @@ const Upgrade = ({ statTotal, totalUpgrades, upgrade }: Props) => {
         </Button>
       )}
 
-      {statTotal >= 1000 && totalUpgrades <= 1 && (
+      {statTotal >= 1000 && totalUpgrades <= 2 && (
         <Button sx={{ m: 1 }} onClick={() => upgrade(3)} variant="contained">
           Upgrade 3
         </Button>
