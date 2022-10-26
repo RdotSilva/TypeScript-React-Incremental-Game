@@ -6,7 +6,7 @@ import ore from "../../images/Icon46.png";
 type Props = {};
 
 const Ore = (props: Props) => {
-  return <Resource image={ore} />;
+  return <Resource image={ore} tier={1} nextTierThreshold={100} />;
 };
 
 export default Ore;
