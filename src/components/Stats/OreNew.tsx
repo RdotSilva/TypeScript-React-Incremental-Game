@@ -55,7 +55,6 @@ const OreNew = (props: Props) => {
         statTotal={stat}
         totalUpgrades={totalUpgrades}
         upgrade={upgrade}
-        tier={1}
       />
     </Container>
   );

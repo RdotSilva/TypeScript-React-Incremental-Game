@@ -59,7 +59,6 @@ const Resource = ({ image, tier, nextTierThreshold }: Props) => {
         statTotal={stat}
         totalUpgrades={totalUpgrades}
         upgrade={upgrade}
-        tier={tier}
       />
     </Container>
   );
