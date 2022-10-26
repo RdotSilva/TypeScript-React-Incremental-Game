@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useStat from "../../hooks/useStat";
 import { Box, Container } from "@mui/material";
 import Upgrade from "../Upgrade/Upgrade";
+import { StatContext } from "../../context/GameContext";
 
 type Props = {
   image: any;
+  tier: number;
+  nextTierThreshold: number;
 };
 
 /**
  * Generate a resource type
  */
-const Resource = ({ image }: Props) => {
+const Resource = ({ image, tier, nextTierThreshold }: Props) => {
+  const statContext = useContext(StatContext);
+
   const [
     stat,
     statPerClick,
@@ -34,6 +39,12 @@ const Resource = ({ image }: Props) => {
     }
   };
 
+  useEffect(() => {
+    if (stat > nextTierThreshold) {
+      statContext?.setTier(tier + 1);
+    }
+  }, [stat]);
+
   return (
     <Container>
       <Box component="span" sx={{ display: "block" }}>
@@ -48,6 +59,7 @@ const Resource = ({ image }: Props) => {
         statTotal={stat}
         totalUpgrades={totalUpgrades}
         upgrade={upgrade}
+        tier={tier}
       />
     </Container>
   );
