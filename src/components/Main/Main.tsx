@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "@mui/material";
-import Gold from "../Stats/Ore";
+import Ore from "../Stats/Ore";
 import Tree from "../Stats/Tree";
+import { StatContext } from "../../context/GameContext";
 
 type Props = {};
 
 const Main = (props: Props) => {
+  const statContext = useContext(StatContext);
   return (
     <Container>
-      <Gold />
-      <Tree />
+      <Ore />
+      {statContext?.tier === 2 && <Tree />}
     </Container>
   );
 };
