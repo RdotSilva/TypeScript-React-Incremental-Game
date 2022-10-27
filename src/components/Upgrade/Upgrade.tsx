@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "@mui/material/Button";
+import { UpgradeLevels } from "../../config/config";
 
 type Props = {
   statTotal: number;
@@ -14,18 +15,18 @@ type Props = {
 const Upgrade = ({ statTotal, totalUpgrades, upgrade }: Props) => {
   return (
     <>
-      {statTotal >= 10 && totalUpgrades <= 0 && (
+      {statTotal >= UpgradeLevels.One && totalUpgrades <= 0 && (
         <Button sx={{ m: 1 }} onClick={() => upgrade(1)} variant="contained">
           Upgrade 1
         </Button>
       )}
-      {statTotal >= 100 && totalUpgrades <= 1 && (
+      {statTotal >= UpgradeLevels.Two && totalUpgrades <= 1 && (
         <Button sx={{ m: 1 }} onClick={() => upgrade(2)} variant="contained">
           Upgrade 2
         </Button>
       )}
 
-      {statTotal >= 1000 && totalUpgrades <= 2 && (
+      {statTotal >= UpgradeLevels.Three && totalUpgrades <= 2 && (
         <Button sx={{ m: 1 }} onClick={() => upgrade(3)} variant="contained">
           Upgrade 3
         </Button>
