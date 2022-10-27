@@ -11,7 +11,7 @@ const Main = (props: Props) => {
   return (
     <Container>
       <Ore />
-      {statContext?.tier === 2 && <Tree />}
+      {statContext?.tier! >= 2 && <Tree />}
     </Container>
   );
 };
