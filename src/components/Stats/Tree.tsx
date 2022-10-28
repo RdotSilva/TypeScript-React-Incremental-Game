@@ -7,7 +7,13 @@ import { TierLevels } from "../../config/config";
 type Props = {};
 
 const Tree = (props: Props) => {
-  return <Resource image={tree} tier={2} nextTierThreshold={TierLevels.Two} />;
+  return (
+    <Resource
+      image={tree}
+      resourceTier={2}
+      nextTierThreshold={TierLevels.Two}
+    />
+  );
 };
 
 export default Tree;

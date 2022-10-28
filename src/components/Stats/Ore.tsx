@@ -7,7 +7,7 @@ import { TierLevels } from "../../config/config";
 type Props = {};
 
 const Ore = (props: Props) => {
-  return <Resource image={ore} tier={1} nextTierThreshold={TierLevels.One} />;
+  return <Resource image={ore} resourceTier={1} nextTierThreshold={TierLevels.One} />;
 };
 
 export default Ore;

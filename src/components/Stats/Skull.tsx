@@ -8,7 +8,7 @@ type Props = {};
 
 const Skull = (props: Props) => {
   return (
-    <Resource image={skull} tier={3} nextTierThreshold={TierLevels.Three} />
+    <Resource image={skull} resourceTier={3} nextTierThreshold={TierLevels.Three} />
   );
 };
 
