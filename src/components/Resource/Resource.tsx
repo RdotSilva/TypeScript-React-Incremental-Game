@@ -6,14 +6,14 @@ import { StatContext } from "../../context/GameContext";
 
 type Props = {
   image: any;
-  tier: number;
+  resourceTier: number;
   nextTierThreshold: number;
 };
 
 /**
  * Generate a resource type
  */
-const Resource = ({ image, tier, nextTierThreshold }: Props) => {
+const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
   const statContext = useContext(StatContext);
 
   const [
@@ -41,7 +41,10 @@ const Resource = ({ image, tier, nextTierThreshold }: Props) => {
 
   useEffect(() => {
     if (stat > nextTierThreshold) {
-      statContext?.setTier(tier + 1);
+      // Only set the next tier if current tier is below the resource tier
+      if (statContext?.tier! <= resourceTier) {
+        statContext?.setTier(resourceTier + 1);
+      }
     }
   }, [stat]);
 
