@@ -49,8 +49,8 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
   }, [stat]);
 
   return (
-    <Container>
-      <Box component="span" sx={{ display: "block" }}>
+    <Container sx={{ display: "flex", alignItems: "center", padding: "1px" }}>
+      <Box component="span">
         <div>{stat}</div>
       </Box>
 
@@ -58,11 +58,13 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
         <img src={image} alt="tree" onClick={() => incrementStat(1)} />
       </Box>
 
-      <Upgrade
-        statTotal={stat}
-        totalUpgrades={totalUpgrades}
-        upgrade={upgrade}
-      />
+      <Box>
+        <Upgrade
+          statTotal={stat}
+          totalUpgrades={totalUpgrades}
+          upgrade={upgrade}
+        />
+      </Box>
     </Container>
   );
 };
