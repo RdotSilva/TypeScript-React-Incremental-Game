@@ -11,7 +11,7 @@ const Main = (props: Props) => {
   const statContext = useContext(StatContext);
 
   return (
-    <Container>
+    <Container sx={{ background: "gray" }}>
       <Ore />
       {statContext?.tier! >= 2 && <Tree />}
       {statContext?.tier! >= 3 && <Skull />}
