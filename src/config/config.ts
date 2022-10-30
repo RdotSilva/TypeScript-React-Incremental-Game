@@ -5,6 +5,7 @@ export const enum TierLevels {
   One = 10,
   Two = One * 2,
   Three = Two * 2,
+  Four = Three * 2,
 }
 
 /**
