@@ -3,6 +3,13 @@ import useStat from "../../hooks/useStat";
 import { Box, Container } from "@mui/material";
 import Upgrade from "../Upgrade/Upgrade";
 import { StatContext } from "../../context/GameContext";
+import { styled } from "@mui/material/styles";
+
+const StyledResourceContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  padding: 1px;
+`;
 
 type Props = {
   image: any;
@@ -49,7 +56,7 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
   }, [stat]);
 
   return (
-    <Container sx={{ display: "flex", alignItems: "center", padding: "1px" }}>
+    <StyledResourceContainer>
       <Box component="span">
         <div>{stat}</div>
       </Box>
@@ -65,7 +72,7 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
           upgrade={upgrade}
         />
       </Box>
-    </Container>
+    </StyledResourceContainer>
   );
 };
 
