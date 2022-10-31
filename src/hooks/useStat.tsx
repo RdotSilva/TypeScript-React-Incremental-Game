@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { StatContext } from "../context/GameContext";
 
 /**
  * Main hook used for raising stats and stats per click
@@ -7,6 +8,8 @@ const useStat = (): any => {
   const [stat, setStat] = useState<number>(0);
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
+  const statContext = useContext(StatContext);
+
   /**
    * Increment a stat
    * @param amount The amount to use when incrementing a stat
@@ -14,6 +17,7 @@ const useStat = (): any => {
   const incrementStat = (amount: number): void => {
     const amountWithMultiplier = amount * statPerClick;
     setStat(stat + amountWithMultiplier);
+    statContext?.setTotalStats(statContext.totalStats + amountWithMultiplier);
   };
 
   /**
