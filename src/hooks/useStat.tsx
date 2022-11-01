@@ -28,6 +28,9 @@ const useStat = (): any => {
     setStatPerClick(statPerClick + amount);
   };
 
+  /**
+   * Auto increment stat and total stats every second
+   */
   const autoIncrementStat = (): void => {
     setInterval(() => {
       setStat((prevState) => prevState + statPerClick);
