@@ -29,7 +29,10 @@ const useStat = (): any => {
   };
 
   const autoIncrementStat = (): void => {
-    setInterval(() => setStat((prevState) => prevState + statPerClick), 1000);
+    setInterval(() => {
+      setStat((prevState) => prevState + statPerClick);
+      statContext?.setTotalStats((prevState) => prevState + statPerClick);
+    }, 1000);
   };
 
   return [
