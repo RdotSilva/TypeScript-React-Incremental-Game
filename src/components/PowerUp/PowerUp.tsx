@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Container } from "@mui/material";
 import { StatContext } from "../../context/GameContext";
 import Button from "@mui/material/Button";
@@ -7,6 +7,12 @@ type Props = {};
 
 const PowerUp = (props: Props) => {
   const statContext = useContext(StatContext);
+
+  // TODO: Implement Powerups
+  // Power up should be shown once every minute (will do 10-15 seconds for testing purposes)
+  // When power up is clicked we should reset this timer
+  // Timer should only restart after that power up is complete
+  // Power up should increase the stats per click
 
   return (
     <Container sx={{ background: "brown" }}>
