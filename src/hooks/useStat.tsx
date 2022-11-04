@@ -29,6 +29,14 @@ const useStat = (): any => {
   };
 
   /**
+   * Decrement the number of points that are added to a stat on click
+   * @param amount The amount to use decrement a stat for per click
+   */
+  const decrementStatPerClick = (amount: number): void => {
+    setStatPerClick(statPerClick - amount);
+  };
+
+  /**
    * Auto increment stat and total stats every second
    */
   const autoIncrementStat = (): void => {
@@ -44,6 +52,7 @@ const useStat = (): any => {
     incrementStat,
     incrementStatPerClick,
     autoIncrementStat,
+    decrementStatPerClick,
   ];
 };
 
