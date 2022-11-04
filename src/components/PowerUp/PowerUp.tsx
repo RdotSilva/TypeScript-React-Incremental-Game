@@ -2,11 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { StatContext } from "../../context/GameContext";
 import Button from "@mui/material/Button";
+import useStat from "../../hooks/useStat";
 
 type Props = {};
 
 const PowerUp = (props: Props) => {
   const statContext = useContext(StatContext);
+
+  const [
+    stat,
+    statPerClick,
+    incrementStat,
+    incrementStatPerClick,
+    autoIncrementStat,
+    decrementStatPerClick,
+  ] = useStat();
 
   // Power up should be shown once every minute (will do 5 seconds for testing purposes)
   const [powerUpTimer, setPowerUpTimer] = useState<number>(5000);
@@ -27,7 +37,7 @@ const PowerUp = (props: Props) => {
     console.log("PowerUp Activated!!");
     setPowerUpVisible(false);
     // When power up is clicked we should reset this timer
-    // Power up should increase the stats per click
+    // TODO: Power up should increase the stats per click -> use the new function from useStat
   };
 
   return (
