@@ -5,7 +5,7 @@ import Upgrade from "../Upgrade/Upgrade";
 
 import Resource from "../Resource/Resource";
 import ore from "../../images/Icon46.png";
-import { StatContext } from "../../context/GameContext";
+import { StatContext } from "../../context/StatContext";
 
 interface Props {}
 
