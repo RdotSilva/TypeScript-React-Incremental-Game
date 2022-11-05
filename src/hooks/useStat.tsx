@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { StatContext } from "../context/GameContext";
+import { StatContext } from "../context/StatContext";
 
 /**
  * Main hook used for raising stats and stats per click
@@ -9,17 +9,16 @@ const useStat = (): any => {
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
   const statContext = useContext(StatContext);
+  const { powerUpMultiplier, setTotalStats } = statContext;
 
   /**
    * Increment a stat
    * @param amount The amount to use when incrementing a stat
    */
   const incrementStat = (amount: number): void => {
-    const amountWithMultiplier = amount * statPerClick;
+    const amountWithMultiplier = amount * statPerClick * powerUpMultiplier;
     setStat((prevStat) => prevStat + amountWithMultiplier);
-    statContext?.setTotalStats(
-      (prevTotalStats) => prevTotalStats + amountWithMultiplier
-    );
+    setTotalStats((prevTotalStats) => prevTotalStats + amountWithMultiplier);
   };
 
   /**
@@ -42,11 +41,10 @@ const useStat = (): any => {
    * Auto increment stat and total stats every second
    */
   const autoIncrementStat = (): void => {
+    // TODO: Add powerUpMultiplier to this (consider a separate power up)
     setInterval(() => {
       setStat((prevStat) => prevStat + statPerClick);
-      statContext?.setTotalStats(
-        (prevTotalStats) => prevTotalStats + statPerClick
-      );
+      setTotalStats((prevTotalStats) => prevTotalStats + statPerClick);
     }, 1000);
   };
 
@@ -57,6 +55,7 @@ const useStat = (): any => {
     incrementStatPerClick,
     autoIncrementStat,
     decrementStatPerClick,
+    setStat,
   ];
 };
 
