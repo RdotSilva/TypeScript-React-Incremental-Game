@@ -16,8 +16,10 @@ const useStat = (): any => {
    */
   const incrementStat = (amount: number): void => {
     const amountWithMultiplier = amount * statPerClick;
-    setStat(stat + amountWithMultiplier);
-    statContext?.setTotalStats(statContext.totalStats + amountWithMultiplier);
+    setStat((prevStat) => prevStat + amountWithMultiplier);
+    statContext?.setTotalStats(
+      (prevTotalStats) => prevTotalStats + amountWithMultiplier
+    );
   };
 
   /**
@@ -25,7 +27,7 @@ const useStat = (): any => {
    * @param amount The amount to use increment a stat for per click
    */
   const incrementStatPerClick = (amount: number): void => {
-    setStatPerClick(statPerClick + amount);
+    setStatPerClick((prevStatPerClick) => prevStatPerClick + amount);
   };
 
   /**
@@ -33,7 +35,7 @@ const useStat = (): any => {
    * @param amount The amount to use decrement a stat for per click
    */
   const decrementStatPerClick = (amount: number): void => {
-    setStatPerClick(statPerClick - amount);
+    setStatPerClick((prevStatPerClick) => prevStatPerClick - amount);
   };
 
   /**
@@ -41,8 +43,10 @@ const useStat = (): any => {
    */
   const autoIncrementStat = (): void => {
     setInterval(() => {
-      setStat((prevState) => prevState + statPerClick);
-      statContext?.setTotalStats((prevState) => prevState + statPerClick);
+      setStat((prevStat) => prevStat + statPerClick);
+      statContext?.setTotalStats(
+        (prevTotalStats) => prevTotalStats + statPerClick
+      );
     }, 1000);
   };
 
