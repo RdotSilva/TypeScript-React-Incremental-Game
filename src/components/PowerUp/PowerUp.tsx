@@ -1,22 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container } from "@mui/material";
-import { StatContext } from "../../context/GameContext";
+import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
-import useStat from "../../hooks/useStat";
 
 type Props = {};
 
 const PowerUp = (props: Props) => {
   const statContext = useContext(StatContext);
-
-  const [
-    stat,
-    statPerClick,
-    incrementStat,
-    incrementStatPerClick,
-    autoIncrementStat,
-    decrementStatPerClick,
-  ] = useStat();
+  const { setPowerUpMultiplier } = statContext;
 
   // Power up should be shown once every minute (will do 5 seconds for testing purposes)
   const [powerUpTimer, setPowerUpTimer] = useState<number>(5000);
@@ -24,20 +15,27 @@ const PowerUp = (props: Props) => {
 
   useEffect(() => {
     // Timer should only restart after that power up is complete
-    let powerUpTimeout = setTimeout(() => {
+    let displayPowerUpTimeout = setTimeout(() => {
       setPowerUpVisible(true);
     }, powerUpTimer);
 
     return () => {
-      clearTimeout(powerUpTimeout);
+      clearTimeout(displayPowerUpTimeout);
     };
-  });
+  }, []);
 
   const activatePowerUp = () => {
-    console.log("PowerUp Activated!!");
+    // TODO: Display clock while powerup is active
     setPowerUpVisible(false);
-    // When power up is clicked we should reset this timer
-    // TODO: Power up should increase the stats per click -> use the new function from useStat
+    setPowerUpMultiplier(2);
+
+    let deactivatePowerUpTimeout = setTimeout(() => {
+      deactivatePowerUp();
+    }, 5000);
+  };
+
+  const deactivatePowerUp = () => {
+    setPowerUpMultiplier(1);
   };
 
   return (
