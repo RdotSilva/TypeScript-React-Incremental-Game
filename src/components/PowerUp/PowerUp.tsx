@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
+import { PowerUpExpireTimers } from "../../config/config";
 
 type Props = {};
 
@@ -10,36 +11,58 @@ const PowerUp = (props: Props) => {
   const { setPowerUpMultiplier } = statContext;
 
   // Power up should be shown once every minute (will do 5 seconds for testing purposes)
-  const [powerUpTimer, setPowerUpTimer] = useState<number>(5000);
+  const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(5000);
   const [powerUpVisible, setPowerUpVisible] = useState<boolean>(false);
+  const [powerUpExpireTimer, setPowerUpExpireTimer] = useState<number>(
+    PowerUpExpireTimers.One
+  );
+  const [showPowerUpExpireTimer, setShowPowerUpExpireTimer] =
+    useState<boolean>(false);
 
   useEffect(() => {
     // Timer should only restart after that power up is complete
     let displayPowerUpTimeout = setTimeout(() => {
       setPowerUpVisible(true);
-    }, powerUpTimer);
+    }, powerUpShowTimer);
 
     return () => {
       clearTimeout(displayPowerUpTimeout);
     };
   }, []);
 
+  useEffect(() => {
+    let timer: any =
+      powerUpExpireTimer > 0 &&
+      showPowerUpExpireTimer &&
+      setInterval(() => setPowerUpExpireTimer(powerUpExpireTimer - 1000), 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [powerUpExpireTimer, showPowerUpExpireTimer]);
+
   const activatePowerUp = () => {
     // TODO: Display clock while powerup is active
     setPowerUpVisible(false);
     setPowerUpMultiplier(2);
 
+    // Shower timer for now
+    setShowPowerUpExpireTimer(true);
+
     let deactivatePowerUpTimeout = setTimeout(() => {
       deactivatePowerUp();
-    }, 5000);
+    }, PowerUpExpireTimers.One);
   };
 
   const deactivatePowerUp = () => {
     setPowerUpMultiplier(1);
+    setShowPowerUpExpireTimer(false);
   };
 
   return (
     <Container sx={{ background: "brown" }}>
+      {showPowerUpExpireTimer && (
+        <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
+      )}
       {powerUpVisible && (
         <Button
           sx={{ m: 1 }}
