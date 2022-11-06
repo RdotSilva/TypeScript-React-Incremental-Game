@@ -18,3 +18,9 @@ export const enum UpgradeLevels {
   Two = One * 10,
   Three = Two + 10,
 }
+
+export const enum PowerUpExpireTimers {
+  One = 10000,
+  Two = 20000,
+  Three = 30000,
+}
