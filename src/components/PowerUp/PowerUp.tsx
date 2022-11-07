@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
-import { PowerUpExpireTimers } from "../../config/config";
+import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
 
 type Props = {};
 
@@ -11,7 +11,9 @@ const PowerUp = (props: Props) => {
   const { setPowerUpMultiplier } = statContext;
 
   // Power up should be shown once every minute (will do 5 seconds for testing purposes)
-  const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(5000);
+  const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(
+    PowerUpShowTimers.One
+  );
   const [powerUpVisible, setPowerUpVisible] = useState<boolean>(false);
   const [powerUpExpireTimer, setPowerUpExpireTimer] = useState<number>(
     PowerUpExpireTimers.One
@@ -21,12 +23,12 @@ const PowerUp = (props: Props) => {
 
   useEffect(() => {
     // Timer should only restart after that power up is complete
-    let displayPowerUpTimeout = setTimeout(() => {
+    let displayPowerUpTimeout = setInterval(() => {
       setPowerUpVisible(true);
     }, powerUpShowTimer);
 
     return () => {
-      clearTimeout(displayPowerUpTimeout);
+      clearInterval(displayPowerUpTimeout);
     };
   }, []);
 
@@ -56,6 +58,7 @@ const PowerUp = (props: Props) => {
   const deactivatePowerUp = () => {
     setPowerUpMultiplier(1);
     setShowPowerUpExpireTimer(false);
+    setPowerUpExpireTimer(PowerUpExpireTimers.One);
   };
 
   return (
@@ -63,7 +66,7 @@ const PowerUp = (props: Props) => {
       {showPowerUpExpireTimer && (
         <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
       )}
-      {powerUpVisible && (
+      {powerUpVisible && !showPowerUpExpireTimer && (
         <Button
           sx={{ m: 1 }}
           onClick={() => activatePowerUp()}
