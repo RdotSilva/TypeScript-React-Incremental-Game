@@ -22,15 +22,19 @@ const PowerUp = (props: Props) => {
     useState<boolean>(false);
 
   useEffect(() => {
-    // Timer should only restart after that power up is complete
+    // Update the interval if the power up has been clicked we need to add that time to the interval
+    const displayPowerUpInterval = !showPowerUpExpireTimer
+      ? powerUpShowTimer
+      : powerUpShowTimer + powerUpExpireTimer;
+    
     let displayPowerUpTimeout = setInterval(() => {
       setPowerUpVisible(true);
-    }, powerUpShowTimer);
+    }, displayPowerUpInterval);
 
     return () => {
       clearInterval(displayPowerUpTimeout);
     };
-  }, []);
+  }, [powerUpShowTimer, powerUpExpireTimer]);
 
   useEffect(() => {
     let timer: any =
