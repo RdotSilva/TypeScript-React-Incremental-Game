@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
 import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
+import { ResponsiveStyleValue } from "@mui/system";
 
 type Props = {};
 
@@ -26,7 +27,7 @@ const PowerUp = (props: Props) => {
     const displayPowerUpInterval = !showPowerUpExpireTimer
       ? powerUpShowTimer
       : powerUpShowTimer + powerUpExpireTimer;
-    
+
     let displayPowerUpTimeout = setInterval(() => {
       setPowerUpVisible(true);
     }, displayPowerUpInterval);
@@ -65,19 +66,28 @@ const PowerUp = (props: Props) => {
     setPowerUpExpireTimer(PowerUpExpireTimers.One);
   };
 
+  const randomizePowerupButtonLocation = () => {
+    const possiblePositions = ["left", "center", "right"];
+    const randomPosition =
+      possiblePositions[Math.floor(Math.random() * possiblePositions.length)];
+    return randomPosition as ResponsiveStyleValue<any>;
+  };
+
   return (
     <Container sx={{ background: "brown" }}>
       {showPowerUpExpireTimer && (
         <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
       )}
       {powerUpVisible && !showPowerUpExpireTimer && (
-        <Button
-          sx={{ m: 1 }}
-          onClick={() => activatePowerUp()}
-          variant="contained"
-        >
-          Power Up
-        </Button>
+        <Box textAlign={randomizePowerupButtonLocation()}>
+          <Button
+            sx={{ m: 1 }}
+            onClick={() => activatePowerUp()}
+            variant="contained"
+          >
+            Power Up
+          </Button>
+        </Box>
       )}
     </Container>
   );
