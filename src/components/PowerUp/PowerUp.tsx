@@ -4,23 +4,24 @@ import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
 import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
 import { ResponsiveStyleValue } from "@mui/system";
+import usePowerUp from "../../hooks/usePowerUp";
 
 type Props = {};
 
 const PowerUp = (props: Props) => {
+  const [
+    powerUpShowTimer,
+    setPowerUpShowTimer,
+    powerUpVisible,
+    setPowerUpVisible,
+    powerUpExpireTimer,
+    setPowerUpExpireTimer,
+    showPowerUpExpireTimer,
+    setShowPowerUpExpireTimer,
+  ] = usePowerUp();
+
   const statContext = useContext(StatContext);
   const { setPowerUpMultiplier } = statContext;
-
-  // Power up should be shown once every minute (will do 5 seconds for testing purposes)
-  const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(
-    PowerUpShowTimers.One
-  );
-  const [powerUpVisible, setPowerUpVisible] = useState<boolean>(false);
-  const [powerUpExpireTimer, setPowerUpExpireTimer] = useState<number>(
-    PowerUpExpireTimers.One
-  );
-  const [showPowerUpExpireTimer, setShowPowerUpExpireTimer] =
-    useState<boolean>(false);
 
   useEffect(() => {
     // Update the interval if the power up has been clicked we need to add that time to the interval
