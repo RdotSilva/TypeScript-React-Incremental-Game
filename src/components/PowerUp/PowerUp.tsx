@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Container, Box } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
@@ -18,6 +18,8 @@ const PowerUp = (props: Props) => {
     setPowerUpExpireTimer,
     showPowerUpExpireTimer,
     setShowPowerUpExpireTimer,
+    powerUpPosition,
+    setPowerUpPosition,
   ] = usePowerUp();
 
   const statContext = useContext(StatContext);
@@ -36,24 +38,17 @@ const PowerUp = (props: Props) => {
     return () => {
       clearInterval(displayPowerUpTimeout);
     };
-  }, [powerUpShowTimer, powerUpExpireTimer]);
-
-  useEffect(() => {
-    let timer: any =
-      powerUpExpireTimer > 0 &&
-      showPowerUpExpireTimer &&
-      setInterval(() => setPowerUpExpireTimer(powerUpExpireTimer - 1000), 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [powerUpExpireTimer, showPowerUpExpireTimer]);
+  }, [
+    powerUpShowTimer,
+    powerUpExpireTimer,
+    setPowerUpVisible,
+    showPowerUpExpireTimer,
+  ]);
 
   const activatePowerUp = () => {
     // TODO: Display clock while powerup is active
     setPowerUpVisible(false);
     setPowerUpMultiplier(2);
-
-    // Shower timer for now
     setShowPowerUpExpireTimer(true);
 
     let deactivatePowerUpTimeout = setTimeout(() => {
@@ -67,12 +62,34 @@ const PowerUp = (props: Props) => {
     setPowerUpExpireTimer(PowerUpExpireTimers.One);
   };
 
-  const randomizePowerupButtonLocation = () => {
-    const possiblePositions = ["left", "center", "right"];
-    const randomPosition =
-      possiblePositions[Math.floor(Math.random() * possiblePositions.length)];
-    return randomPosition as ResponsiveStyleValue<any>;
-  };
+  const randomizePowerUpLocation = useCallback(() => {
+    {
+      const possiblePositions = ["left", "center", "right"];
+      const randomPosition =
+        possiblePositions[Math.floor(Math.random() * possiblePositions.length)];
+      setPowerUpPosition(randomPosition);
+    }
+  }, [setPowerUpPosition]);
+
+  /**
+   * Randomize the power up button location any time the power up changes visibility
+   */
+  useEffect(() => {
+    randomizePowerUpLocation();
+  }, [randomizePowerUpLocation, powerUpVisible]);
+
+  /**
+   * Set the timer for power up expiration once it has been activated
+   */
+  useEffect(() => {
+    let timer: any =
+      powerUpExpireTimer > 0 &&
+      showPowerUpExpireTimer &&
+      setInterval(() => setPowerUpExpireTimer(powerUpExpireTimer - 1000), 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [powerUpExpireTimer, showPowerUpExpireTimer, setPowerUpExpireTimer]);
 
   return (
     <Container sx={{ background: "brown" }}>
@@ -80,7 +97,7 @@ const PowerUp = (props: Props) => {
         <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
       )}
       {powerUpVisible && !showPowerUpExpireTimer && (
-        <Box textAlign={randomizePowerupButtonLocation()}>
+        <Box textAlign={powerUpPosition}>
           <Button
             sx={{ m: 1 }}
             onClick={() => activatePowerUp()}
