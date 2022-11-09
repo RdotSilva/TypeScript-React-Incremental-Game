@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { PowerUpExpireTimers, PowerUpShowTimers } from "../config/config";
 
 /**
@@ -14,6 +14,7 @@ const usePowerUp = (): any => {
   );
   const [showPowerUpExpireTimer, setShowPowerUpExpireTimer] =
     useState<boolean>(false);
+  const [powerUpPosition, setPowerUpPosition] = useState<string>("center");
 
   return [
     powerUpShowTimer,
@@ -24,6 +25,8 @@ const usePowerUp = (): any => {
     setPowerUpExpireTimer,
     showPowerUpExpireTimer,
     setShowPowerUpExpireTimer,
+    powerUpPosition,
+    setPowerUpPosition,
   ];
 };
 
