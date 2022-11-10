@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Ore from "../Stats/Ore";
 import Tree from "../Stats/Tree";
 import { StatContext } from "../../context/StatContext";
 import Skull from "../Stats/Skull";
 import Brain from "../Stats/Brain";
 import PowerUp from "../PowerUp/PowerUp";
+import TotalScore from "../Score/TotalScore";
 
 type Props = {};
 
@@ -14,13 +15,22 @@ const Main = (props: Props) => {
 
   return (
     <>
-      <Container sx={{ background: "gray" }}>
-        <Ore />
-        {statContext?.tier! >= 2 && <Tree />}
-        {statContext?.tier! >= 3 && <Skull />}
-        {statContext?.tier! >= 4 && <Brain />}
-      </Container>
-      <PowerUp />
+      <div style={{ width: "100%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "#ede7d5",
+          }}
+        >
+          <TotalScore />
+          <Ore />
+          {statContext?.tier! >= 2 && <Tree />}
+          {statContext?.tier! >= 3 && <Skull />}
+          {statContext?.tier! >= 4 && <Brain />}
+          <PowerUp />
+        </Box>
+      </div>
     </>
   );
 };

@@ -92,7 +92,7 @@ const PowerUp = (props: Props) => {
   }, [powerUpExpireTimer, showPowerUpExpireTimer, setPowerUpExpireTimer]);
 
   return (
-    <Container sx={{ background: "brown" }}>
+    <Container sx={{ background: "#ede7d5" }}>
       {showPowerUpExpireTimer && (
         <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
       )}
