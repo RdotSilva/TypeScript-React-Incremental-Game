@@ -7,6 +7,7 @@ import Skull from "../Stats/Skull";
 import Brain from "../Stats/Brain";
 import PowerUp from "../PowerUp/PowerUp";
 import TotalScore from "../Score/TotalScore";
+import FlatRewardPowerUp from "../PowerUp/FlatRewardPowerUp";
 
 type Props = {};
 
@@ -29,6 +30,7 @@ const Main = (props: Props) => {
           {statContext?.tier! >= 3 && <Skull />}
           {statContext?.tier! >= 4 && <Brain />}
           <PowerUp />
+          <FlatRewardPowerUp />
         </Box>
       </div>
     </>
