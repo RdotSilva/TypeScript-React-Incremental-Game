@@ -2,7 +2,11 @@ import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Container, Box } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
-import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
+import {
+  FlatRewardPowerUpBonus,
+  PowerUpExpireTimers,
+  PowerUpShowTimers,
+} from "../../config/config";
 import { ResponsiveStyleValue } from "@mui/system";
 import usePowerUp from "../../hooks/usePowerUp";
 
@@ -23,15 +27,21 @@ const FlatRewardPowerUp = (props: Props) => {
   ] = usePowerUp();
 
   const statContext = useContext(StatContext);
-  const { setPowerUpMultiplier } = statContext;
+  const { setPowerUpMultiplier, setTotalStats } = statContext;
+
+  useEffect(() => {
+    setPowerUpVisible(true);
+  });
 
   const activatePowerUp = () => {
-    // TODO: Increase max score by flat amount (need to decide on values for this, and it should scale with current score)
+    setTotalStats(
+      (prevTotalStats) => prevTotalStats * FlatRewardPowerUpBonus.One
+    );
   };
 
   return (
     <Container sx={{ background: "brown" }}>
-      {powerUpVisible && !showPowerUpExpireTimer && (
+      {powerUpVisible && (
         <Box textAlign={powerUpPosition}>
           <Button
             sx={{ m: 1 }}
