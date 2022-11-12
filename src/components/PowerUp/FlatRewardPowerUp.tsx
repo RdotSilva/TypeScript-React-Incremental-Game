@@ -40,7 +40,7 @@ const FlatRewardPowerUp = (props: Props) => {
   };
 
   return (
-    <Container sx={{ background: "brown" }}>
+    <Container sx={{ background: "#ede7d5" }}>
       {powerUpVisible && (
         <Box textAlign={powerUpPosition}>
           <Button
