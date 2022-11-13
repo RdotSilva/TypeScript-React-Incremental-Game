@@ -9,6 +9,7 @@ import {
 } from "../../config/config";
 import { ResponsiveStyleValue } from "@mui/system";
 import usePowerUp from "../../hooks/usePowerUp";
+import { useTheme } from "@mui/material/styles";
 
 type Props = {};
 
@@ -26,6 +27,8 @@ const FlatRewardPowerUp = (props: Props) => {
     setPowerUpPosition,
   ] = usePowerUp();
 
+  const theme = useTheme();
+
   const statContext = useContext(StatContext);
   const { setPowerUpMultiplier, setTotalStats } = statContext;
 
@@ -40,7 +43,7 @@ const FlatRewardPowerUp = (props: Props) => {
   };
 
   return (
-    <Container sx={{ background: "#ede7d5" }}>
+    <Container sx={{ background: theme.palette.primary.main }}>
       {powerUpVisible && (
         <Box textAlign={powerUpPosition}>
           <Button
