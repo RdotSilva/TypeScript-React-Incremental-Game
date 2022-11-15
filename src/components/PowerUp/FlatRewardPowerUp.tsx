@@ -9,7 +9,8 @@ import {
 } from "../../config/config";
 import { ResponsiveStyleValue } from "@mui/system";
 import usePowerUp from "../../hooks/usePowerUp";
-import { useTheme } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
+import { COLORS } from "../../config/colors";
 
 type Props = {};
 
@@ -42,8 +43,12 @@ const FlatRewardPowerUp = (props: Props) => {
     );
   };
 
+  const PowerUpContainer = styled(Container)({
+    backgroundColor: COLORS.lightTan,
+  });
+
   return (
-    <Container sx={{ background: theme.palette.primary.main }}>
+    <PowerUpContainer>
       {powerUpVisible && (
         <Box textAlign={powerUpPosition}>
           <Button
@@ -55,7 +60,7 @@ const FlatRewardPowerUp = (props: Props) => {
           </Button>
         </Box>
       )}
-    </Container>
+    </PowerUpContainer>
   );
 };
 
