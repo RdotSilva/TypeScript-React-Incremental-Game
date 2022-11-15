@@ -6,9 +6,10 @@ import Tree from "../Stats/Tree";
 import Brain from "../Stats/Brain";
 import { Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
+import { COLORS } from "../../config/colors";
 
 const ResourceContainer = styled(Container)({
-  backgroundColor: "aliceblue",
+  backgroundColor: COLORS.lightTan,
   display: "flex",
   flexDirection: "column",
 });

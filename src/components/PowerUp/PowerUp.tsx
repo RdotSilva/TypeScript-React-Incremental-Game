@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
 import { ResponsiveStyleValue } from "@mui/system";
 import usePowerUp from "../../hooks/usePowerUp";
+import { COLORS } from "../../config/colors";
 
 type Props = {};
 
@@ -92,7 +93,7 @@ const PowerUp = (props: Props) => {
   }, [powerUpExpireTimer, showPowerUpExpireTimer, setPowerUpExpireTimer]);
 
   return (
-    <Container sx={{ background: "#ede7d5" }}>
+    <Container sx={{ background: COLORS.lightTan }}>
       {showPowerUpExpireTimer && (
         <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
       )}

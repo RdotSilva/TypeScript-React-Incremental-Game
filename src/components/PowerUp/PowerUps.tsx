@@ -1,12 +1,13 @@
 import { Container, styled } from "@mui/system";
 import React from "react";
+import { COLORS } from "../../config/colors";
 import FlatRewardPowerUp from "./FlatRewardPowerUp";
 import PowerUp from "./PowerUp";
 
 type Props = {};
 
 const PowerUpContainer = styled(Container)({
-  backgroundColor: "aliceblue",
+  backgroundColor: COLORS.lightTan,
 });
 
 const PowerUps = (props: Props) => {
