@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
+import { COLORS } from "../../config/colors";
 
 type Props = {};
 
@@ -9,9 +10,9 @@ const TotalScore = (props: Props) => {
   const { totalStats } = statContext;
 
   return (
-    <Box
+    <Grid
       sx={{
-        backgroundColor: "#d4cebe",
+        backgroundColor: COLORS.darkTan,
         display: "flex",
         justifyContent: "center",
         fontSize: "h2.fontSize",
@@ -19,7 +20,7 @@ const TotalScore = (props: Props) => {
       }}
     >
       {totalStats}
-    </Box>
+    </Grid>
   );
 };
 
