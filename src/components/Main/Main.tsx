@@ -4,11 +4,13 @@ import { StatContext } from "../../context/StatContext";
 import TotalScore from "../Score/TotalScore";
 import PowerUps from "../PowerUp/PowerUps";
 import Resources from "../Resource/Resources";
+import { COLORS } from "../../config/colors";
 
 const StyledMainContainer = styled(Container)({
   border: "2px solid red",
   display: "flex",
   flexDirection: "column",
+  backgroundColor: COLORS.lightTan,
 });
 
 type Props = {};
