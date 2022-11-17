@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import useStat from "../../hooks/useStat";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import Upgrade from "../Upgrade/Upgrade";
 import { StatContext } from "../../context/StatContext";
 import { styled } from "@mui/material/styles";
 
-const StyledResourceContainer = styled(Container)`
-  display: flex;
-  align-items: center;
-  padding: 1px;
-`;
+const StyledResourceContainer = styled(Container)({
+  display: "flex",
+  padding: "1px",
+});
+
+const StyledIconScoreContainer = styled(Grid)({
+  display: "flex",
+  flexDirection: "column",
+  padding: "1px",
+  alignItems: "center",
+});
 
 type Props = {
   image: any;
@@ -56,23 +62,21 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
   }, [stat]);
 
   return (
-    <StyledResourceContainer>
-      <Box component="span">
-        <div>{stat}</div>
-      </Box>
-
-      <Box>
-        <img src={image} alt="tree" onClick={() => incrementStat(1)} />
-      </Box>
-
-      <Box>
-        <Upgrade
-          statTotal={stat}
-          totalUpgrades={totalUpgrades}
-          upgrade={upgrade}
-        />
-      </Box>
-    </StyledResourceContainer>
+    <>
+      <StyledResourceContainer>
+        <StyledIconScoreContainer>
+          <img src={image} alt="tree" onClick={() => incrementStat(1)} />
+          {stat}
+        </StyledIconScoreContainer>
+        <Grid item>
+          <Upgrade
+            statTotal={stat}
+            totalUpgrades={totalUpgrades}
+            upgrade={upgrade}
+          />
+        </Grid>
+      </StyledResourceContainer>
+    </>
   );
 };
 

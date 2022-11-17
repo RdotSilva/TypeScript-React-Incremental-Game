@@ -8,7 +8,7 @@ import { Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
 import { COLORS } from "../../config/colors";
 
-const ResourceContainer = styled(Container)({
+const ResourceContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,
   display: "flex",
   flexDirection: "column",
