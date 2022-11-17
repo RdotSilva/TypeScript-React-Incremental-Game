@@ -9,7 +9,7 @@ type Props = {};
 const Teeth = (props: Props) => {
   return (
     <Resource
-      image={tree}
+      image={teeth}
       resourceTier={4}
       nextTierThreshold={TierLevels.Two}
     />
