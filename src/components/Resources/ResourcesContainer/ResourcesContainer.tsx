@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { StatContext } from "../../context/StatContext";
-import Ore from "./ResourceOne";
-import Skull from "./ResourceThree";
-import Tree from "./ResourceTwo";
-import Brain from "./ResourceFour";
+import { StatContext } from "../../../context/StatContext";
+import Ore from "../ResourceOne";
+import Skull from "../ResourceThree";
+import Tree from "../ResourceTwo";
+import Brain from "../ResourceFour";
 import { Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
-import { COLORS } from "../../config/colors";
+import { COLORS } from "../../../config/colors";
 
 const StyledResourcesContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,

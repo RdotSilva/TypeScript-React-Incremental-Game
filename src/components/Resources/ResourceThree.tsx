@@ -1,6 +1,6 @@
 import React from "react";
 
-import Resource from "./ResourceContainer";
+import Resource from "./ResourceContainer/ResourceContainer";
 import skull from "../../images/resources/skull.png";
 import { TierLevels } from "../../config/config";
 

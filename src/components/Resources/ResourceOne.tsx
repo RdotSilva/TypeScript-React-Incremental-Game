@@ -1,6 +1,6 @@
 import React from "react";
 
-import Resource from "./ResourceContainer";
+import Resource from "./ResourceContainer/ResourceContainer";
 import ore from "../../images/Icon46.png";
 import { TierLevels } from "../../config/config";
 

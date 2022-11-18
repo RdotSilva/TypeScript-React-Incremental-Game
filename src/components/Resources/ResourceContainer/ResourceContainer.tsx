@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import useStat from "../../hooks/useStat";
+import useStat from "../../../hooks/useStat";
 import { Box, Container, Grid } from "@mui/material";
-import Upgrade from "../Upgrade/Upgrade";
-import { StatContext } from "../../context/StatContext";
+import Upgrade from "../../Upgrade/Upgrade";
+import { StatContext } from "../../../context/StatContext";
 import { styled } from "@mui/material/styles";
 
 const StyledResourceContainer = styled(Container)({
