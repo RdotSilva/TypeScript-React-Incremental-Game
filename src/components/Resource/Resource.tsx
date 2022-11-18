@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 const StyledResourceContainer = styled(Container)({
   display: "flex",
   padding: "1px",
+  alignItems: "center",
 });
 
 const StyledIconScoreContainer = styled(Grid)({
