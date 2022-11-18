@@ -1,6 +1,6 @@
 import React from "react";
 
-import Resource from "../Resources/ResourceContainer";
+import Resource from "./ResourceContainer";
 import brain from "../../images/resources/brain.png";
 import { TierLevels } from "../../config/config";
 
