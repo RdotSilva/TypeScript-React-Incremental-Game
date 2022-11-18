@@ -1,19 +1,19 @@
 import React from "react";
 
-import Resource from "../Resources/ResourceContainer";
+import Resource from "./ResourceContainer";
 import teeth from "../../images/resources/teeth.png";
 import { TierLevels } from "../../config/config";
 
 type Props = {};
 
-const Teeth = (props: Props) => {
+const ResourceFive = (props: Props) => {
   return (
     <Resource
       image={teeth}
-      resourceTier={4}
+      resourceTier={5}
       nextTierThreshold={TierLevels.Two}
     />
   );
 };
 
-export default Teeth;
+export default ResourceFive;

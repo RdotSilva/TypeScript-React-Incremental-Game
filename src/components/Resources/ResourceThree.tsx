@@ -1,12 +1,12 @@
 import React from "react";
 
-import Resource from "../Resources/ResourceContainer";
+import Resource from "./ResourceContainer";
 import skull from "../../images/resources/skull.png";
 import { TierLevels } from "../../config/config";
 
 type Props = {};
 
-const Skull = (props: Props) => {
+const ResourceThree = (props: Props) => {
   return (
     <Resource
       image={skull}
@@ -16,4 +16,4 @@ const Skull = (props: Props) => {
   );
 };
 
-export default Skull;
+export default ResourceThree;

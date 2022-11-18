@@ -6,14 +6,14 @@ import { TierLevels } from "../../config/config";
 
 type Props = {};
 
-const Skull = (props: Props) => {
+const ResourceFour = (props: Props) => {
   return (
     <Resource
       image={brain}
-      resourceTier={3}
+      resourceTier={4}
       nextTierThreshold={TierLevels.Four}
     />
   );
 };
 
-export default Skull;
+export default ResourceFour;

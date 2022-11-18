@@ -1,12 +1,12 @@
 import React from "react";
 
-import Resource from "../Resources/ResourceContainer";
+import Resource from "./ResourceContainer";
 import tree from "../../images/tree2.svg";
 import { TierLevels } from "../../config/config";
 
 type Props = {};
 
-const Tree = (props: Props) => {
+const ResourceTwo = (props: Props) => {
   return (
     <Resource
       image={tree}
@@ -16,4 +16,4 @@ const Tree = (props: Props) => {
   );
 };
 
-export default Tree;
+export default ResourceTwo;

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { StatContext } from "../../context/StatContext";
-import Ore from "./Ore";
-import Skull from "./Skull";
-import Tree from "./Tree";
-import Brain from "./Brain";
+import Ore from "./ResourceOne";
+import Skull from "./ResourceThree";
+import Tree from "./ResourceTwo";
+import Brain from "./ResourceFour";
 import { Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
 import { COLORS } from "../../config/colors";
