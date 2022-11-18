@@ -3,7 +3,7 @@ import { Container, styled } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import TotalScore from "../Score/TotalScore";
 import PowerUps from "../PowerUp/PowerUps";
-import Resources from "../Resource/Resources";
+import Resources from "../Resources/ResourcesContainer";
 import { COLORS } from "../../config/colors";
 
 const StyledMainContainer = styled(Container)({

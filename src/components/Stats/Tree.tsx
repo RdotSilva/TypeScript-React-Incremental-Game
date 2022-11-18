@@ -1,6 +1,6 @@
 import React from "react";
 
-import Resource from "../Resource/Resource";
+import Resource from "../Resources/ResourceContainer";
 import tree from "../../images/tree2.svg";
 import { TierLevels } from "../../config/config";
 

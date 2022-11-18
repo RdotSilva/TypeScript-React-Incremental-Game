@@ -3,7 +3,7 @@ import useStat from "../../hooks/useStat";
 import { Box, Container } from "@mui/material";
 import Upgrade from "../Upgrade/Upgrade";
 
-import Resource from "../Resource/Resource";
+import Resource from "../Resources/ResourceContainer";
 import ore from "../../images/Icon46.png";
 import { StatContext } from "../../context/StatContext";
 

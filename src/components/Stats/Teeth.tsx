@@ -1,6 +1,6 @@
 import React from "react";
 
-import Resource from "../Resource/Resource";
+import Resource from "../Resources/ResourceContainer";
 import teeth from "../../images/resources/teeth.png";
 import { TierLevels } from "../../config/config";
 

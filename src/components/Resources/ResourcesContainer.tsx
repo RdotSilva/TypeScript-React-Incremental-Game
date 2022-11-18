@@ -8,7 +8,7 @@ import { Grid, styled } from "@mui/material";
 import { Container } from "@mui/system";
 import { COLORS } from "../../config/colors";
 
-const ResourceContainer = styled(Grid)({
+const StyledResourcesContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,
   display: "flex",
   flexDirection: "column",
@@ -16,19 +16,19 @@ const ResourceContainer = styled(Grid)({
 
 type Props = {};
 
-const Resources = (props: Props) => {
+const ResourcesContainer = (props: Props) => {
   const statContext = useContext(StatContext);
 
   return (
-    <ResourceContainer>
+    <StyledResourcesContainer>
       <Grid>
         <Ore />
         {statContext?.tier! >= 2 && <Tree />}
         {statContext?.tier! >= 3 && <Skull />}
         {statContext?.tier! >= 4 && <Brain />}
       </Grid>
-    </ResourceContainer>
+    </StyledResourcesContainer>
   );
 };
 
-export default Resources;
+export default ResourcesContainer;

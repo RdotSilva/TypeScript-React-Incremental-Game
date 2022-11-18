@@ -27,7 +27,11 @@ type Props = {
 /**
  * Generate a resource type
  */
-const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
+const ResourceContainer = ({
+  image,
+  resourceTier,
+  nextTierThreshold,
+}: Props) => {
   const statContext = useContext(StatContext);
 
   const [
@@ -81,4 +85,4 @@ const Resource = ({ image, resourceTier, nextTierThreshold }: Props) => {
   );
 };
 
-export default Resource;
+export default ResourceContainer;
