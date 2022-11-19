@@ -37,3 +37,12 @@ export const enum FlatRewardPowerUpBonus {
   Three = Two * 2,
   Four = Three * 2,
 }
+
+export const enum ResourceIcons {
+  ResourceOne = "Icon1",
+  ResourceTwo = "Icon2",
+  ResourceThree = "Icon3",
+  ResourceFour = "Icon4",
+  ResourceFive = "Icon5",
+  ResourceSix = "Icon6",
+}
