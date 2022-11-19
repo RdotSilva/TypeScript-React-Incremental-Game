@@ -70,7 +70,11 @@ const ResourceContainer = ({
     <>
       <StyledResourceContainer>
         <StyledIconScoreContainer>
-          <img src={image} alt="tree" onClick={() => incrementStat(1)} />
+          <img
+            src={require(`../../../images/resources/${image}.png`)}
+            alt={image}
+            onClick={() => incrementStat(1)}
+          />
           {stat}
         </StyledIconScoreContainer>
         <Grid item>
