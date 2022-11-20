@@ -1,13 +1,13 @@
 import React from "react";
 
-import Resource from "./ResourceContainer/ResourceContainer";
+import ResourceContainer from "./ResourceContainer/ResourceContainer";
 import { ResourceIcons, TierLevels } from "../../config/config";
 
 type Props = {};
 
 const ResourceTwo = (props: Props) => {
   return (
-    <Resource
+    <ResourceContainer
       image={ResourceIcons.ResourceTwo}
       resourceTier={2}
       nextTierThreshold={TierLevels.Two}
