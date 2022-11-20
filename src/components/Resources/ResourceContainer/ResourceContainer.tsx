@@ -9,6 +9,8 @@ const StyledResourceContainer = styled(Container)({
   display: "flex",
   padding: "1px",
   alignItems: "center",
+  borderBottom: "1px solid",
+  margin: "5px",
 });
 
 const StyledIconScoreContainer = styled(Grid)({
@@ -16,6 +18,11 @@ const StyledIconScoreContainer = styled(Grid)({
   flexDirection: "column",
   padding: "1px",
   alignItems: "center",
+});
+
+const StyledResourceImage = styled("img")({
+  border: "1px solid",
+  borderRadius: "5px",
 });
 
 type Props = {
@@ -70,7 +77,7 @@ const ResourceContainer = ({
     <>
       <StyledResourceContainer>
         <StyledIconScoreContainer>
-          <img
+          <StyledResourceImage
             src={require(`../../../images/resources/${image}.png`)}
             alt={image}
             onClick={() => incrementStat(1)}
