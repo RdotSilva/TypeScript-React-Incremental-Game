@@ -5,6 +5,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
+import { PowerUpExpireTimers } from "../config/config";
 interface Stat {
   stat: number;
 }
@@ -31,7 +32,9 @@ const StatProvider = ({ children }: Props) => {
   const [tier, setTier] = useState<number>(0);
   const [totalStats, setTotalStats] = useState<number>(0);
   const [powerUpMultiplier, setPowerUpMultiplier] = useState<number>(1);
-  const [powerUpTimer, setPowerUpTimer] = useState<number>(0);
+  const [powerUpTimer, setPowerUpTimer] = useState<number>(
+    PowerUpExpireTimers.One
+  );
 
   return (
     <StatContext.Provider
