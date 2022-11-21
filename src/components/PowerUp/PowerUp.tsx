@@ -15,8 +15,8 @@ const PowerUp = (props: Props) => {
     setPowerUpShowTimer,
     powerUpVisible,
     setPowerUpVisible,
-    powerUpExpireTimer,
-    setPowerUpExpireTimer,
+    powerUpTimer,
+    setPowerUpTimer,
     showPowerUpExpireTimer,
     setShowPowerUpExpireTimer,
     powerUpPosition,
@@ -30,7 +30,7 @@ const PowerUp = (props: Props) => {
     // Update the interval if the power up has been clicked we need to add that time to the interval
     const displayPowerUpInterval = !showPowerUpExpireTimer
       ? powerUpShowTimer
-      : powerUpShowTimer + powerUpExpireTimer;
+      : powerUpShowTimer + powerUpTimer;
 
     let displayPowerUpTimeout = setInterval(() => {
       setPowerUpVisible(true);
@@ -41,7 +41,7 @@ const PowerUp = (props: Props) => {
     };
   }, [
     powerUpShowTimer,
-    powerUpExpireTimer,
+    powerUpTimer,
     setPowerUpVisible,
     showPowerUpExpireTimer,
   ]);
@@ -60,7 +60,7 @@ const PowerUp = (props: Props) => {
   const deactivatePowerUp = () => {
     setPowerUpMultiplier(1);
     setShowPowerUpExpireTimer(false);
-    setPowerUpExpireTimer(PowerUpExpireTimers.One);
+    setPowerUpTimer(PowerUpExpireTimers.One);
   };
 
   const randomizePowerUpLocation = useCallback(() => {
@@ -84,19 +84,16 @@ const PowerUp = (props: Props) => {
    */
   useEffect(() => {
     let timer: any =
-      powerUpExpireTimer > 0 &&
+      powerUpTimer > 0 &&
       showPowerUpExpireTimer &&
-      setInterval(() => setPowerUpExpireTimer(powerUpExpireTimer - 1000), 1000);
+      setInterval(() => setPowerUpTimer(powerUpTimer - 1000), 1000);
     return () => {
       clearInterval(timer);
     };
-  }, [powerUpExpireTimer, showPowerUpExpireTimer, setPowerUpExpireTimer]);
+  }, [powerUpTimer, showPowerUpExpireTimer, setPowerUpTimer]);
 
   return (
     <Container sx={{ background: COLORS.lightTan }}>
-      {showPowerUpExpireTimer && (
-        <div>PowerUp Timer: {powerUpExpireTimer / 1000}</div>
-      )}
       {powerUpVisible && !showPowerUpExpireTimer && (
         <Box textAlign={powerUpPosition}>
           <Button

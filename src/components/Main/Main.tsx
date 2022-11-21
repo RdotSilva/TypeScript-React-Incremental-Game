@@ -5,6 +5,7 @@ import TotalScore from "../Score/TotalScore";
 import PowerUps from "../PowerUp/PowerUps";
 import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
+import PowerUpTimer from "../PowerUp/PowerUpTimer";
 
 const StyledMainContainer = styled(Container)({
   border: "2px solid red",
@@ -21,6 +22,7 @@ const Main = (props: Props) => {
   return (
     <StyledMainContainer>
       <TotalScore />
+      <PowerUpTimer />
       <Resources />
       <PowerUps />
     </StyledMainContainer>
