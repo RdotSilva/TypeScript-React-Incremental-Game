@@ -5,7 +5,7 @@ import Upgrade from "../../Upgrade/Upgrade";
 import { StatContext } from "../../../context/StatContext";
 import { styled } from "@mui/material/styles";
 
-const StyledResourceContainer = styled(Container)({
+const StyledResourceContainer = styled(Grid)({
   display: "flex",
   padding: "1px",
   alignItems: "center",
@@ -74,25 +74,23 @@ const ResourceContainer = ({
   }, [stat]);
 
   return (
-    <>
-      <StyledResourceContainer>
-        <StyledIconScoreContainer>
-          <StyledResourceImage
-            src={require(`../../../images/resources/${image}.png`)}
-            alt={image}
-            onClick={() => incrementStat(1)}
-          />
-          {stat}
-        </StyledIconScoreContainer>
-        <Grid item>
-          <Upgrade
-            statTotal={stat}
-            totalUpgrades={totalUpgrades}
-            upgrade={upgrade}
-          />
-        </Grid>
-      </StyledResourceContainer>
-    </>
+    <StyledResourceContainer>
+      <StyledIconScoreContainer>
+        <StyledResourceImage
+          src={require(`../../../images/resources/${image}.png`)}
+          alt={image}
+          onClick={() => incrementStat(1)}
+        />
+        {stat}
+      </StyledIconScoreContainer>
+      <Grid item>
+        <Upgrade
+          statTotal={stat}
+          totalUpgrades={totalUpgrades}
+          upgrade={upgrade}
+        />
+      </Grid>
+    </StyledResourceContainer>
   );
 };
 
