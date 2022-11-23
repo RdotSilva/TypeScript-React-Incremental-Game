@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { StatContext } from "../../../context/StatContext";
-import Ore from "../ResourceOne";
-import Skull from "../ResourceThree";
-import Tree from "../ResourceTwo";
-import Brain from "../ResourceFour";
+import ResourceOne from "../ResourceOne";
+import ResourceThree from "../ResourceThree";
+import ResourceTwo from "../ResourceTwo";
+import ResourceFour from "../ResourceFour";
 import { Grid, styled } from "@mui/material";
-import { Container } from "@mui/system";
 import { COLORS } from "../../../config/colors";
 
 const StyledResourcesContainer = styled(Grid)({
@@ -21,12 +20,10 @@ const ResourcesContainer = (props: Props) => {
 
   return (
     <StyledResourcesContainer>
-      <Grid>
-        <Ore />
-        {statContext?.tier! >= 2 && <Tree />}
-        {statContext?.tier! >= 3 && <Skull />}
-        {statContext?.tier! >= 4 && <Brain />}
-      </Grid>
+      <ResourceOne />
+      {statContext?.tier! >= 2 && <ResourceTwo />}
+      {statContext?.tier! >= 3 && <ResourceThree />}
+      {statContext?.tier! >= 4 && <ResourceFour />}
     </StyledResourcesContainer>
   );
 };
