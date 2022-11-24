@@ -50,6 +50,7 @@ const PowerUp = (props: Props) => {
     // TODO: Display clock while powerup is active
     setPowerUpVisible(false);
     setPowerUpMultiplier(2);
+    setPowerUpTimer(PowerUpExpireTimers.One);
     setShowPowerUpExpireTimer(true);
 
     let deactivatePowerUpTimeout = setTimeout(() => {
@@ -60,7 +61,7 @@ const PowerUp = (props: Props) => {
   const deactivatePowerUp = () => {
     setPowerUpMultiplier(1);
     setShowPowerUpExpireTimer(false);
-    setPowerUpTimer(PowerUpExpireTimers.One);
+    setPowerUpTimer(0);
   };
 
   const randomizePowerUpLocation = useCallback(() => {
