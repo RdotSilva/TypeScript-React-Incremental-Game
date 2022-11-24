@@ -9,7 +9,6 @@ const StyledPowerUpTimerDisplayContainer = styled(Grid)({
   display: "flex",
   justifyContent: "center",
   fontSize: "25px",
-  width: "100%",
 });
 
 type Props = {};
@@ -20,7 +19,10 @@ const PowerUpTimer = (props: Props) => {
 
   return (
     <StyledPowerUpTimerDisplayContainer item>
-      {`2x XP: ${powerUpTimer / 1000}`}
+      <Grid item>Current Bonus: </Grid>
+      <Grid item>
+        {powerUpTimer > 0 ? `2x XP for ${powerUpTimer / 1000} seconds` : `None`}
+      </Grid>
     </StyledPowerUpTimerDisplayContainer>
   );
 };
