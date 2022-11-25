@@ -26,6 +26,9 @@ const PowerUp = (props: Props) => {
   const statContext = useContext(StatContext);
   const { setPowerUpMultiplier } = statContext;
 
+  /**
+   * Create an interval to display or hide the 2x XP power up button
+   */
   useEffect(() => {
     // Update the interval if the power up has been clicked we need to add that time to the interval
     const displayPowerUpInterval = !showPowerUpExpireTimer
@@ -46,11 +49,14 @@ const PowerUp = (props: Props) => {
     showPowerUpExpireTimer,
   ]);
 
-  const activatePowerUp = () => {
-    // TODO: Display clock while powerup is active
+  /**
+   * Enable 2x XP for a set amount of time
+   * @param powerUpTime Number of miliseconds that should elapse before the power up bonus stops
+   */
+  const activatePowerUp = (powerUpTime: number) => {
     setPowerUpVisible(false);
     setPowerUpMultiplier(2);
-    setPowerUpTimer(PowerUpExpireTimers.One);
+    setPowerUpTimer(powerUpTime);
     setShowPowerUpExpireTimer(true);
 
     let deactivatePowerUpTimeout = setTimeout(() => {
@@ -58,12 +64,19 @@ const PowerUp = (props: Props) => {
     }, PowerUpExpireTimers.One);
   };
 
+  /**
+   * Disable 2x XP
+   */
   const deactivatePowerUp = () => {
     setPowerUpMultiplier(1);
     setShowPowerUpExpireTimer(false);
     setPowerUpTimer(0);
   };
 
+  /**
+   * Randomize the position of the power up button
+   * This can be left, center, or right
+   */
   const randomizePowerUpLocation = useCallback(() => {
     {
       const possiblePositions = ["left", "center", "right"];
@@ -99,7 +112,7 @@ const PowerUp = (props: Props) => {
         <Box textAlign={powerUpPosition}>
           <Button
             sx={{ m: 1 }}
-            onClick={() => activatePowerUp()}
+            onClick={() => activatePowerUp(PowerUpExpireTimers.One)}
             variant="contained"
           >
             2x XP
