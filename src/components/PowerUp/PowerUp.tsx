@@ -102,7 +102,7 @@ const PowerUp = (props: Props) => {
             onClick={() => activatePowerUp()}
             variant="contained"
           >
-            Power Up
+            2x XP
           </Button>
         </Box>
       )}

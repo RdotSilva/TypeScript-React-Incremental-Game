@@ -56,7 +56,7 @@ const FlatRewardPowerUp = (props: Props) => {
             onClick={() => activatePowerUp()}
             variant="contained"
           >
-            Power Up
+            Double Total XP
           </Button>
         </Box>
       )}
