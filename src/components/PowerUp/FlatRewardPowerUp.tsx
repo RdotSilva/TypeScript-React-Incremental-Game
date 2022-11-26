@@ -1,47 +1,41 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
-import { Container, Box } from "@mui/material";
-import { StatContext } from "../../context/StatContext";
+import React from "react";
+import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import {
-  FlatRewardPowerUpBonus,
-  PowerUpExpireTimers,
-  PowerUpShowTimers,
-} from "../../config/config";
-import { ResponsiveStyleValue } from "@mui/system";
+import { FlatRewardPowerUpBonus } from "../../config/config";
 import usePowerUp from "../../hooks/usePowerUp";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { COLORS } from "../../config/colors";
 import useStat from "../../hooks/useStat";
+import useInterval from "../../hooks/useInterval";
 
 type Props = {};
 
 const FlatRewardPowerUp = (props: Props) => {
   const {
-    powerUpShowTimer,
-    setPowerUpShowTimer,
     powerUpVisible,
     setPowerUpVisible,
-    powerUpExpireTimer,
-    setPowerUpExpireTimer,
-    showPowerUpExpireTimer,
-    setShowPowerUpExpireTimer,
     powerUpPosition,
-    setPowerUpPosition,
+    displayPowerUpInterval,
   } = usePowerUp();
 
   const { setTotalStats } = useStat();
 
-  useEffect(() => {
+  useInterval(() => {
     setPowerUpVisible(true);
-  });
+  }, displayPowerUpInterval);
 
-  const activatePowerUp = () => {
+  /**
+   * Automatically increase users total score by a using a flat multiplier
+   * @param flatRewardMultiplier Multiplier for the flat reward
+   */
+  const activatePowerUp = (flatRewardMultiplier: number) => {
     setTotalStats(
-      (prevTotalStats: number) => prevTotalStats * FlatRewardPowerUpBonus.One
+      (prevTotalStats: number) => prevTotalStats * flatRewardMultiplier
     );
+    setPowerUpVisible(false);
   };
 
-  const PowerUpContainer = styled(Container)({
+  const PowerUpContainer = styled(Grid)({
     backgroundColor: COLORS.lightTan,
   });
 
@@ -51,7 +45,7 @@ const FlatRewardPowerUp = (props: Props) => {
         <Box textAlign={powerUpPosition}>
           <Button
             sx={{ m: 1 }}
-            onClick={() => activatePowerUp()}
+            onClick={() => activatePowerUp(FlatRewardPowerUpBonus.One)}
             variant="contained"
           >
             Double Total XP
