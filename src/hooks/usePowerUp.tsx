@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { PowerUpExpireTimers, PowerUpShowTimers } from "../config/config";
+import { PowerUpShowTimers } from "../config/config";
 import { StatContext } from "../context/StatContext";
 
 /**
@@ -17,6 +17,10 @@ const usePowerUp = (): any => {
     useState<boolean>(false);
   const [powerUpPosition, setPowerUpPosition] = useState<string>("center");
 
+  const displayPowerUpInterval = !showPowerUpExpireTimer
+    ? powerUpShowTimer
+    : powerUpShowTimer + powerUpTimer;
+
   return {
     powerUpShowTimer,
     setPowerUpShowTimer,
@@ -28,6 +32,7 @@ const usePowerUp = (): any => {
     setShowPowerUpExpireTimer,
     powerUpPosition,
     setPowerUpPosition,
+    displayPowerUpInterval,
   };
 };
 
