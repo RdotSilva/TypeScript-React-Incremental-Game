@@ -9,7 +9,8 @@ const useStat = (): any => {
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
   const statContext = useContext(StatContext);
-  const { powerUpMultiplier, setTotalStats } = statContext;
+  const { powerUpMultiplier, setPowerUpMultiplier, setTotalStats } =
+    statContext;
 
   /**
    * Increment a stat
@@ -57,6 +58,7 @@ const useStat = (): any => {
     decrementStatPerClick,
     setStat,
     setTotalStats,
+    setPowerUpMultiplier,
   };
 };
 

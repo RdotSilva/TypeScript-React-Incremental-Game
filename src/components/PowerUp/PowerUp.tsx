@@ -1,18 +1,17 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import { Container, Box } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import Button from "@mui/material/Button";
-import { PowerUpExpireTimers, PowerUpShowTimers } from "../../config/config";
-import { ResponsiveStyleValue } from "@mui/system";
+import { PowerUpExpireTimers } from "../../config/config";
 import usePowerUp from "../../hooks/usePowerUp";
 import { COLORS } from "../../config/colors";
+import useStat from "../../hooks/useStat";
 
 type Props = {};
 
 const PowerUp = (props: Props) => {
-  const [
+  const {
     powerUpShowTimer,
-    setPowerUpShowTimer,
     powerUpVisible,
     setPowerUpVisible,
     powerUpTimer,
@@ -21,10 +20,9 @@ const PowerUp = (props: Props) => {
     setShowPowerUpExpireTimer,
     powerUpPosition,
     setPowerUpPosition,
-  ] = usePowerUp();
+  } = usePowerUp();
 
-  const statContext = useContext(StatContext);
-  const { setPowerUpMultiplier } = statContext;
+  const { setPowerUpMultiplier } = useStat();
 
   /**
    * Create an interval to display or hide the 2x XP power up button

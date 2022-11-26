@@ -17,7 +17,7 @@ const usePowerUp = (): any => {
     useState<boolean>(false);
   const [powerUpPosition, setPowerUpPosition] = useState<string>("center");
 
-  return [
+  return {
     powerUpShowTimer,
     setPowerUpShowTimer,
     powerUpVisible,
@@ -28,7 +28,7 @@ const usePowerUp = (): any => {
     setShowPowerUpExpireTimer,
     powerUpPosition,
     setPowerUpPosition,
-  ];
+  };
 };
 
 export default usePowerUp;

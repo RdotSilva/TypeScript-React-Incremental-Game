@@ -16,7 +16,7 @@ import useStat from "../../hooks/useStat";
 type Props = {};
 
 const FlatRewardPowerUp = (props: Props) => {
-  const [
+  const {
     powerUpShowTimer,
     setPowerUpShowTimer,
     powerUpVisible,
@@ -27,7 +27,7 @@ const FlatRewardPowerUp = (props: Props) => {
     setShowPowerUpExpireTimer,
     powerUpPosition,
     setPowerUpPosition,
-  ] = usePowerUp();
+  } = usePowerUp();
 
   const { setTotalStats } = useStat();
 
