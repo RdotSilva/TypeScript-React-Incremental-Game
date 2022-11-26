@@ -48,7 +48,7 @@ const useStat = (): any => {
     }, 1000);
   };
 
-  return [
+  return {
     stat,
     statPerClick,
     incrementStat,
@@ -56,7 +56,8 @@ const useStat = (): any => {
     autoIncrementStat,
     decrementStatPerClick,
     setStat,
-  ];
+    setTotalStats,
+  };
 };
 
 export default useStat;

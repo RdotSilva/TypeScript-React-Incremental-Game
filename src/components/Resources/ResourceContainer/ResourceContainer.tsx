@@ -41,13 +41,13 @@ const ResourceContainer = ({
 }: Props) => {
   const statContext = useContext(StatContext);
 
-  const [
+  const {
     stat,
     statPerClick,
     incrementStat,
     incrementStatPerClick,
     autoIncrementStat,
-  ] = useStat();
+  } = useStat();
   const [totalUpgrades, setTotalUpgrades] = useState<number>(0);
 
   /**

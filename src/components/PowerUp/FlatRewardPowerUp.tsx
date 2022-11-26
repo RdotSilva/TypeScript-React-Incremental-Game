@@ -11,6 +11,7 @@ import { ResponsiveStyleValue } from "@mui/system";
 import usePowerUp from "../../hooks/usePowerUp";
 import { styled, useTheme } from "@mui/material/styles";
 import { COLORS } from "../../config/colors";
+import useStat from "../../hooks/useStat";
 
 type Props = {};
 
@@ -28,10 +29,7 @@ const FlatRewardPowerUp = (props: Props) => {
     setPowerUpPosition,
   ] = usePowerUp();
 
-  const theme = useTheme();
-
-  const statContext = useContext(StatContext);
-  const { setPowerUpMultiplier, setTotalStats } = statContext;
+  const { setTotalStats } = useStat();
 
   useEffect(() => {
     setPowerUpVisible(true);
@@ -39,7 +37,7 @@ const FlatRewardPowerUp = (props: Props) => {
 
   const activatePowerUp = () => {
     setTotalStats(
-      (prevTotalStats) => prevTotalStats * FlatRewardPowerUpBonus.One
+      (prevTotalStats: number) => prevTotalStats * FlatRewardPowerUpBonus.One
     );
   };
 
