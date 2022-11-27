@@ -11,6 +11,7 @@ const ResourceThree = (props: Props) => {
       image={ResourceIcons.ResourceThree}
       resourceTier={3}
       nextTierThreshold={TierLevels.Three}
+      initialStatValue={3}
     />
   );
 };

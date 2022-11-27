@@ -11,6 +11,7 @@ const ResourceOne = (props: Props) => {
       image={ResourceIcons.ResourceOne}
       resourceTier={1}
       nextTierThreshold={TierLevels.One}
+      initialStatValue={1}
     />
   );
 };
