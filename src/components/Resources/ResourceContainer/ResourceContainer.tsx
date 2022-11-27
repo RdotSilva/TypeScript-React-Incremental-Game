@@ -29,6 +29,7 @@ type Props = {
   image: any;
   resourceTier: number;
   nextTierThreshold: number;
+  initialStatValue: number;
 };
 
 /**
@@ -38,12 +39,14 @@ const ResourceContainer = ({
   image,
   resourceTier,
   nextTierThreshold,
+  initialStatValue,
 }: Props) => {
   const statContext = useContext(StatContext);
 
   const {
     stat,
-    statPerClick,
+    setStat,
+    setStatPerClick,
     incrementStat,
     incrementStatPerClick,
     autoIncrementStat,
@@ -63,6 +66,13 @@ const ResourceContainer = ({
       autoIncrementStat();
     }
   };
+
+  /**
+   * Set the value for clicks for the resource
+   */
+  useEffect(() => {
+    setStatPerClick(initialStatValue);
+  }, []);
 
   useEffect(() => {
     if (stat > nextTierThreshold) {

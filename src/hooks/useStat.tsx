@@ -52,6 +52,7 @@ const useStat = (): any => {
   return {
     stat,
     statPerClick,
+    setStatPerClick,
     incrementStat,
     incrementStatPerClick,
     autoIncrementStat,
