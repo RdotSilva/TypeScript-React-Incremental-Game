@@ -12,6 +12,7 @@ const ResourceThree = (props: Props) => {
       resourceTier={3}
       nextTierThreshold={TierLevels.Three}
       initialStatValue={3}
+      amountToShowUpgradeMultiplier={3}
     />
   );
 };

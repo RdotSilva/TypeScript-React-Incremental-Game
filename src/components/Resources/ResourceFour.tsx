@@ -12,6 +12,7 @@ const ResourceFour = (props: Props) => {
       resourceTier={4}
       nextTierThreshold={TierLevels.Four}
       initialStatValue={4}
+      amountToShowUpgradeMultiplier={4}
     />
   );
 };
