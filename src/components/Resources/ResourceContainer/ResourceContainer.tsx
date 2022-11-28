@@ -30,6 +30,7 @@ type Props = {
   resourceTier: number;
   nextTierThreshold: number;
   initialStatValue: number;
+  amountToShowUpgradeMultiplier: number;
 };
 
 /**
@@ -40,6 +41,7 @@ const ResourceContainer = ({
   resourceTier,
   nextTierThreshold,
   initialStatValue,
+  amountToShowUpgradeMultiplier,
 }: Props) => {
   const statContext = useContext(StatContext);
 
@@ -98,6 +100,7 @@ const ResourceContainer = ({
           statTotal={stat}
           totalUpgrades={totalUpgrades}
           upgrade={upgrade}
+          amountToShowUpgradeMultiplier={amountToShowUpgradeMultiplier}
         />
       </Grid>
     </StyledResourceContainer>
