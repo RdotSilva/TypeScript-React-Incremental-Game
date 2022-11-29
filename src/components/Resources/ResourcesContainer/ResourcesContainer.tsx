@@ -6,6 +6,7 @@ import ResourceTwo from "../ResourceTwo";
 import ResourceFour from "../ResourceFour";
 import { Grid, styled } from "@mui/material";
 import { COLORS } from "../../../config/colors";
+import ResourceFive from "../ResourceFive";
 
 const StyledResourcesContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,
@@ -24,6 +25,7 @@ const ResourcesContainer = (props: Props) => {
       {statContext?.tier! >= 2 && <ResourceTwo />}
       {statContext?.tier! >= 3 && <ResourceThree />}
       {statContext?.tier! >= 4 && <ResourceFour />}
+      {statContext?.tier! >= 5 && <ResourceFive />}
     </StyledResourcesContainer>
   );
 };
