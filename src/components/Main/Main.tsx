@@ -8,7 +8,7 @@ import { COLORS } from "../../config/colors";
 import PowerUpTimer from "../PowerUp/PowerUpTimer";
 
 const StyledMainContainer = styled(Grid)({
-  border: "2px solid red",
+  border: "2px solid",
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
