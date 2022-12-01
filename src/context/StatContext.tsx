@@ -18,6 +18,8 @@ export type StatContextType = {
   setPowerUpMultiplier: Dispatch<SetStateAction<number>>;
   powerUpTimer: number;
   setPowerUpTimer: Dispatch<SetStateAction<number>>;
+  prestigeLevel: number;
+  setPrestigeLevel: Dispatch<SetStateAction<number>>;
 };
 
 type Props = {
@@ -33,6 +35,7 @@ const StatProvider = ({ children }: Props) => {
   const [totalStats, setTotalStats] = useState<number>(0);
   const [powerUpMultiplier, setPowerUpMultiplier] = useState<number>(1);
   const [powerUpTimer, setPowerUpTimer] = useState<number>(0);
+  const [prestigeLevel, setPrestigeLevel] = useState<number>(0);
 
   return (
     <StatContext.Provider
@@ -45,6 +48,8 @@ const StatProvider = ({ children }: Props) => {
         setPowerUpMultiplier,
         powerUpTimer,
         setPowerUpTimer,
+        prestigeLevel,
+        setPrestigeLevel,
       }}
     >
       {children}
