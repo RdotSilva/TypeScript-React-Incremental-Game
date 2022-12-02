@@ -21,7 +21,7 @@ export const PrestigeContext = createContext<PrestigeContextType>(
   {} as PrestigeContextType
 );
 
-const StatProvider = ({ children }: Props) => {
+const PrestigeProvider = ({ children }: Props) => {
   const [prestigeLevel, setPrestigeLevel] = useState<number>(0);
   const [isActivatingPrestige, setIsActivatingPrestige] =
     useState<boolean>(false);
@@ -40,4 +40,4 @@ const StatProvider = ({ children }: Props) => {
   );
 };
 
-export default StatProvider;
+export default PrestigeProvider;
