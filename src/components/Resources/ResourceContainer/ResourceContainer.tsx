@@ -3,6 +3,7 @@ import useStat from "../../../hooks/useStat";
 import { Box, Container, Grid } from "@mui/material";
 import Upgrade from "../../Upgrade/Upgrade";
 import { StatContext } from "../../../context/StatContext";
+import { PrestigeContext } from "../../../context/PrestigeContext";
 import { styled } from "@mui/material/styles";
 
 const StyledResourceContainer = styled(Grid)({
@@ -53,6 +54,10 @@ const ResourceContainer = ({
     incrementStatPerClick,
     autoIncrementStat,
   } = useStat();
+
+  const prestigeContext = useContext(PrestigeContext);
+  const { isActivatingPrestige, setIsActivatingPrestige } = prestigeContext;
+
   const [totalUpgrades, setTotalUpgrades] = useState<number>(0);
 
   /**
@@ -84,6 +89,16 @@ const ResourceContainer = ({
       }
     }
   }, [stat]);
+
+  /**
+   * Reset the resource stat to 0 and reset the prestige flag after prestige is activated
+   */
+  useEffect(() => {
+    if (isActivatingPrestige) {
+      setStat(0);
+      setIsActivatingPrestige(false);
+    }
+  });
 
   return (
     <StyledResourceContainer>
