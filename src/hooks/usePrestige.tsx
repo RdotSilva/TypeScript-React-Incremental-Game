@@ -1,39 +1,42 @@
 import React, { useContext } from "react";
-import { StatContext } from "../context/StatContext";
+import { PrestigeContext } from "../context/PrestigeContext";
 import useStat from "./useStat";
 
 /**
  * Main hook used for handling prestige logic
  */
 const usePrestige = (): any => {
-  const statContext = useContext(StatContext);
-  const { resetStat, totalStats, setTotalStats, stat } = useStat();
+  const prestigeContext = useContext(PrestigeContext);
+  const { resetStat, totalStats, setTotalStats, stat, setTier } = useStat();
 
-  const { prestigeLevel, setPrestigeLevel } = statContext;
+  const {
+    prestigeLevel,
+    setPrestigeLevel,
+    isActivatingPrestige,
+    setIsActivatingPrestige,
+  } = prestigeContext;
 
   const prestigeScore = 100;
 
-  // TODO: Implement prestige logic
+  /**
+   * Confirm prestige by resetting total stats, resetting tier back to starting tier, and increment prestige level
+   */
   const confirmPrestige = () => {
-    console.log("confirming prestige");
-    resetStat();
-    setTotalStats(0);
-    setPrestigeLevel(1);
-
-    console.log(stat);
-    // If total score is greater than or equal to the SCORE_TO_PRESTIGE
-
-    // if (totalStats >= prestigeScore) {
-
-    // }
-    // Set prestige level ++
-    // Set score back to zero
-    // Set all resources back to ZERO
+    console.log(totalStats);
+    console.log(prestigeScore);
+    if (totalStats >= prestigeScore) {
+      setTotalStats(0);
+      setTier(1);
+      setPrestigeLevel(1);
+      setIsActivatingPrestige(true);
+    }
   };
 
   return {
     prestigeLevel,
     setPrestigeLevel,
+    isActivatingPrestige,
+    setIsActivatingPrestige,
     confirmPrestige,
   };
 };
