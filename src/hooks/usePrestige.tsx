@@ -28,6 +28,8 @@ const usePrestige = (): any => {
       setTotalStats(0);
       setTier(1);
       setPrestigeLevel(1);
+      // TODO: Work this logic for custom prestige points rather than 1 hard coded
+      setPrestigePoints((prevPrestigePoints: number) => prevPrestigePoints + 1);
       setIsActivatingPrestige(true);
     }
   };
