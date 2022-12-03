@@ -12,6 +12,8 @@ const usePrestige = (): any => {
   const {
     prestigeLevel,
     setPrestigeLevel,
+    prestigePoints,
+    setPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
   } = prestigeContext;
@@ -22,8 +24,6 @@ const usePrestige = (): any => {
    * Confirm prestige by resetting total stats, resetting tier back to starting tier, and increment prestige level
    */
   const confirmPrestige = () => {
-    console.log(totalStats);
-    console.log(prestigeScore);
     if (totalStats >= prestigeScore) {
       setTotalStats(0);
       setTier(1);
@@ -35,6 +35,8 @@ const usePrestige = (): any => {
   return {
     prestigeLevel,
     setPrestigeLevel,
+    prestigePoints,
+    setPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
     confirmPrestige,
