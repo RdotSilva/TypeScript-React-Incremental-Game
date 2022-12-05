@@ -8,6 +8,7 @@ import AccessAlarmRoundedIcon from "@mui/icons-material/AccessAlarmRounded";
 import Battery0BarRoundedIcon from "@mui/icons-material/Battery0BarRounded";
 import BeachAccessRoundedIcon from "@mui/icons-material/BeachAccessRounded";
 import { Button } from "@mui/material";
+import { COLORS } from "../../../config/colors";
 
 type Props = {};
 
@@ -16,13 +17,15 @@ const PrestigeMenu = (props: Props) => {
 
   return (
     <>
-      <Button onClick={() => setShowPrestigeMenu(!showPrestigeMenu)}>
+      <Button
+        onClick={() => setShowPrestigeMenu(!showPrestigeMenu)}
+        color="secondary"
+        variant="contained"
+      >
         Prestige Menu
       </Button>
       {showPrestigeMenu ? (
-        <List
-          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-        >
+        <List sx={{ width: "100%", bgcolor: COLORS.darkTan }}>
           <ListItem>
             <ListItemAvatar>
               <Avatar>
