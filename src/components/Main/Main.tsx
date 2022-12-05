@@ -7,6 +7,8 @@ import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
 import PowerUpTimer from "../PowerUp/PowerUpTimer";
 import Prestige from "../Prestige/Prestige";
+import { PrestigeContext } from "../../context/PrestigeContext";
+import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
 
 const StyledMainContainer = styled(Grid)({
   border: "2px solid",
@@ -22,11 +24,15 @@ const Main = (props: Props) => {
   const statContext = useContext(StatContext);
   const { totalStats } = statContext;
 
+  const prestigeContext = useContext(PrestigeContext);
+  const { prestigeLevel } = prestigeContext;
+
   return (
     <StyledMainContainer container>
       <TotalScore />
       <PowerUpTimer />
       {/* TODO: Add value to config */}
+      {prestigeLevel > 0 ? <PrestigeMenu /> : null}
       {totalStats > 100 ? <Prestige /> : null}
       <Resources />
       <PowerUps />
