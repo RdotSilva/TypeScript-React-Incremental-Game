@@ -12,8 +12,8 @@ const usePrestige = (): any => {
   const {
     prestigeLevel,
     setPrestigeLevel,
-    prestigePoints,
-    setPrestigePoints,
+    totalPrestigePoints,
+    setTotalPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
   } = prestigeContext;
@@ -29,7 +29,9 @@ const usePrestige = (): any => {
       setTier(1);
       setPrestigeLevel(1);
       // TODO: Work this logic for custom prestige points rather than 1 hard coded
-      setPrestigePoints((prevPrestigePoints: number) => prevPrestigePoints + 1);
+      setTotalPrestigePoints(
+        (prevTotalPrestigePoints: number) => prevTotalPrestigePoints + 1
+      );
       setIsActivatingPrestige(true);
     }
   };
@@ -37,8 +39,8 @@ const usePrestige = (): any => {
   return {
     prestigeLevel,
     setPrestigeLevel,
-    prestigePoints,
-    setPrestigePoints,
+    totalPrestigePoints,
+    setTotalPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
     confirmPrestige,
