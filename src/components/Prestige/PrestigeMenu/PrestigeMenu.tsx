@@ -9,11 +9,14 @@ import Battery0BarRoundedIcon from "@mui/icons-material/Battery0BarRounded";
 import BeachAccessRoundedIcon from "@mui/icons-material/BeachAccessRounded";
 import { Button } from "@mui/material";
 import { COLORS } from "../../../config/colors";
+import usePrestige from "../../../hooks/usePrestige";
 
 type Props = {};
 
 const PrestigeMenu = (props: Props) => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
+
+  const { unusedPrestigePoints, totalPrestigePoints } = usePrestige();
 
   return (
     <>
@@ -26,6 +29,15 @@ const PrestigeMenu = (props: Props) => {
       </Button>
       {showPrestigeMenu ? (
         <List sx={{ width: "100%", bgcolor: COLORS.darkTan }}>
+          <ListItem
+            sx={{
+              fontSize: "h5.fontSize",
+              fontFamily: "Monospace",
+            }}
+          >
+            Prestige Points {unusedPrestigePoints} / {totalPrestigePoints} total
+            points assigned.
+          </ListItem>
           <ListItem>
             <ListItemAvatar>
               <Avatar>
