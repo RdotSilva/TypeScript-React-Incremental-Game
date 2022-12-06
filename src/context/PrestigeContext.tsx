@@ -11,6 +11,8 @@ export type PrestigeContextType = {
   setPrestigeLevel: Dispatch<SetStateAction<number>>;
   totalPrestigePoints: number;
   setTotalPrestigePoints: Dispatch<SetStateAction<number>>;
+  assignedPrestigePoints: number;
+  setAssignedPrestigePoints: Dispatch<SetStateAction<number>>;
   isActivatingPrestige: boolean;
   setIsActivatingPrestige: Dispatch<SetStateAction<boolean>>;
 };
@@ -26,6 +28,8 @@ export const PrestigeContext = createContext<PrestigeContextType>(
 const PrestigeProvider = ({ children }: Props) => {
   const [prestigeLevel, setPrestigeLevel] = useState<number>(0);
   const [totalPrestigePoints, setTotalPrestigePoints] = useState<number>(0);
+  const [assignedPrestigePoints, setAssignedPrestigePoints] =
+    useState<number>(0);
   const [isActivatingPrestige, setIsActivatingPrestige] =
     useState<boolean>(false);
 
@@ -36,6 +40,8 @@ const PrestigeProvider = ({ children }: Props) => {
         setPrestigeLevel,
         totalPrestigePoints,
         setTotalPrestigePoints,
+        assignedPrestigePoints,
+        setAssignedPrestigePoints,
         isActivatingPrestige,
         setIsActivatingPrestige,
       }}
