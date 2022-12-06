@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -15,8 +15,16 @@ type Props = {};
 
 const PrestigeMenu = (props: Props) => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
+  const { assignedPrestigePoints, totalPrestigePoints } = usePrestige();
+  const [unusedPrestigePoints, setUnusedPrestigePoints] = useState<number>(0);
 
-  const { unusedPrestigePoints, totalPrestigePoints } = usePrestige();
+  /**
+   * Calculate the total number of unused prestige points and update state
+   */
+  useEffect(() => {
+    const unusedPoints = totalPrestigePoints - assignedPrestigePoints;
+    setUnusedPrestigePoints(unusedPoints);
+  }, [totalPrestigePoints, assignedPrestigePoints]);
 
   return (
     <>
@@ -35,8 +43,8 @@ const PrestigeMenu = (props: Props) => {
               fontFamily: "Monospace",
             }}
           >
-            Prestige Points {unusedPrestigePoints} / {totalPrestigePoints} total
-            points assigned.
+            Prestige Points {assignedPrestigePoints} / {totalPrestigePoints}{" "}
+            total points assigned.
           </ListItem>
           <ListItem>
             <ListItemAvatar>
