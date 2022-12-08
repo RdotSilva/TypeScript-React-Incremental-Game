@@ -14,10 +14,16 @@ export const enum PrestigePointsPreLevel {
   Five = 5,
 }
 
+export interface PrestigeItem {
+  prestigeItemIcon: any;
+  prestigeItemTitle: string;
+  prestigeItemDescription: string;
+}
+
 /**
  * The prestige items you want to display in the prestige menu
  */
-export const PrestigeMenuItems = [
+export const prestigeMenuItems: PrestigeItem[] = [
   {
     prestigeItemIcon: AccessAlarmRoundedIcon,
     prestigeItemTitle: "Time Warp",
