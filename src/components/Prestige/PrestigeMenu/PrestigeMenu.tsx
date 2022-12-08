@@ -9,11 +9,13 @@ import { Button } from "@mui/material";
 import { COLORS } from "../../../config/colors";
 import usePrestige from "../../../hooks/usePrestige";
 import PrestigeMenuItem from "../PrestigeMenuItem/PrestigeMenuItem";
-import { PrestigeMenuItems } from "../../../config/prestige";
+import { PrestigeItem } from "../../../config/prestige";
 
-type Props = {};
+type Props = {
+  prestigeItems: PrestigeItem[];
+};
 
-const PrestigeMenu = (props: Props) => {
+const PrestigeMenu = ({ prestigeItems }: Props) => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
   const { assignedPrestigePoints, totalPrestigePoints } = usePrestige();
   const [unusedPrestigePoints, setUnusedPrestigePoints] = useState<number>(0);
@@ -46,7 +48,7 @@ const PrestigeMenu = (props: Props) => {
             Prestige Points {assignedPrestigePoints} / {totalPrestigePoints}{" "}
             total points assigned.
           </ListItem>
-          {PrestigeMenuItems.map(
+          {prestigeItems.map(
             ({
               prestigeItemIcon,
               prestigeItemTitle,

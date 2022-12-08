@@ -9,6 +9,7 @@ import PowerUpTimer from "../PowerUp/PowerUpTimer";
 import Prestige from "../Prestige/Prestige";
 import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
+import { prestigeMenuItems } from "../../config/prestige";
 
 const StyledMainContainer = styled(Grid)({
   border: "2px solid",
@@ -32,7 +33,9 @@ const Main = (props: Props) => {
       <TotalScore />
       <PowerUpTimer />
       {/* TODO: Add value to config */}
-      {prestigeLevel > 0 ? <PrestigeMenu /> : null}
+      {prestigeLevel > 0 ? (
+        <PrestigeMenu prestigeItems={prestigeMenuItems} />
+      ) : null}
       {totalStats > 100 ? <Prestige /> : null}
       <Resources />
       <PowerUps />
