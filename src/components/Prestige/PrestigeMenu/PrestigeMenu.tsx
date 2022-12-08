@@ -48,19 +48,13 @@ const PrestigeMenu = ({ prestigeItems }: Props) => {
             Prestige Points {assignedPrestigePoints} / {totalPrestigePoints}{" "}
             total points assigned.
           </ListItem>
-          {prestigeItems.map(
-            ({
-              prestigeItemIcon,
-              prestigeItemTitle,
-              prestigeItemDescription,
-            }) => {
-              <PrestigeMenuItem
-                prestigeItemIcon={prestigeItemIcon}
-                prestigeItemTitle={prestigeItemTitle}
-                prestigeItemDescription={prestigeItemDescription}
-              />;
-            }
-          )}
+          {prestigeItems.map((prestigeItem) => (
+            <PrestigeMenuItem
+              prestigeItemIcon="TODO FIX ME"
+              prestigeItemTitle={prestigeItem.prestigeItemTitle}
+              prestigeItemDescription={prestigeItem.prestigeItemDescription}
+            />
+          ))}
         </List>
       ) : null}
     </>
