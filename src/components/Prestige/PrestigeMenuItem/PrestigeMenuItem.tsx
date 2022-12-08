@@ -25,7 +25,7 @@ const PrestigeMenuItem = ({
     <ListItem>
       <ListItemAvatar>
         <Avatar>
-          <Button>{prestigeItemIcon}</Button>
+          <Button>TODO FIX ME</Button>
         </Avatar>
       </ListItemAvatar>
       <ListItemText
