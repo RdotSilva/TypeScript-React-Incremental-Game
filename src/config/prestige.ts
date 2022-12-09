@@ -15,6 +15,7 @@ export const enum PrestigePointsPreLevel {
 }
 
 export interface PrestigeItem {
+  prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
   prestigeItemDescription: string;
@@ -25,16 +26,19 @@ export interface PrestigeItem {
  */
 export const prestigeMenuItems: PrestigeItem[] = [
   {
+    prestigeItemId: "001",
     prestigeItemIcon: AccessAlarmRoundedIcon,
     prestigeItemTitle: "Time Warp",
     prestigeItemDescription: "Increase overall game speed by 2x",
   },
   {
+    prestigeItemId: "002",
     prestigeItemIcon: Battery0BarRoundedIcon,
     prestigeItemTitle: "Super Charge",
     prestigeItemDescription: "Increase points per tick for all stats by 2x",
   },
   {
+    prestigeItemId: "003",
     prestigeItemIcon: BeachAccessRoundedIcon,
     prestigeItemTitle: "Make It Rain",
     prestigeItemDescription: "Increase the chance for power ups to appear",
