@@ -5,7 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 
-import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
 
 type Props = {
   prestigeItemIcon: any;
@@ -25,7 +25,7 @@ const PrestigeMenuItem = ({
     <ListItem>
       <ListItemAvatar>
         <Avatar>
-          <Button>TODO FIX ME</Button>
+          <IconButton>{prestigeItemIcon}</IconButton>
         </Avatar>
       </ListItemAvatar>
       <ListItemText

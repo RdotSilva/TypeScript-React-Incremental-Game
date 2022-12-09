@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
 
 import { Button } from "@mui/material";
 import { COLORS } from "../../../config/colors";
@@ -50,7 +47,7 @@ const PrestigeMenu = ({ prestigeItems }: Props) => {
           </ListItem>
           {prestigeItems.map((prestigeItem) => (
             <PrestigeMenuItem
-              prestigeItemIcon="TODO FIX ME"
+              prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
               prestigeItemTitle={prestigeItem.prestigeItemTitle}
               prestigeItemDescription={prestigeItem.prestigeItemDescription}
             />
