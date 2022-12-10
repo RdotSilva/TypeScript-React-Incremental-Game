@@ -45,8 +45,9 @@ const PrestigeMenu = ({ prestigeItems }: Props) => {
             Prestige Points {assignedPrestigePoints} / {totalPrestigePoints}{" "}
             total points assigned.
           </ListItem>
-          {prestigeItems.map((prestigeItem) => (
+          {prestigeItems.map((prestigeItem: PrestigeItem, index: number) => (
             <PrestigeMenuItem
+              key={index}
               prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
               prestigeItemTitle={prestigeItem.prestigeItemTitle}
               prestigeItemDescription={prestigeItem.prestigeItemDescription}
