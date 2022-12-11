@@ -48,6 +48,7 @@ const PrestigeMenu = ({ prestigeItems }: Props) => {
           {prestigeItems.map((prestigeItem: PrestigeItem, index: number) => (
             <PrestigeMenuItem
               key={index}
+              prestigeItemId={prestigeItem.prestigeItemId}
               prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
               prestigeItemTitle={prestigeItem.prestigeItemTitle}
               prestigeItemDescription={prestigeItem.prestigeItemDescription}

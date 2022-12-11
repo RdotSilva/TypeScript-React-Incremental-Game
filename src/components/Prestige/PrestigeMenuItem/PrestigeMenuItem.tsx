@@ -8,8 +8,10 @@ import Avatar from "@mui/material/Avatar";
 import { useTheme } from "@mui/material/styles";
 
 import { IconButton } from "@mui/material";
+import usePrestige from "../../../hooks/usePrestige";
 
 type Props = {
+  prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
   prestigeItemDescription: string;
@@ -19,6 +21,7 @@ type Props = {
  * Create a prestige item that as a ListItem that can be used in the Prestige Menu
  */
 const PrestigeMenuItem = ({
+  prestigeItemId,
   prestigeItemIcon,
   prestigeItemTitle,
   prestigeItemDescription,
@@ -26,10 +29,16 @@ const PrestigeMenuItem = ({
   const theme = useTheme();
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  const onClickPrestigeIcon = () => {
-    console.log("Prestige Button Clicked");
+  const { prestigeStats, setPrestigeStats } = usePrestige();
+
+  const onClickPrestigeIcon = (id: string) => {
+    console.log(`Prestige Button Clicked for ID ${id}`);
     setIsActive(true);
     // TODO:  Activate whatever popup is being clicked (need to figure out a way to store prestige skills, maybe use context?)
+
+    const currentPrestigeItem = prestigeStats.filter(
+      ({ id }: any) => id === id
+    );
   };
 
   return (
@@ -40,7 +49,7 @@ const PrestigeMenuItem = ({
             backgroundColor: isActive ? theme.palette.secondary.light : null,
           }}
         >
-          <IconButton onClick={onClickPrestigeIcon}>
+          <IconButton onClick={() => onClickPrestigeIcon(prestigeItemId)}>
             {prestigeItemIcon}
           </IconButton>
         </Avatar>
