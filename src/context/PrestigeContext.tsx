@@ -5,6 +5,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
+import { PrestigeItem, prestigeMenuItems } from "../config/prestige";
 
 export type PrestigeContextType = {
   prestigeLevel: number;
@@ -15,6 +16,8 @@ export type PrestigeContextType = {
   setAssignedPrestigePoints: Dispatch<SetStateAction<number>>;
   isActivatingPrestige: boolean;
   setIsActivatingPrestige: Dispatch<SetStateAction<boolean>>;
+  prestigeStats: PrestigeItem[];
+  setPrestigeStats: Dispatch<SetStateAction<PrestigeItem[]>>;
 };
 
 type Props = {
@@ -32,6 +35,8 @@ const PrestigeProvider = ({ children }: Props) => {
     useState<number>(0);
   const [isActivatingPrestige, setIsActivatingPrestige] =
     useState<boolean>(false);
+  const [prestigeStats, setPrestigeStats] =
+    useState<PrestigeItem[]>(prestigeMenuItems);
 
   return (
     <PrestigeContext.Provider
@@ -44,6 +49,8 @@ const PrestigeProvider = ({ children }: Props) => {
         setAssignedPrestigePoints,
         isActivatingPrestige,
         setIsActivatingPrestige,
+        prestigeStats,
+        setPrestigeStats,
       }}
     >
       {children}
