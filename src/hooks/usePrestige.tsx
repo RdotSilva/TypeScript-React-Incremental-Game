@@ -18,6 +18,8 @@ const usePrestige = (): any => {
     setAssignedPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
+    prestigeStats,
+    setPrestigeStats,
   } = prestigeContext;
 
   const prestigeScore = 100;
@@ -48,6 +50,8 @@ const usePrestige = (): any => {
     isActivatingPrestige,
     setIsActivatingPrestige,
     confirmPrestige,
+    prestigeStats,
+    setPrestigeStats,
   };
 };
 
