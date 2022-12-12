@@ -15,7 +15,7 @@ export const enum PrestigePointsPreLevel {
 }
 
 export interface PrestigeItem {
-  isActive: false;
+  isActive: boolean;
   prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
