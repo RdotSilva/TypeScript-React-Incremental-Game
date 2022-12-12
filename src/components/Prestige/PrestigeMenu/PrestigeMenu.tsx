@@ -8,13 +8,10 @@ import usePrestige from "../../../hooks/usePrestige";
 import PrestigeMenuItem from "../PrestigeMenuItem/PrestigeMenuItem";
 import { PrestigeItem } from "../../../config/prestige";
 
-type Props = {
-  prestigeItems: PrestigeItem[];
-};
-
-const PrestigeMenu = ({ prestigeItems }: Props) => {
+const PrestigeMenu = () => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
-  const { assignedPrestigePoints, totalPrestigePoints } = usePrestige();
+  const { assignedPrestigePoints, totalPrestigePoints, prestigeStats } =
+    usePrestige();
   const [unusedPrestigePoints, setUnusedPrestigePoints] = useState<number>(0);
 
   /**
@@ -45,9 +42,10 @@ const PrestigeMenu = ({ prestigeItems }: Props) => {
             Prestige Points {assignedPrestigePoints} / {totalPrestigePoints}{" "}
             total points assigned.
           </ListItem>
-          {prestigeItems.map((prestigeItem: PrestigeItem, index: number) => (
+          {prestigeStats.map((prestigeItem: PrestigeItem, index: number) => (
             <PrestigeMenuItem
               key={index}
+              isActive={prestigeItem.isActive}
               prestigeItemId={prestigeItem.prestigeItemId}
               prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
               prestigeItemTitle={prestigeItem.prestigeItemTitle}
