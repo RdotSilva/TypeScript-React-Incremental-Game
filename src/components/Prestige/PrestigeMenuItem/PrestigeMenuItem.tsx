@@ -11,6 +11,7 @@ import { IconButton } from "@mui/material";
 import usePrestige from "../../../hooks/usePrestige";
 
 type Props = {
+  isActive: boolean;
   prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
@@ -21,24 +22,25 @@ type Props = {
  * Create a prestige item that as a ListItem that can be used in the Prestige Menu
  */
 const PrestigeMenuItem = ({
+  isActive,
   prestigeItemId,
   prestigeItemIcon,
   prestigeItemTitle,
   prestigeItemDescription,
 }: Props) => {
   const theme = useTheme();
-  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const [prestigeItemIsActive, setPrestigeItemIsActive] = useState(false);
 
   const { prestigeStats, setPrestigeStats } = usePrestige();
 
   const onClickPrestigeIcon = (id: string) => {
-    console.log(`Prestige Button Clicked for ID ${id}`);
-    setIsActive(true);
-    // TODO:  Activate whatever popup is being clicked (need to figure out a way to store prestige skills, maybe use context?)
-
-    const currentPrestigeItem = prestigeStats.filter(
-      ({ id }: any) => id === id
+    const currentPrestigeItem = prestigeStats.find(
+      (item: any) => item.prestigeItemId === id
     );
+
+    currentPrestigeItem.isActive = true;
+    setPrestigeItemIsActive(true);
   };
 
   return (
@@ -46,7 +48,9 @@ const PrestigeMenuItem = ({
       <ListItemAvatar>
         <Avatar
           sx={{
-            backgroundColor: isActive ? theme.palette.secondary.light : null,
+            backgroundColor: prestigeItemIsActive
+              ? theme.palette.secondary.light
+              : null,
           }}
         >
           <IconButton onClick={() => onClickPrestigeIcon(prestigeItemId)}>
@@ -56,11 +60,11 @@ const PrestigeMenuItem = ({
       </ListItemAvatar>
       <ListItemText
         primaryTypographyProps={{
-          color: isActive ? "secondary" : "black",
+          color: prestigeItemIsActive ? "secondary" : "black",
         }}
         primary={prestigeItemTitle}
         secondaryTypographyProps={{
-          color: isActive ? "secondary" : "black",
+          color: prestigeItemIsActive ? "secondary" : "black",
         }}
         secondary={prestigeItemDescription}
       />
