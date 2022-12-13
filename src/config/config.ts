@@ -18,6 +18,7 @@ export const enum UpgradeLevels {
   One = 10,
   Two = One * 10,
   Three = Two + 10,
+  Four = Three + 10,
 }
 
 export const enum PowerUpShowTimers {
