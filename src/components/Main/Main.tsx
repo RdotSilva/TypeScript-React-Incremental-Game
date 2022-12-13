@@ -33,9 +33,7 @@ const Main = (props: Props) => {
       <TotalScore />
       <PowerUpTimer />
       {/* TODO: Add value to config */}
-      {prestigeLevel > 0 ? (
-        <PrestigeMenu prestigeItems={prestigeMenuItems} />
-      ) : null}
+      {prestigeLevel > 0 ? <PrestigeMenu /> : null}
       {totalStats > 100 ? <Prestige /> : null}
       <Resources />
       <PowerUps />
