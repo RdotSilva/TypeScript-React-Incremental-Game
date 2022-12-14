@@ -30,10 +30,14 @@ const PrestigeMenuItem = ({
 }: Props) => {
   const theme = useTheme();
 
-  const [prestigeItemIsActive, setPrestigeItemIsActive] = useState(false);
+  const [prestigeItemIsActive, setPrestigeItemIsActive] = useState(isActive);
 
   const { prestigeStats, setPrestigeStats } = usePrestige();
 
+  /**
+   * Set a prestige item as active
+   * @param id The ID of the prestige item to set active
+   */
   const onClickPrestigeIcon = (id: string) => {
     const currentPrestigeItem = prestigeStats.find(
       (item: any) => item.prestigeItemId === id
@@ -42,6 +46,13 @@ const PrestigeMenuItem = ({
     currentPrestigeItem.isActive = true;
     setPrestigeItemIsActive(true);
   };
+
+  /**
+   * Update prestige item active state
+   */
+  useEffect(() => {
+    setPrestigeItemIsActive(isActive);
+  }, [isActive]);
 
   return (
     <ListItem>
