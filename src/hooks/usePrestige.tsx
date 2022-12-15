@@ -40,6 +40,13 @@ const usePrestige = (): any => {
     }
   };
 
+  // TODO: Implement this
+  const checkPrestigeValues = () => {
+    // Check if prestige 001 is active
+    // Set a multipler for that prestige if it is active setPrestigeMultiplier(2)
+    // This will now be added to the context and we can use it inside of UseStat hook to add the multipler
+  };
+
   return {
     prestigeLevel,
     setPrestigeLevel,
