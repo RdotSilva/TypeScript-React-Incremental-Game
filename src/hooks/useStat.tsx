@@ -15,6 +15,7 @@ const useStat = (): any => {
     totalStats,
     setTotalStats,
     setTier,
+    prestigeMultiplier,
   } = statContext;
 
   /**
@@ -22,7 +23,10 @@ const useStat = (): any => {
    * @param amount The amount to use when incrementing a stat
    */
   const incrementStat = (amount: number): void => {
-    const amountWithMultiplier = amount * statPerClick * powerUpMultiplier;
+    // TODO: Refactor this to handle any multipliers passed in for future
+    const totalMultiplier = powerUpMultiplier + prestigeMultiplier;
+
+    const amountWithMultiplier = amount * statPerClick * totalMultiplier;
     setStat((prevStat) => prevStat + amountWithMultiplier);
     setTotalStats((prevTotalStats) => prevTotalStats + amountWithMultiplier);
   };
