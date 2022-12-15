@@ -14,6 +14,12 @@ export const enum PrestigePointsPreLevel {
   Five = 5,
 }
 
+export const enum ScoreToShowPrestige {
+  One = 100,
+  Two = One * 2,
+  Three = Two * 2,
+}
+
 export interface PrestigeItem {
   isActive: boolean;
   prestigeItemId: string;
