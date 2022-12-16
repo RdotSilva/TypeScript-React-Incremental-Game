@@ -32,7 +32,7 @@ const StatProvider = ({ children }: Props) => {
   const [totalStats, setTotalStats] = useState<number>(0);
   const [powerUpMultiplier, setPowerUpMultiplier] = useState<number>(1);
   const [powerUpTimer, setPowerUpTimer] = useState<number>(0);
-  const [prestigeMultiplier, setPrestigeMultiplier] = useState<number>(1);
+  const [prestigeMultiplier, setPrestigeMultiplier] = useState<number>(0);
 
   return (
     <StatContext.Provider
