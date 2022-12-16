@@ -7,7 +7,14 @@ import useStat from "./useStat";
  */
 const usePrestige = (): any => {
   const prestigeContext = useContext(PrestigeContext);
-  const { resetStat, totalStats, setTotalStats, stat, setTier } = useStat();
+  const {
+    resetStat,
+    totalStats,
+    setTotalStats,
+    stat,
+    setTier,
+    setPrestigeMultiplier,
+  } = useStat();
 
   const {
     prestigeLevel,
@@ -40,11 +47,17 @@ const usePrestige = (): any => {
     }
   };
 
-  // TODO: Implement this
+  // TODO: Refactor this with better name and clean up logic
   const checkPrestigeValues = () => {
-    // Check if prestige 001 is active
-    // Set a multipler for that prestige if it is active setPrestigeMultiplier(2)
-    // This will now be added to the context and we can use it inside of UseStat hook to add the multipler
+    const doubleXpPrestige = prestigeStats.filter(
+      (stat) => stat.prestigeItemId === "001"
+    );
+
+    console.log(doubleXpPrestige);
+
+    if (doubleXpPrestige[0].isActive) {
+      setPrestigeMultiplier(1);
+    }
   };
 
   return {
@@ -59,6 +72,7 @@ const usePrestige = (): any => {
     confirmPrestige,
     prestigeStats,
     setPrestigeStats,
+    checkPrestigeValues,
   };
 };
 
