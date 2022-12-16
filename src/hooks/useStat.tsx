@@ -16,6 +16,7 @@ const useStat = (): any => {
     setTotalStats,
     setTier,
     prestigeMultiplier,
+    setPrestigeMultiplier,
   } = statContext;
 
   /**
@@ -71,6 +72,7 @@ const useStat = (): any => {
     totalStats,
     setPowerUpMultiplier,
     setTier,
+    setPrestigeMultiplier,
   };
 };
 
