@@ -5,6 +5,7 @@ import Upgrade from "../../Upgrade/Upgrade";
 import { StatContext } from "../../../context/StatContext";
 import { PrestigeContext } from "../../../context/PrestigeContext";
 import { styled } from "@mui/material/styles";
+import usePrestige from "../../../hooks/usePrestige";
 
 const StyledResourceContainer = styled(Grid)({
   display: "flex",
@@ -60,6 +61,8 @@ const ResourceContainer = ({
 
   const [totalUpgrades, setTotalUpgrades] = useState<number>(0);
 
+  const { prestigeLevel } = usePrestige();
+
   /**
    * Upgrade a resource and increase the stat per click for that particular resource
    * @param amount The amount to increase the stat per click
@@ -80,6 +83,16 @@ const ResourceContainer = ({
   useEffect(() => {
     setStatPerClick(initialStatValue);
   }, []);
+
+  /**
+   * Set the value for clicks for the resource after we have activated prestige
+   * This resets the value back to initial values otherwise we would keep upgrades after a prestige
+   */
+  useEffect(() => {
+    if (prestigeLevel > 0) {
+      setStatPerClick(initialStatValue);
+    }
+  }, [prestigeLevel]);
 
   useEffect(() => {
     if (stat > nextTierThreshold) {
