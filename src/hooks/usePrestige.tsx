@@ -14,6 +14,7 @@ const usePrestige = (): any => {
     stat,
     setTier,
     setPrestigeMultiplier,
+    setStatPerClick,
   } = useStat();
 
   const {
@@ -44,6 +45,7 @@ const usePrestige = (): any => {
         (prevTotalPrestigePoints: number) => prevTotalPrestigePoints + 1
       );
       setIsActivatingPrestige(true);
+      // TODO: Reset stat per click value for every resource after prestige
     }
   };
 
