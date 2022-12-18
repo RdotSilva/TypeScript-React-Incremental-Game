@@ -12,6 +12,7 @@ import usePrestige from "../../../hooks/usePrestige";
 
 type Props = {
   isActive: boolean;
+  pointsToActivate: number;
   prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
@@ -23,6 +24,7 @@ type Props = {
  */
 const PrestigeMenuItem = ({
   isActive,
+  pointsToActivate,
   prestigeItemId,
   prestigeItemIcon,
   prestigeItemTitle,
@@ -43,6 +45,8 @@ const PrestigeMenuItem = ({
     const currentPrestigeItem = prestigeStats.find(
       (item: any) => item.prestigeItemId === id
     );
+
+    // TODO: Check that we have enough prestige points before allowing user to click
 
     currentPrestigeItem.isActive = true;
     setPrestigeItemIsActive(true);

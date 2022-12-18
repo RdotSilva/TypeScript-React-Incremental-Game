@@ -46,6 +46,7 @@ const PrestigeMenu = () => {
             <PrestigeMenuItem
               key={index}
               isActive={prestigeItem.isActive}
+              pointsToActivate={prestigeItem.pointsToActivate}
               prestigeItemId={prestigeItem.prestigeItemId}
               prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
               prestigeItemTitle={prestigeItem.prestigeItemTitle}
