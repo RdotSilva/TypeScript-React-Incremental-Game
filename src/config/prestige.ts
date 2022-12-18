@@ -28,27 +28,33 @@ export interface PrestigeItem {
   prestigeItemDescription: string;
 }
 
+export const enum PrestigeMenuItemIds {
+  One = "001",
+  Two = "002",
+  Three = "003",
+}
+
 /**
  * The prestige items you want to display in the prestige menu
  */
 export const prestigeMenuItems: PrestigeItem[] = [
   {
     isActive: false,
-    prestigeItemId: "001",
+    prestigeItemId: PrestigeMenuItemIds.One,
     prestigeItemIcon: AccessAlarmRoundedIcon,
     prestigeItemTitle: "Time Warp",
     prestigeItemDescription: "Increase overall game speed by 2x",
   },
   {
     isActive: false,
-    prestigeItemId: "002",
+    prestigeItemId: PrestigeMenuItemIds.Two,
     prestigeItemIcon: Battery0BarRoundedIcon,
     prestigeItemTitle: "Super Charge",
     prestigeItemDescription: "Increase points per tick for all stats by 2x",
   },
   {
     isActive: false,
-    prestigeItemId: "003",
+    prestigeItemId: PrestigeMenuItemIds.Three,
     prestigeItemIcon: BeachAccessRoundedIcon,
     prestigeItemTitle: "Make It Rain",
     prestigeItemDescription: "Increase the chance for power ups to appear",
