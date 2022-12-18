@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { PrestigeMenuItemIds } from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
 import useStat from "./useStat";
 
@@ -49,15 +50,11 @@ const usePrestige = (): any => {
     }
   };
 
-  // TODO: Refactor this with better name and clean up logic
-  const checkPrestigeValues = () => {
-    const doubleXpPrestige = prestigeStats.filter(
-      (stat) => stat.prestigeItemId === "001"
+  const setPrestigePowerUps = () => {
+    const doubleXpPrestige = prestigeStats.find(
+      (stat) => stat.prestigeItemId === PrestigeMenuItemIds.Two
     );
-
-    console.log(doubleXpPrestige);
-
-    if (doubleXpPrestige[0].isActive) {
+    if (doubleXpPrestige?.isActive) {
       setPrestigeMultiplier(1);
     }
   };
@@ -74,7 +71,7 @@ const usePrestige = (): any => {
     confirmPrestige,
     prestigeStats,
     setPrestigeStats,
-    checkPrestigeValues,
+    setPrestigePowerUps,
   };
 };
 

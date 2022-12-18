@@ -32,7 +32,7 @@ const PrestigeMenuItem = ({
 
   const [prestigeItemIsActive, setPrestigeItemIsActive] = useState(isActive);
 
-  const { prestigeStats, setPrestigeStats, checkPrestigeValues } =
+  const { prestigeStats, setPrestigeStats, setPrestigePowerUps } =
     usePrestige();
 
   /**
@@ -46,7 +46,7 @@ const PrestigeMenuItem = ({
 
     currentPrestigeItem.isActive = true;
     setPrestigeItemIsActive(true);
-    checkPrestigeValues();
+    setPrestigePowerUps();
   };
 
   /**
