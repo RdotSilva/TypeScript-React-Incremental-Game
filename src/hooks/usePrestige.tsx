@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
-import { PrestigeMenuItemIds } from "../config/prestige";
+import {
+  PrestigeMenuItemIds,
+  PrestigePointsPreLevel,
+} from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
 import useStat from "./useStat";
 
@@ -41,12 +44,11 @@ const usePrestige = (): any => {
       setTotalStats(0);
       setTier(1);
       setPrestigeLevel(1);
-      // TODO: Work this logic for custom prestige points rather than 1 hard coded
       setTotalPrestigePoints(
-        (prevTotalPrestigePoints: number) => prevTotalPrestigePoints + 1
+        (prevTotalPrestigePoints: number) =>
+          prevTotalPrestigePoints + PrestigePointsPreLevel.One
       );
       setIsActivatingPrestige(true);
-      // TODO: Reset stat per click value for every resource after prestige
     }
   };
 
