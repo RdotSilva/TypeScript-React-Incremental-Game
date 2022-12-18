@@ -22,6 +22,7 @@ export const enum ScoreToShowPrestige {
 
 export interface PrestigeItem {
   isActive: boolean;
+  pointsToActivate: number;
   prestigeItemId: string;
   prestigeItemIcon: any;
   prestigeItemTitle: string;
@@ -40,6 +41,7 @@ export const enum PrestigeMenuItemIds {
 export const prestigeMenuItems: PrestigeItem[] = [
   {
     isActive: false,
+    pointsToActivate: 1,
     prestigeItemId: PrestigeMenuItemIds.One,
     prestigeItemIcon: AccessAlarmRoundedIcon,
     prestigeItemTitle: "Time Warp",
@@ -47,6 +49,7 @@ export const prestigeMenuItems: PrestigeItem[] = [
   },
   {
     isActive: false,
+    pointsToActivate: 1,
     prestigeItemId: PrestigeMenuItemIds.Two,
     prestigeItemIcon: Battery0BarRoundedIcon,
     prestigeItemTitle: "Super Charge",
@@ -54,6 +57,7 @@ export const prestigeMenuItems: PrestigeItem[] = [
   },
   {
     isActive: false,
+    pointsToActivate: 1,
     prestigeItemId: PrestigeMenuItemIds.Three,
     prestigeItemIcon: BeachAccessRoundedIcon,
     prestigeItemTitle: "Make It Rain",
