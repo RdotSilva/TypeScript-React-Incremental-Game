@@ -9,6 +9,7 @@ import { useTheme } from "@mui/material/styles";
 
 import { IconButton } from "@mui/material";
 import usePrestige from "../../../hooks/usePrestige";
+import { PrestigeItem } from "../../../config/prestige";
 
 type Props = {
   isActive: boolean;
@@ -34,23 +35,36 @@ const PrestigeMenuItem = ({
 
   const [prestigeItemIsActive, setPrestigeItemIsActive] = useState(isActive);
 
-  const { prestigeStats, setPrestigeStats, setPrestigePowerUps } =
-    usePrestige();
+  const {
+    prestigeStats,
+    setPrestigeStats,
+    setPrestigePowerUps,
+    totalPrestigePoints,
+    calculateUnusedPrestigePoints,
+    setAssignedPrestigePoints,
+  } = usePrestige();
 
   /**
    * Set a prestige item as active
    * @param id The ID of the prestige item to set active
+   * @param pointsToActivatePrestige The number of points needed to activate a prestige item
    */
-  const onClickPrestigeIcon = (id: string) => {
+  const onClickPrestigeIcon = (
+    id: string,
+    pointsToActivatePrestige: number
+  ) => {
     const currentPrestigeItem = prestigeStats.find(
-      (item: any) => item.prestigeItemId === id
+      ({ prestigeItemId }: PrestigeItem) => prestigeItemId === id
     );
 
-    // TODO: Check that we have enough prestige points before allowing user to click
+    const unusedPrestigePoints = calculateUnusedPrestigePoints();
 
-    currentPrestigeItem.isActive = true;
-    setPrestigeItemIsActive(true);
-    setPrestigePowerUps();
+    if (unusedPrestigePoints >= pointsToActivatePrestige) {
+      setAssignedPrestigePoints(pointsToActivatePrestige);
+      currentPrestigeItem.isActive = true;
+      setPrestigeItemIsActive(true);
+      setPrestigePowerUps();
+    }
   };
 
   /**
@@ -70,7 +84,11 @@ const PrestigeMenuItem = ({
               : null,
           }}
         >
-          <IconButton onClick={() => onClickPrestigeIcon(prestigeItemId)}>
+          <IconButton
+            onClick={() =>
+              onClickPrestigeIcon(prestigeItemId, pointsToActivate)
+            }
+          >
             {prestigeItemIcon}
           </IconButton>
         </Avatar>
