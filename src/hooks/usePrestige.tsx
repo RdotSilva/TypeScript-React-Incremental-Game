@@ -52,6 +52,10 @@ const usePrestige = (): any => {
     }
   };
 
+  /**
+   * Check if prestige power ups are active and set the power up bonus
+   * TODO: Refactor this at some point (create function for each prestige power up and combine them here)
+   */
   const setPrestigePowerUps = () => {
     const doubleXpPrestige = prestigeStats.find(
       (stat) => stat.prestigeItemId === PrestigeMenuItemIds.Two
@@ -59,6 +63,13 @@ const usePrestige = (): any => {
     if (doubleXpPrestige?.isActive) {
       setPrestigeMultiplier(1);
     }
+  };
+
+  /**
+   * Calculate the total number of unused prestige points
+   */
+  const calculateUnusedPrestigePoints = (): number => {
+    return totalPrestigePoints - assignedPrestigePoints;
   };
 
   return {
@@ -74,6 +85,7 @@ const usePrestige = (): any => {
     prestigeStats,
     setPrestigeStats,
     setPrestigePowerUps,
+    calculateUnusedPrestigePoints,
   };
 };
 
