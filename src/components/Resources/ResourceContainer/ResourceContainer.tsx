@@ -87,10 +87,12 @@ const ResourceContainer = ({
   /**
    * Set the value for clicks for the resource after we have activated prestige
    * This resets the value back to initial values otherwise we would keep upgrades after a prestige
+   * We also want to reset the total times the resource has been upgraded
    */
   useEffect(() => {
     if (prestigeLevel > 0) {
       setStatPerClick(initialStatValue);
+      setTotalUpgrades(0);
     }
   }, [prestigeLevel]);
 
