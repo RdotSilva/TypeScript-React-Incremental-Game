@@ -24,7 +24,7 @@ I'll be slowly adding features until it is a fully playable game.
    - Increase score by x2 for all icons
    - Instantly double your score
 
-3. Prestige and earn special permanent rewards
+3. Prestige and earn special permanent rewards (**Work In Progress**)
    - Once you have enough points the `Prestige` button will appear
    - Every prestige will grant you more points
    - Spend your points on special permanent power ups in the Prestige Menu
@@ -32,13 +32,14 @@ I'll be slowly adding features until it is a fully playable game.
 ---
 
 # Game Config
+
 You can play the game using the base game configuration or edit these values to create your own incremental game rules!
 
 1. `src/config/config.ts`
 
-     - Controls various configurations for game timers, general power ups and upgrade/tier levels.
+   - Controls various configurations for game timers, general power ups and upgrade/tier levels.
 
-2. `src/config/prestige.ts` 
+2. `src/config/prestige.ts`
 
    - Controls various configurations for prestige, and prestige menu.
 
