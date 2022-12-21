@@ -36,6 +36,11 @@ export const enum PrestigeMenuItemIds {
 }
 
 /**
+ * This is the minimum prestige level needed to show the user the Prestige Menu (should appear after first prestige)
+ */
+export const PrestigeLevelToShowMenu = 1;
+
+/**
  * The prestige items you want to display in the prestige menu
  */
 export const prestigeMenuItems: PrestigeItem[] = [
