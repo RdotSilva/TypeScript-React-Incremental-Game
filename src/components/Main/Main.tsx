@@ -31,12 +31,16 @@ const Main = (props: Props) => {
   const prestigeContext = useContext(PrestigeContext);
   const { prestigeLevel } = prestigeContext;
 
+  // TODO: Move this to hook
+  const showPrestigeButton =
+    totalStats > ScoreToShowPrestige.One && prestigeLevel < 1;
+
   return (
     <StyledMainContainer container>
       <TotalScore />
       <PowerUpTimer />
       {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
-      {totalStats > ScoreToShowPrestige.One ? <Prestige /> : null}
+      {showPrestigeButton ? <Prestige /> : null}
       <Resources />
       <PowerUps />
     </StyledMainContainer>
