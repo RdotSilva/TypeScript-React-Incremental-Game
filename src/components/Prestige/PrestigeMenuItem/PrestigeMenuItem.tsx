@@ -103,6 +103,7 @@ const PrestigeMenuItem = ({
         }}
         secondary={prestigeItemDescription}
       />
+      <ListItemText>{pointsToActivate}</ListItemText>
     </ListItem>
   );
 };
