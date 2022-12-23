@@ -9,10 +9,8 @@ import PowerUpTimer from "../PowerUp/PowerUpTimer";
 import Prestige from "../Prestige/Prestige";
 import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
-import {
-  PrestigeLevelToShowMenu,
-  ScoreToShowPrestige,
-} from "../../config/prestige";
+import { PrestigeLevelToShowMenu } from "../../config/prestige";
+import usePrestige from "../../hooks/usePrestige";
 
 const StyledMainContainer = styled(Grid)({
   border: "2px solid",
@@ -31,9 +29,7 @@ const Main = (props: Props) => {
   const prestigeContext = useContext(PrestigeContext);
   const { prestigeLevel } = prestigeContext;
 
-  // TODO: Move this to hook
-  const showPrestigeButton =
-    totalStats > ScoreToShowPrestige.One && prestigeLevel < 1;
+  const { showPrestigeButton } = usePrestige();
 
   return (
     <StyledMainContainer container>
