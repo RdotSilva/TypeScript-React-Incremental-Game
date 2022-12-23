@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   PrestigeMenuItemIds,
   PrestigePointsPreLevel,
+  ScoreToShowPrestige,
 } from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
 import useStat from "./useStat";
@@ -72,6 +73,14 @@ const usePrestige = (): any => {
     return totalPrestigePoints - assignedPrestigePoints;
   };
 
+  /**
+   * Check if we should show the prestige button
+   * We only want to show this the first time the users prestiges (for now)
+   * TODO: Update this logic to add multiple prestige levels
+   */
+  const showPrestigeButton =
+    totalStats > ScoreToShowPrestige.One && prestigeLevel < 1;
+
   return {
     prestigeLevel,
     setPrestigeLevel,
@@ -86,6 +95,7 @@ const usePrestige = (): any => {
     setPrestigeStats,
     setPrestigePowerUps,
     calculateUnusedPrestigePoints,
+    showPrestigeButton,
   };
 };
 
