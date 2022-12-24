@@ -26,11 +26,11 @@ const Prestige = (props: Props) => {
 
   const { confirmPrestige } = usePrestige();
 
-  const onClickOpen = () => {
+  const onClickOpenPrestigeConfirmationModal = () => {
     setOpenPrestigeConfirmationModal(true);
   };
 
-  const onClickClose = () => {
+  const onClickClosePrestigeConfirmationModal = () => {
     setOpenPrestigeConfirmationModal(false);
   };
 
@@ -39,7 +39,7 @@ const Prestige = (props: Props) => {
       <Button
         color="secondary"
         sx={{ m: 1 }}
-        onClick={onClickOpen}
+        onClick={onClickOpenPrestigeConfirmationModal}
         variant="contained"
       >
         Prestige
@@ -49,7 +49,7 @@ const Prestige = (props: Props) => {
           style: { backgroundColor: COLORS.lightTan },
         }}
         open={openPrestigeConfirmationModal}
-        onClose={onClickClose}
+        onClose={onClickClosePrestigeConfirmationModal}
         aria-labelledby="confirm-prestige-dialog-title"
         aria-describedby="confirm-prestige-dialog-description"
       >
@@ -64,7 +64,9 @@ const Prestige = (props: Props) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClickClose}>Go Back</Button>
+          <Button onClick={onClickClosePrestigeConfirmationModal}>
+            Go Back
+          </Button>
           <Button onClick={confirmPrestige} autoFocus>
             Confirm Prestige
           </Button>
