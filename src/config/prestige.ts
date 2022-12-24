@@ -14,6 +14,10 @@ export const enum PrestigePointsPreLevel {
   Five = 5,
 }
 
+/**
+ * This is the score that is used to show the prestige option
+ * If score reaches this point we will show the user the prestige button where they can activate prestige
+ */
 export const enum ScoreToShowPrestige {
   One = 100,
   Two = One * 2,
