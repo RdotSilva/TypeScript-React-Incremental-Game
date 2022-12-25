@@ -24,15 +24,22 @@ export const enum ScoreToShowPrestige {
   Three = Two * 2,
 }
 
+/**
+ * Describes a menu item that can be activated inside of the prestige menu
+ */
+
 export interface PrestigeItem {
   isActive: boolean;
   pointsToActivate: number;
-  prestigeItemId: string;
-  prestigeItemIcon: any;
-  prestigeItemTitle: string;
-  prestigeItemDescription: string;
+  id: string;
+  icon: any;
+  title: string;
+  description: string;
 }
 
+/**
+ * List of IDs for all of the prestige menu items
+ */
 export const enum PrestigeMenuItemIds {
   One = "001",
   Two = "002",
@@ -51,25 +58,25 @@ export const prestigeMenuItems: PrestigeItem[] = [
   {
     isActive: false,
     pointsToActivate: 1,
-    prestigeItemId: PrestigeMenuItemIds.One,
-    prestigeItemIcon: AccessAlarmRoundedIcon,
-    prestigeItemTitle: "Time Warp",
-    prestigeItemDescription: "Increase overall game speed by 2x",
+    id: PrestigeMenuItemIds.One,
+    icon: AccessAlarmRoundedIcon,
+    title: "Time Warp",
+    description: "Increase overall game speed by 2x",
   },
   {
     isActive: false,
     pointsToActivate: 1,
-    prestigeItemId: PrestigeMenuItemIds.Two,
-    prestigeItemIcon: Battery0BarRoundedIcon,
-    prestigeItemTitle: "Super Charge",
-    prestigeItemDescription: "Increase points per tick for all stats by 2x",
+    id: PrestigeMenuItemIds.Two,
+    icon: Battery0BarRoundedIcon,
+    title: "Super Charge",
+    description: "Increase points per tick for all stats by 2x",
   },
   {
     isActive: false,
     pointsToActivate: 1,
-    prestigeItemId: PrestigeMenuItemIds.Three,
-    prestigeItemIcon: BeachAccessRoundedIcon,
-    prestigeItemTitle: "Make It Rain",
-    prestigeItemDescription: "Increase the chance for power ups to appear",
+    id: PrestigeMenuItemIds.Three,
+    icon: BeachAccessRoundedIcon,
+    title: "Make It Rain",
+    description: "Increase the chance for power ups to appear",
   },
 ];
