@@ -14,10 +14,10 @@ import { PrestigeItem } from "../../../config/prestige";
 type Props = {
   isActive: boolean;
   pointsToActivate: number;
-  prestigeItemId: string;
-  prestigeItemIcon: any;
-  prestigeItemTitle: string;
-  prestigeItemDescription: string;
+  id: string;
+  icon: any;
+  title: string;
+  description: string;
 };
 
 /**
@@ -26,10 +26,10 @@ type Props = {
 const PrestigeMenuItem = ({
   isActive,
   pointsToActivate,
-  prestigeItemId,
-  prestigeItemIcon,
-  prestigeItemTitle,
-  prestigeItemDescription,
+  id,
+  icon,
+  title,
+  description,
 }: Props) => {
   const theme = useTheme();
 
@@ -54,7 +54,7 @@ const PrestigeMenuItem = ({
     pointsToActivatePrestige: number
   ) => {
     const currentPrestigeItem = prestigeStats.find(
-      ({ prestigeItemId }: PrestigeItem) => prestigeItemId === id
+      ({ id }: PrestigeItem) => id === id
     );
 
     const unusedPrestigePoints = calculateUnusedPrestigePoints();
@@ -84,12 +84,8 @@ const PrestigeMenuItem = ({
               : null,
           }}
         >
-          <IconButton
-            onClick={() =>
-              onClickPrestigeIcon(prestigeItemId, pointsToActivate)
-            }
-          >
-            {prestigeItemIcon}
+          <IconButton onClick={() => onClickPrestigeIcon(id, pointsToActivate)}>
+            {icon}
           </IconButton>
         </Avatar>
       </ListItemAvatar>
@@ -97,11 +93,11 @@ const PrestigeMenuItem = ({
         primaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        primary={prestigeItemTitle}
-        secondaryTypographyProps={{
+        primary={title}
+        description={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        secondary={prestigeItemDescription}
+        secondary={description}
       />
       <ListItemText>{pointsToActivate}</ListItemText>
     </ListItem>

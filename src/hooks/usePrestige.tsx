@@ -59,7 +59,7 @@ const usePrestige = (): any => {
    */
   const setPrestigePowerUps = () => {
     const doubleXpPrestige = prestigeStats.find(
-      (stat) => stat.prestigeItemId === PrestigeMenuItemIds.Two
+      (stat) => stat.id === PrestigeMenuItemIds.Two
     );
     if (doubleXpPrestige?.isActive) {
       setPrestigeMultiplier(1);
