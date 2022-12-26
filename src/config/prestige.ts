@@ -34,7 +34,7 @@ export interface PrestigeItem {
   id: string;
   icon: any;
   title: string;
-  description: string;
+  summary: string;
 }
 
 /**
@@ -61,7 +61,7 @@ export const prestigeMenuItems: PrestigeItem[] = [
     id: PrestigeMenuItemIds.One,
     icon: AccessAlarmRoundedIcon,
     title: "Time Warp",
-    description: "Increase overall game speed by 2x",
+    summary: "Increase overall game speed by 2x",
   },
   {
     isActive: false,
@@ -69,7 +69,7 @@ export const prestigeMenuItems: PrestigeItem[] = [
     id: PrestigeMenuItemIds.Two,
     icon: Battery0BarRoundedIcon,
     title: "Super Charge",
-    description: "Increase points per tick for all stats by 2x",
+    summary: "Increase points per tick for all stats by 2x",
   },
   {
     isActive: false,
@@ -77,6 +77,6 @@ export const prestigeMenuItems: PrestigeItem[] = [
     id: PrestigeMenuItemIds.Three,
     icon: BeachAccessRoundedIcon,
     title: "Make It Rain",
-    description: "Increase the chance for power ups to appear",
+    summary: "Increase the chance for power ups to appear",
   },
 ];
