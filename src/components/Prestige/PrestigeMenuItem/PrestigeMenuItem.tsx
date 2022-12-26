@@ -17,7 +17,7 @@ type Props = {
   id: string;
   icon: any;
   title: string;
-  description: string;
+  summary: string;
 };
 
 /**
@@ -29,7 +29,7 @@ const PrestigeMenuItem = ({
   id,
   icon,
   title,
-  description,
+  summary,
 }: Props) => {
   const theme = useTheme();
 
@@ -94,10 +94,10 @@ const PrestigeMenuItem = ({
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
         primary={title}
-        description={{
+        secondaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        secondary={description}
+        secondary={summary}
       />
       <ListItemText>{pointsToActivate}</ListItemText>
     </ListItem>
