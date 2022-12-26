@@ -43,7 +43,15 @@ const PrestigeMenu = () => {
             total points assigned.
           </ListItem>
           {prestigeStats.map((prestigeItem: PrestigeItem, index: number) => (
-            <PrestigeMenuItem key={index} {...prestigeItem} />
+            <PrestigeMenuItem
+              key={index}
+              isActive={prestigeItem.isActive}
+              pointsToActivate={prestigeItem.pointsToActivate}
+              id={prestigeItem.id}
+              icon={<prestigeItem.icon />}
+              title={prestigeItem.title}
+              summary={prestigeItem.summary}
+            />
           ))}
         </List>
       ) : null}
