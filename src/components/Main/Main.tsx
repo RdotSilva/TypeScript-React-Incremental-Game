@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Container, Grid, styled } from "@mui/material";
-import { StatContext } from "../../context/StatContext";
+import { Grid, styled } from "@mui/material";
 import TotalScore from "../Score/TotalScore";
 import PowerUps from "../PowerUp/PowerUps";
 import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
-import PowerUpTimer from "../PowerUp/PowerUpTimer";
+import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay";
 import Prestige from "../Prestige/Prestige";
 import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
@@ -23,9 +22,6 @@ const StyledMainContainer = styled(Grid)({
 type Props = {};
 
 const Main = (props: Props) => {
-  const statContext = useContext(StatContext);
-  const { totalStats } = statContext;
-
   const prestigeContext = useContext(PrestigeContext);
   const { prestigeLevel } = prestigeContext;
 
@@ -34,7 +30,7 @@ const Main = (props: Props) => {
   return (
     <StyledMainContainer container>
       <TotalScore />
-      <PowerUpTimer />
+      <PowerUpTimerDisplay />
       {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
       {showPrestigeButton ? <Prestige /> : null}
       <Resources />
