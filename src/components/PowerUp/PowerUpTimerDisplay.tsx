@@ -13,7 +13,7 @@ const StyledPowerUpTimerDisplayContainer = styled(Grid)({
 
 type Props = {};
 
-const PowerUpTimer = (props: Props) => {
+const PowerUpTimerDisplay = (props: Props) => {
   const statContext = useContext(StatContext);
   const { powerUpTimer } = statContext;
 
@@ -35,4 +35,4 @@ const PowerUpTimer = (props: Props) => {
   );
 };
 
-export default PowerUpTimer;
+export default PowerUpTimerDisplay;
