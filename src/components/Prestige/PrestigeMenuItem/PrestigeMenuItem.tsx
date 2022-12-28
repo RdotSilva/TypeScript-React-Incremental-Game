@@ -37,9 +37,7 @@ const PrestigeMenuItem = ({
 
   const {
     prestigeStats,
-    setPrestigeStats,
     setPrestigePowerUps,
-    totalPrestigePoints,
     calculateUnusedPrestigePoints,
     setAssignedPrestigePoints,
   } = usePrestige();
