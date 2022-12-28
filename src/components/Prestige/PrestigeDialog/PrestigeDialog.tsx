@@ -9,8 +9,8 @@ import {
   DialogContent,
   DialogContentText,
 } from "@mui/material";
-import { COLORS } from "../../config/colors";
-import usePrestige from "../../hooks/usePrestige";
+import { COLORS } from "../../../config/colors";
+import usePrestige from "../../../hooks/usePrestige";
 
 const StyledPrestigeContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,
@@ -20,7 +20,7 @@ const StyledPrestigeContainer = styled(Grid)({
 
 type Props = {};
 
-const Prestige = (props: Props) => {
+const PrestigeDialog = (props: Props) => {
   const [openPrestigeConfirmationModal, setOpenPrestigeConfirmationModal] =
     useState(false);
 
@@ -76,4 +76,4 @@ const Prestige = (props: Props) => {
   );
 };
 
-export default Prestige;
+export default PrestigeDialog;
