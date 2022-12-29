@@ -78,8 +78,19 @@ const usePrestige = (): any => {
    * We only want to show this the first time the users prestiges (for now)
    * TODO: Update this logic to add multiple prestige levels
    */
-  const showPrestigeButton =
-    totalStats > ScoreToShowPrestige.One && prestigeLevel < 1;
+  const showPrestigeButton = () => {
+    // Prestige level 1
+    if (totalStats > ScoreToShowPrestige.One && prestigeLevel < 1) {
+      return true;
+    }
+
+    // Prestige level 2
+    if (totalStats > ScoreToShowPrestige.Two && prestigeLevel < 2) {
+      return true;
+    }
+
+    return false;
+  };
 
   return {
     prestigeLevel,
