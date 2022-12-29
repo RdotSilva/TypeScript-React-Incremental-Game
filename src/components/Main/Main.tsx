@@ -32,7 +32,7 @@ const Main = (props: Props) => {
       <TotalScore />
       <PowerUpTimerDisplay />
       {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
-      {showPrestigeButton ? <PrestigeDialog /> : null}
+      {showPrestigeButton() ? <PrestigeDialog /> : null}
       <Resources />
       <PowerUps />
     </StyledMainContainer>
