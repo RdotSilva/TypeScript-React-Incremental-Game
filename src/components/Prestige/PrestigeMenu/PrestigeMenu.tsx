@@ -12,14 +12,16 @@ const PrestigeMenu = () => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
   const { assignedPrestigePoints, totalPrestigePoints, prestigeStats } =
     usePrestige();
-  const [unusedPrestigePoints, setUnusedPrestigePoints] = useState<number>(0);
+  const [unassignedPrestigePoints, setUnassignedPrestigePoints] =
+    useState<number>(0);
 
   /**
    * Calculate the total number of unused prestige points and update state
    */
   useEffect(() => {
-    const unusedPoints = totalPrestigePoints - assignedPrestigePoints;
-    setUnusedPrestigePoints(unusedPoints);
+    const currentUnassignedPrestigePoints =
+      totalPrestigePoints - assignedPrestigePoints;
+    setUnassignedPrestigePoints(currentUnassignedPrestigePoints);
   }, [totalPrestigePoints, assignedPrestigePoints]);
 
   return (
