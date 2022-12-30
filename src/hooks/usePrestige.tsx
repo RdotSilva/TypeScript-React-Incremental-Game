@@ -64,6 +64,14 @@ const usePrestige = (): any => {
     if (doubleXpPrestige?.isActive) {
       setPrestigeMultiplier(1);
     }
+
+    const prestigePowerUpThree = prestigeStats.find(
+      (stat) => stat.id === PrestigeMenuItemIds.Three
+    );
+
+    if (prestigePowerUpThree?.isActive) {
+      // TODO: Decrease overall powerup display time
+    }
   };
 
   /**
