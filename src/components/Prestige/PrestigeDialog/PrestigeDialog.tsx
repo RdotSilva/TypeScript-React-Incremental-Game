@@ -20,6 +20,9 @@ const StyledPrestigeContainer = styled(Grid)({
 
 type Props = {};
 
+/**
+ * Component for showing the prestige dialog that allows a user to activate prestige or cancel
+ */
 const PrestigeDialog = (props: Props) => {
   const [openPrestigeConfirmationModal, setOpenPrestigeConfirmationModal] =
     useState(false);
