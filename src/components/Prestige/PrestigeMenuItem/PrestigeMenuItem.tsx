@@ -51,6 +51,7 @@ const PrestigeMenuItem = ({
     id: string,
     pointsToActivatePrestige: number
   ) => {
+    // TODO: Check this logic. Needs to be fixed. There is a bug when clicking a prestige icon it activates the first prestige item as well as the item you clicked
     const currentPrestigeItem = prestigeStats.find(
       ({ id }: PrestigeItem) => id === id
     );
