@@ -27,6 +27,15 @@ export const enum PowerUpShowTimers {
   Three = 20000,
 }
 
+/**
+ * Values used when a user has activated prestige number 3 (decrease time for powerups)
+ */
+export const enum PowerUpShowTimersWithPrestige {
+  One = 5000,
+  Two = 7500,
+  Three = 10000,
+}
+
 export const enum PowerUpExpireTimers {
   One = 10000,
   Two = 20000,
