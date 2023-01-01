@@ -52,6 +52,11 @@ export const enum PrestigeMenuItemIds {
 export const PrestigeLevelToShowMenu = 0;
 
 /**
+ * This it the default prestige level that a new user will start with
+ */
+export const DefaultPrestigeLevel = 0;
+
+/**
  * The prestige items you want to display in the prestige menu
  */
 export const prestigeMenuItems: PrestigeItem[] = [
