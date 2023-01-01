@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Grid, styled } from "@mui/material";
 import TotalScore from "../Score/TotalScore";
-import PowerUps from "../PowerUp/PowerUps";
+import PowerUpDisplay from "../PowerUp/PowerUpDisplay";
 import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
 import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay";
@@ -21,6 +21,9 @@ const StyledMainContainer = styled(Grid)({
 
 type Props = {};
 
+/**
+ * Main component in charge of displaying the game
+ */
 const Main = (props: Props) => {
   const prestigeContext = useContext(PrestigeContext);
   const { prestigeLevel } = prestigeContext;
@@ -34,7 +37,7 @@ const Main = (props: Props) => {
       {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
       {showPrestigeButton() ? <PrestigeDialog /> : null}
       <Resources />
-      <PowerUps />
+      <PowerUpDisplay />
     </StyledMainContainer>
   );
 };
