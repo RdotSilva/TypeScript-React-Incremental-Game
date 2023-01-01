@@ -10,7 +10,7 @@ const PowerUpContainer = styled(Container)({
   backgroundColor: COLORS.lightTan,
 });
 
-const PowerUps = (props: Props) => {
+const PowerUpDisplay = (props: Props) => {
   return (
     <PowerUpContainer>
       <PowerUp />
@@ -19,4 +19,4 @@ const PowerUps = (props: Props) => {
   );
 };
 
-export default PowerUps;
+export default PowerUpDisplay;
