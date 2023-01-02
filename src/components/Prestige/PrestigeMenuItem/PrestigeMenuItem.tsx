@@ -91,13 +91,12 @@ const PrestigeMenuItem = ({
         primaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        primary={title}
+        primary={title + pointsToActivate}
         secondaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
         secondary={summary}
       />
-      <ListItemText>{pointsToActivate}</ListItemText>
     </ListItem>
   );
 };
