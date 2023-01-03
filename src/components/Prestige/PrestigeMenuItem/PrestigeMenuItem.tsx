@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { COLORS } from "../../../config/colors";
+
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -74,13 +76,18 @@ const PrestigeMenuItem = ({
   }, [isActive]);
 
   return (
-    <ListItem
-      secondaryAction={
-        <IconButton disabled>
-          <LooksOneIcon />
-        </IconButton>
-      }
-    >
+    <ListItem>
+      <ListItemAvatar>
+        <Avatar
+          sx={{
+            backgroundColor: COLORS.darkTan,
+          }}
+        >
+          <IconButton disabled>
+            <LooksOneIcon />
+          </IconButton>
+        </Avatar>
+      </ListItemAvatar>
       <ListItemAvatar>
         <Avatar
           sx={{
