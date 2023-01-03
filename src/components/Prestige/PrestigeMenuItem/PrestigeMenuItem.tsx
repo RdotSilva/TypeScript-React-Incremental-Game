@@ -24,7 +24,8 @@ type Props = {
 };
 
 /**
- * Create a prestige item that as a ListItem that can be used in the Prestige Menu
+ * Prestige menu item that is shown in the prestige menu. 
+ * These are individual upgrades that a user can unlock if they have enough prestige points.
  */
 const PrestigeMenuItem = ({
   isActive,
@@ -46,7 +47,7 @@ const PrestigeMenuItem = ({
   } = usePrestige();
 
   /**
-   * Set a prestige item as active
+   * Set a prestige upgrade item as active if the user has enough prestige points
    * @param id The ID of the prestige item to set active
    * @param pointsToActivatePrestige The number of points needed to activate a prestige item
    */
@@ -69,7 +70,7 @@ const PrestigeMenuItem = ({
   };
 
   /**
-   * Update prestige item active state
+   * Update prestige upgrade item active state 
    */
   useEffect(() => {
     setPrestigeItemIsActive(isActive);
