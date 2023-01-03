@@ -4,6 +4,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
+import LooksOneIcon from "@mui/icons-material/LooksOne";
 
 import { useTheme } from "@mui/material/styles";
 
@@ -73,7 +74,13 @@ const PrestigeMenuItem = ({
   }, [isActive]);
 
   return (
-    <ListItem>
+    <ListItem
+      secondaryAction={
+        <IconButton disabled>
+          <LooksOneIcon />
+        </IconButton>
+      }
+    >
       <ListItemAvatar>
         <Avatar
           sx={{
@@ -91,7 +98,7 @@ const PrestigeMenuItem = ({
         primaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        primary={title + pointsToActivate}
+        primary={title}
         secondaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
