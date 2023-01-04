@@ -24,7 +24,7 @@ type Props = {
 };
 
 /**
- * Prestige menu item that is shown in the prestige menu. 
+ * Prestige menu item that is shown in the prestige menu.
  * These are individual upgrades that a user can unlock if they have enough prestige points.
  */
 const PrestigeMenuItem = ({
@@ -62,7 +62,11 @@ const PrestigeMenuItem = ({
     const unusedPrestigePoints = calculateUnusedPrestigePoints();
 
     if (unusedPrestigePoints >= pointsToActivatePrestige) {
-      setAssignedPrestigePoints(pointsToActivatePrestige);
+      setAssignedPrestigePoints(
+        (prevAssignedPrestigePoints: number) =>
+          prevAssignedPrestigePoints + pointsToActivatePrestige
+      );
+
       currentPrestigeItem.isActive = true;
       setPrestigeItemIsActive(true);
       setPrestigePowerUps();
@@ -70,7 +74,7 @@ const PrestigeMenuItem = ({
   };
 
   /**
-   * Update prestige upgrade item active state 
+   * Update prestige upgrade item active state
    */
   useEffect(() => {
     setPrestigeItemIsActive(isActive);
