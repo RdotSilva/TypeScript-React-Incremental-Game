@@ -7,7 +7,7 @@ import { COLORS } from "../../config/colors";
 import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay";
 import PrestigeDialog from "../Prestige/PrestigeDialog/PrestigeDialog";
 import { PrestigeContext } from "../../context/PrestigeContext";
-import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
+import PrestigeUpgradeMenu from "../Prestige/PrestigeUpgradeMenu/PrestigeUpgradeMenu";
 import { PrestigeLevelToShowMenu } from "../../config/prestige";
 import usePrestige from "../../hooks/usePrestige";
 
@@ -34,7 +34,7 @@ const Main = (props: Props) => {
     <StyledMainContainer container>
       <TotalScore />
       <PowerUpTimerDisplay />
-      {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
+      {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeUpgradeMenu /> : null}
       {showPrestigeButton() ? <PrestigeDialog /> : null}
       <Resources />
       <PowerUpDisplay />
