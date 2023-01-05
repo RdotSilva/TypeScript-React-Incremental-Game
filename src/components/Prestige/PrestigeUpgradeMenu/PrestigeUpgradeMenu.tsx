@@ -8,7 +8,7 @@ import usePrestige from "../../../hooks/usePrestige";
 import PrestigeMenuItem from "../PrestigeMenuItem/PrestigeMenuItem";
 import { PrestigeItem } from "../../../config/prestige";
 
-const PrestigeMenu = () => {
+const PrestigeUpgradeMenu = () => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
   const { assignedPrestigePoints, totalPrestigePoints, prestigeStats } =
     usePrestige();
@@ -57,4 +57,4 @@ const PrestigeMenu = () => {
   );
 };
 
-export default PrestigeMenu;
+export default PrestigeUpgradeMenu;
