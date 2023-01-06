@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import { PowerUpShowTimers } from "../config/config";
 import { StatContext } from "../context/StatContext";
 
@@ -17,9 +17,20 @@ const usePowerUp = (): any => {
     useState<boolean>(false);
   const [powerUpPosition, setPowerUpPosition] = useState<string>("center");
 
-  const displayPowerUpInterval = !showPowerUpExpireTimer
-    ? powerUpShowTimer
-    : powerUpShowTimer + powerUpTimer;
+  /**
+   * This is used to determine how often a power-up button should be shown to the user
+   * This will default to the configuration set in the config file
+   *
+   */
+  const displayPowerUpInterval = useMemo(() => {
+    if (!showPowerUpExpireTimer) {
+      return powerUpShowTimer;
+    }
+
+    // TODO: Look into this logic it may be buggy
+
+    return powerUpShowTimer + powerUpTimer;
+  }, [powerUpShowTimer]);
 
   return {
     powerUpShowTimer,
