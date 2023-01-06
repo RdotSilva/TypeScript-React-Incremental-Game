@@ -5,6 +5,7 @@ import {
   ScoreToShowPrestige,
 } from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
+import usePowerUp from "./usePowerUp";
 import useStat from "./useStat";
 
 /**
@@ -21,6 +22,8 @@ const usePrestige = (): any => {
     setPrestigeMultiplier,
     setStatPerClick,
   } = useStat();
+
+  const { setPowerUpShowTimer } = usePowerUp();
 
   const {
     prestigeLevel,
@@ -70,7 +73,10 @@ const usePrestige = (): any => {
     );
 
     if (prestigePowerUpThree?.isActive) {
+      console.log(prestigePowerUpThree);
       // TODO: Decrease overall powerup display time
+      // TODO: Test this logic
+      setPowerUpShowTimer(500);
     }
   };
 
