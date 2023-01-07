@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useMemo, useEffect } from "react";
 import { PowerUpShowTimers } from "../config/config";
 import { StatContext } from "../context/StatContext";
 
@@ -16,6 +16,9 @@ const usePowerUp = (): any => {
   const [showPowerUpExpireTimer, setShowPowerUpExpireTimer] =
     useState<boolean>(false);
   const [powerUpPosition, setPowerUpPosition] = useState<string>("center");
+  const [displayDoubleXp, setDisplayDoubleXp] = useState<number>(
+    PowerUpShowTimers.One
+  );
 
   /**
    * This is used to determine how often a power-up button should be shown to the user
@@ -44,6 +47,8 @@ const usePowerUp = (): any => {
     powerUpPosition,
     setPowerUpPosition,
     displayPowerUpInterval,
+    displayDoubleXp,
+    setDisplayDoubleXp
   };
 };
 
