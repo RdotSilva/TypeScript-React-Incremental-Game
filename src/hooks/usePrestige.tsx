@@ -23,7 +23,7 @@ const usePrestige = (): any => {
     setStatPerClick,
   } = useStat();
 
-  const { setPowerUpShowTimer } = usePowerUp();
+  const { setPowerUpShowTimer, setDisplayDoubleXp } = usePowerUp();
 
   const {
     prestigeLevel,
@@ -76,7 +76,7 @@ const usePrestige = (): any => {
       console.log(prestigePowerUpThree);
       // TODO: Decrease overall powerup display time
       // TODO: Test this logic
-      setPowerUpShowTimer(500);
+      setDisplayDoubleXp(500);
     }
   };
 
