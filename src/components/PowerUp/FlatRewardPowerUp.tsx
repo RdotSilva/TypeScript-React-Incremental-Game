@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { FlatRewardPowerUpBonus } from "../../config/config";
@@ -16,13 +16,15 @@ const FlatRewardPowerUp = (props: Props) => {
     setPowerUpVisible,
     powerUpPosition,
     displayPowerUpInterval,
+    displayDoubleXp,
   } = usePowerUp();
 
   const { setTotalStats } = useStat();
 
   useInterval(() => {
     setPowerUpVisible(true);
-  }, displayPowerUpInterval);
+    console.log(displayDoubleXp);
+  }, displayDoubleXp);
 
   /**
    * Automatically increase users total score by a using a flat multiplier
