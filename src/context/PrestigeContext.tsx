@@ -7,6 +7,9 @@ import React, {
 } from "react";
 import { PrestigeItem, prestigeMenuItems } from "../config/prestige";
 
+/**
+ * Context for all things related to the Prestige system
+ */
 export type PrestigeContextType = {
   prestigeLevel: number;
   setPrestigeLevel: Dispatch<SetStateAction<number>>;
