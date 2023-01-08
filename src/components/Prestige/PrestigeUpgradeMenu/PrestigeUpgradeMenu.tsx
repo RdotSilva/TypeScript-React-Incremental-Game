@@ -8,18 +8,20 @@ import usePrestige from "../../../hooks/usePrestige";
 import PrestigeMenuItem from "../PrestigeMenuItem/PrestigeMenuItem";
 import { PrestigeItem } from "../../../config/prestige";
 
-const PrestigeMenu = () => {
+const PrestigeUpgradeMenu = () => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
   const { assignedPrestigePoints, totalPrestigePoints, prestigeStats } =
     usePrestige();
-  const [unusedPrestigePoints, setUnusedPrestigePoints] = useState<number>(0);
+  const [unassignedPrestigePoints, setUnassignedPrestigePoints] =
+    useState<number>(0);
 
   /**
    * Calculate the total number of unused prestige points and update state
    */
   useEffect(() => {
-    const unusedPoints = totalPrestigePoints - assignedPrestigePoints;
-    setUnusedPrestigePoints(unusedPoints);
+    const currentUnassignedPrestigePoints =
+      totalPrestigePoints - assignedPrestigePoints;
+    setUnassignedPrestigePoints(currentUnassignedPrestigePoints);
   }, [totalPrestigePoints, assignedPrestigePoints]);
 
   return (
@@ -45,12 +47,8 @@ const PrestigeMenu = () => {
           {prestigeStats.map((prestigeItem: PrestigeItem, index: number) => (
             <PrestigeMenuItem
               key={index}
-              isActive={prestigeItem.isActive}
-              pointsToActivate={prestigeItem.pointsToActivate}
-              prestigeItemId={prestigeItem.prestigeItemId}
-              prestigeItemIcon={<prestigeItem.prestigeItemIcon />}
-              prestigeItemTitle={prestigeItem.prestigeItemTitle}
-              prestigeItemDescription={prestigeItem.prestigeItemDescription}
+              {...prestigeItem}
+              icon={<prestigeItem.icon />}
             />
           ))}
         </List>
@@ -59,4 +57,4 @@ const PrestigeMenu = () => {
   );
 };
 
-export default PrestigeMenu;
+export default PrestigeUpgradeMenu;

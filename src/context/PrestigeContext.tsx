@@ -5,7 +5,11 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
-import { PrestigeItem, prestigeMenuItems } from "../config/prestige";
+import {
+  DefaultPrestigeLevel,
+  PrestigeItem,
+  prestigeMenuItems,
+} from "../config/prestige";
 
 /**
  * Context for all things related to the Prestige system
@@ -32,7 +36,8 @@ export const PrestigeContext = createContext<PrestigeContextType>(
 );
 
 const PrestigeProvider = ({ children }: Props) => {
-  const [prestigeLevel, setPrestigeLevel] = useState<number>(0);
+  const [prestigeLevel, setPrestigeLevel] =
+    useState<number>(DefaultPrestigeLevel);
   const [totalPrestigePoints, setTotalPrestigePoints] = useState<number>(0);
   const [assignedPrestigePoints, setAssignedPrestigePoints] =
     useState<number>(0);

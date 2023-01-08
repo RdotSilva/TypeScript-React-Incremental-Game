@@ -43,6 +43,24 @@ You can play the game using the base game configuration or edit these values to 
 
    - Controls various configurations for prestige, and prestige menu.
 
+# Features Status
+
+## Complete
+
+- [x] Resources added and able to be clicked to increase score
+- [x] Resource upgrades added for each resource based individual resource score
+- [x] Randomized power-ups added
+- [x] Initial prestige system added
+
+## Partially Complete
+- [x] Prestige system
+
+## Future
+- [] Add new prestige upgrades
+- [] Add new resources upgrades
+- [] Add new power-ups
+- [] Add the ability to save/load game data
+
 ## Installation
 
 1. Install dependencies in main project folder.

@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import {
   PrestigeMenuItemIds,
   PrestigePointsPreLevel,
+  ScoreToShowPrestige,
 } from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
+import usePowerUp from "./usePowerUp";
 import useStat from "./useStat";
 
 /**
@@ -20,6 +22,8 @@ const usePrestige = (): any => {
     setPrestigeMultiplier,
     setStatPerClick,
   } = useStat();
+
+  const { setPowerUpShowTimer } = usePowerUp();
 
   const {
     prestigeLevel,
@@ -58,10 +62,21 @@ const usePrestige = (): any => {
    */
   const setPrestigePowerUps = () => {
     const doubleXpPrestige = prestigeStats.find(
-      (stat) => stat.prestigeItemId === PrestigeMenuItemIds.Two
+      (stat) => stat.id === PrestigeMenuItemIds.Two
     );
     if (doubleXpPrestige?.isActive) {
       setPrestigeMultiplier(1);
+    }
+
+    const prestigePowerUpThree = prestigeStats.find(
+      (stat) => stat.id === PrestigeMenuItemIds.Three
+    );
+
+    if (prestigePowerUpThree?.isActive) {
+      console.log(prestigePowerUpThree);
+      // TODO: Decrease overall powerup display time
+      // TODO: Test this logic
+      setPowerUpShowTimer(500);
     }
   };
 
@@ -70,6 +85,25 @@ const usePrestige = (): any => {
    */
   const calculateUnusedPrestigePoints = (): number => {
     return totalPrestigePoints - assignedPrestigePoints;
+  };
+
+  /**
+   * Check if we should show the prestige button
+   * We only want to show this the first time the users prestiges (for now)
+   * TODO: Update this logic to add multiple prestige levels
+   */
+  const showPrestigeButton = () => {
+    // Prestige level 1
+    if (totalStats > ScoreToShowPrestige.One && prestigeLevel < 1) {
+      return true;
+    }
+
+    // Prestige level 2
+    if (totalStats > ScoreToShowPrestige.Two && prestigeLevel < 2) {
+      return true;
+    }
+
+    return false;
   };
 
   return {
@@ -86,6 +120,7 @@ const usePrestige = (): any => {
     setPrestigeStats,
     setPrestigePowerUps,
     calculateUnusedPrestigePoints,
+    showPrestigeButton,
   };
 };
 

@@ -1,18 +1,15 @@
 import React, { useContext } from "react";
-import { Container, Grid, styled } from "@mui/material";
-import { StatContext } from "../../context/StatContext";
+import { Grid, styled } from "@mui/material";
 import TotalScore from "../Score/TotalScore";
-import PowerUps from "../PowerUp/PowerUps";
+import PowerUpDisplay from "../PowerUp/PowerUpDisplay";
 import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
-import PowerUpTimer from "../PowerUp/PowerUpTimer";
-import Prestige from "../Prestige/Prestige";
+import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay";
+import PrestigeDialog from "../Prestige/PrestigeDialog/PrestigeDialog";
 import { PrestigeContext } from "../../context/PrestigeContext";
-import PrestigeMenu from "../Prestige/PrestigeMenu/PrestigeMenu";
-import {
-  PrestigeLevelToShowMenu,
-  ScoreToShowPrestige,
-} from "../../config/prestige";
+import PrestigeUpgradeMenu from "../Prestige/PrestigeUpgradeMenu/PrestigeUpgradeMenu";
+import { PrestigeLevelToShowMenu } from "../../config/prestige";
+import usePrestige from "../../hooks/usePrestige";
 
 const StyledMainContainer = styled(Grid)({
   border: "2px solid",
@@ -24,21 +21,23 @@ const StyledMainContainer = styled(Grid)({
 
 type Props = {};
 
+/**
+ * Main component in charge of displaying the game
+ */
 const Main = (props: Props) => {
-  const statContext = useContext(StatContext);
-  const { totalStats } = statContext;
-
   const prestigeContext = useContext(PrestigeContext);
   const { prestigeLevel } = prestigeContext;
+
+  const { showPrestigeButton } = usePrestige();
 
   return (
     <StyledMainContainer container>
       <TotalScore />
-      <PowerUpTimer />
-      {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeMenu /> : null}
-      {totalStats > ScoreToShowPrestige.One ? <Prestige /> : null}
+      <PowerUpTimerDisplay />
+      {prestigeLevel > PrestigeLevelToShowMenu ? <PrestigeUpgradeMenu /> : null}
+      {showPrestigeButton() ? <PrestigeDialog /> : null}
       <Resources />
-      <PowerUps />
+      <PowerUpDisplay />
     </StyledMainContainer>
   );
 };

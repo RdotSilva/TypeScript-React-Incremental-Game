@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 
+import { COLORS } from "../../../config/colors";
+
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
+import LooksOneIcon from "@mui/icons-material/LooksOne";
 
 import { useTheme } from "@mui/material/styles";
 
@@ -14,22 +17,23 @@ import { PrestigeItem } from "../../../config/prestige";
 type Props = {
   isActive: boolean;
   pointsToActivate: number;
-  prestigeItemId: string;
-  prestigeItemIcon: any;
-  prestigeItemTitle: string;
-  prestigeItemDescription: string;
+  id: string;
+  icon: any;
+  title: string;
+  summary: string;
 };
 
 /**
- * Create a prestige item that as a ListItem that can be used in the Prestige Menu
+ * Prestige menu item that is shown in the prestige menu.
+ * These are individual upgrades that a user can unlock if they have enough prestige points.
  */
 const PrestigeMenuItem = ({
   isActive,
   pointsToActivate,
-  prestigeItemId,
-  prestigeItemIcon,
-  prestigeItemTitle,
-  prestigeItemDescription,
+  id,
+  icon,
+  title,
+  summary,
 }: Props) => {
   const theme = useTheme();
 
@@ -37,30 +41,32 @@ const PrestigeMenuItem = ({
 
   const {
     prestigeStats,
-    setPrestigeStats,
     setPrestigePowerUps,
-    totalPrestigePoints,
     calculateUnusedPrestigePoints,
     setAssignedPrestigePoints,
   } = usePrestige();
 
   /**
-   * Set a prestige item as active
+   * Set a prestige upgrade item as active if the user has enough prestige points
    * @param id The ID of the prestige item to set active
    * @param pointsToActivatePrestige The number of points needed to activate a prestige item
    */
   const onClickPrestigeIcon = (
-    id: string,
+    currentPrestigeItemId: string,
     pointsToActivatePrestige: number
   ) => {
     const currentPrestigeItem = prestigeStats.find(
-      ({ prestigeItemId }: PrestigeItem) => prestigeItemId === id
+      ({ id }: PrestigeItem) => id === currentPrestigeItemId
     );
 
     const unusedPrestigePoints = calculateUnusedPrestigePoints();
 
     if (unusedPrestigePoints >= pointsToActivatePrestige) {
-      setAssignedPrestigePoints(pointsToActivatePrestige);
+      setAssignedPrestigePoints(
+        (prevAssignedPrestigePoints: number) =>
+          prevAssignedPrestigePoints + pointsToActivatePrestige
+      );
+
       currentPrestigeItem.isActive = true;
       setPrestigeItemIsActive(true);
       setPrestigePowerUps();
@@ -68,7 +74,7 @@ const PrestigeMenuItem = ({
   };
 
   /**
-   * Update prestige item active state
+   * Update prestige upgrade item active state
    */
   useEffect(() => {
     setPrestigeItemIsActive(isActive);
@@ -79,17 +85,24 @@ const PrestigeMenuItem = ({
       <ListItemAvatar>
         <Avatar
           sx={{
+            backgroundColor: COLORS.darkTan,
+          }}
+        >
+          <IconButton disabled>
+            <LooksOneIcon />
+          </IconButton>
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemAvatar>
+        <Avatar
+          sx={{
             backgroundColor: prestigeItemIsActive
               ? theme.palette.secondary.light
               : null,
           }}
         >
-          <IconButton
-            onClick={() =>
-              onClickPrestigeIcon(prestigeItemId, pointsToActivate)
-            }
-          >
-            {prestigeItemIcon}
+          <IconButton onClick={() => onClickPrestigeIcon(id, pointsToActivate)}>
+            {icon}
           </IconButton>
         </Avatar>
       </ListItemAvatar>
@@ -97,11 +110,11 @@ const PrestigeMenuItem = ({
         primaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        primary={prestigeItemTitle}
+        primary={title}
         secondaryTypographyProps={{
           color: prestigeItemIsActive ? "secondary" : "black",
         }}
-        secondary={prestigeItemDescription}
+        secondary={summary}
       />
     </ListItem>
   );
