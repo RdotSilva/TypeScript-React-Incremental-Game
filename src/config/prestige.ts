@@ -18,6 +18,7 @@ export const enum ScoreToShowPrestige {
   One = 100,
   Two = One * 2,
   Three = Two * 2,
+  Four = Three * 2,
 }
 
 export interface PrestigeItem {
