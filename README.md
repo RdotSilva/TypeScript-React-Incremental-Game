@@ -24,7 +24,7 @@ I'll be slowly adding features until it is a fully playable game.
    - Increase score by x2 for all icons
    - Instantly double your score
 
-3. Prestige and earn special permanent rewards (**Work In Progress**)
+3. Prestige and earn special permanent rewards
    - Once you have enough points the `Prestige` button will appear
    - Every prestige will grant you more points
    - Spend your points on special permanent power ups in the Prestige Menu
@@ -53,13 +53,19 @@ You can play the game using the base game configuration or edit these values to 
 - [x] Initial prestige system added
 
 ## Partially Complete
+
 - [x] Prestige system
 
 ## Future
+
 - [] Add new prestige upgrades
 - [] Add new resources upgrades
 - [] Add new power-ups
 - [] Add the ability to save/load game data
+
+## TODO
+
+- [] Fix bug around double xp power up display after activating prestige #3
 
 ## Installation
 
