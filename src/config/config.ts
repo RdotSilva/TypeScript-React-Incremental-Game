@@ -42,7 +42,7 @@ export const enum PowerUpExpireTimers {
   Three = 30000,
 }
 
-export const enum FlatRewardPowerUpBonus {
+export const enum DoubleXpPowerUpReward {
   One = 2,
   Two = One * 2,
   Three = Two * 2,
