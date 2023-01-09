@@ -1,7 +1,7 @@
 import { Container, styled } from "@mui/system";
 import React from "react";
 import { COLORS } from "../../config/colors";
-import FlatRewardPowerUp from "./FlatRewardPowerUp";
+import DoubleXpReward from "./Rewards/DoubleXpReward";
 import PowerUp from "./PowerUp";
 
 type Props = {};
@@ -14,7 +14,7 @@ const PowerUpDisplay = (props: Props) => {
   return (
     <PowerUpContainer>
       <PowerUp />
-      <FlatRewardPowerUp />
+      <DoubleXpReward />
     </PowerUpContainer>
   );
 };

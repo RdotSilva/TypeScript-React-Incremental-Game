@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import { FlatRewardPowerUpBonus } from "../../config/config";
-import usePowerUp from "../../hooks/usePowerUp";
+import { DoubleXpPowerUpReward } from "../../../config/config";
+import usePowerUp from "../../../hooks/usePowerUp";
 import { styled } from "@mui/material/styles";
-import { COLORS } from "../../config/colors";
-import useStat from "../../hooks/useStat";
-import useInterval from "../../hooks/useInterval";
+import { COLORS } from "../../../config/colors";
+import useStat from "../../../hooks/useStat";
+import useInterval from "../../../hooks/useInterval";
 
 type Props = {};
 
-const FlatRewardPowerUp = (props: Props) => {
+const DoubleXpReward = (props: Props) => {
   const {
     powerUpVisible,
     setPowerUpVisible,
@@ -47,7 +47,7 @@ const FlatRewardPowerUp = (props: Props) => {
         <Box textAlign={powerUpPosition}>
           <Button
             sx={{ m: 1 }}
-            onClick={() => activatePowerUp(FlatRewardPowerUpBonus.One)}
+            onClick={() => activatePowerUp(DoubleXpPowerUpReward.One)}
             variant="contained"
           >
             Double Total XP
@@ -58,4 +58,4 @@ const FlatRewardPowerUp = (props: Props) => {
   );
 };
 
-export default FlatRewardPowerUp;
+export default DoubleXpReward;
