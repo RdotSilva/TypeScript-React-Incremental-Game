@@ -10,7 +10,7 @@ import useInterval from "../../../hooks/useInterval";
 
 type Props = {};
 
-const DoubleXpReward = (props: Props) => {
+const MultiplyXpReward = (props: Props) => {
   const {
     powerUpVisible,
     setPowerUpVisible,
@@ -56,4 +56,4 @@ const DoubleXpReward = (props: Props) => {
   );
 };
 
-export default DoubleXpReward;
+export default MultiplyXpReward;
