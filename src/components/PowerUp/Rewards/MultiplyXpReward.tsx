@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect }, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { DoubleXpPowerUpReward } from "../../../config/config";
@@ -7,10 +7,20 @@ import { styled } from "@mui/material/styles";
 import { COLORS } from "../../../config/colors";
 import useStat from "../../../hooks/useStat";
 import useInterval from "../../../hooks/useInterval";
+import { getRandomEnumValue } from "../../../utils";
 
 type Props = {};
 
 const MultiplyXpReward = (props: Props) => {
+  const [randomMultiplierAmount, setRandomMultiplierAmount] =
+    useState<number>(0);
+
+  // TODO: Test this logic to see if this is working correctly
+  useEffect(() => {
+    const randomMultiplier = getRandomEnumValue(DoubleXpPowerUpReward);
+    setRandomMultiplierAmount(randomMultiplier);
+  }, []);
+
   const {
     powerUpVisible,
     setPowerUpVisible,
@@ -50,7 +60,7 @@ const MultiplyXpReward = (props: Props) => {
             onClick={() => activatePowerUp(DoubleXpPowerUpReward.One)}
             variant="contained"
           >
-            Double Total XP
+            {`Multiply total XP by ${DoubleXpPowerUpReward.One}`}
           </Button>
         </Box>
       )}
