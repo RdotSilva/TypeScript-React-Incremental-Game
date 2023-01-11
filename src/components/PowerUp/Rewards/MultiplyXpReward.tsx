@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { DoubleXpPowerUpReward } from "../../../config/config";
@@ -11,6 +11,9 @@ import useInterval from "../../../hooks/useInterval";
 type Props = {};
 
 const MultiplyXpReward = (props: Props) => {
+  const [randomMultiplierAmount, setRandomMultiplierAmount] =
+    useState<number>(0);
+
   const {
     powerUpVisible,
     setPowerUpVisible,
