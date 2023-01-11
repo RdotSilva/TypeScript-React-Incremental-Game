@@ -48,7 +48,7 @@ const MultiplyXpReward = (props: Props) => {
             onClick={() => activatePowerUp(DoubleXpPowerUpReward.One)}
             variant="contained"
           >
-            Double Total XP
+            {`Multiply total XP by ${DoubleXpPowerUpReward.One}`}
           </Button>
         </Box>
       )}
