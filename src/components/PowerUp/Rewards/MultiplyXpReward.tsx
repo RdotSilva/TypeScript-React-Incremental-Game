@@ -7,12 +7,19 @@ import { styled } from "@mui/material/styles";
 import { COLORS } from "../../../config/colors";
 import useStat from "../../../hooks/useStat";
 import useInterval from "../../../hooks/useInterval";
+import { getRandomEnumValue } from "../../../utils";
 
 type Props = {};
 
 const MultiplyXpReward = (props: Props) => {
   const [randomMultiplierAmount, setRandomMultiplierAmount] =
     useState<number>(0);
+
+  // TODO: Test this logic to see if this is working correctly
+  useEffect(() => {
+    const randomMultiplier = getRandomEnumValue(DoubleXpPowerUpReward);
+    setRandomMultiplierAmount(randomMultiplier);
+  }, []);
 
   const {
     powerUpVisible,
