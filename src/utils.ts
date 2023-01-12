@@ -8,3 +8,8 @@ export const getRandomEnumValue = (enumeration: any): any => {
   const enumKey = values[Math.floor(Math.random() * values.length)];
   return enumeration[enumKey];
 };
+
+export const getRandomObjectProperty = (obj: any) => {
+  const keys = Object.keys(obj);
+  return obj[keys[(keys.length * Math.random()) << 0]];
+};
