@@ -42,12 +42,12 @@ export const enum PowerUpExpireTimers {
   Three = 30000,
 }
 
-export enum DoubleXpPowerUpReward {
-  One = 2,
-  Two = One * 2,
-  Three = Two * 2,
-  Four = Three * 2,
-}
+export const DoubleXpPowerUpReward = {
+  One: 2,
+  Two: 4,
+  Three: 8,
+  Four: 16,
+};
 
 export const enum ResourceIcons {
   ResourceOne = "Icon1",
