@@ -20,6 +20,7 @@ const PowerUp = (props: Props) => {
     setShowPowerUpExpireTimer,
     powerUpPosition,
     setPowerUpPosition,
+    randomizePowerUpLocation,
   } = usePowerUp();
 
   const { setPowerUpMultiplier } = useStat();
@@ -70,19 +71,6 @@ const PowerUp = (props: Props) => {
     setShowPowerUpExpireTimer(false);
     setPowerUpTimer(0);
   };
-
-  /**
-   * Randomize the position of the power up button
-   * This can be left, center, or right
-   */
-  const randomizePowerUpLocation = useCallback(() => {
-    {
-      const possiblePositions = ["left", "center", "right"];
-      const randomPosition =
-        possiblePositions[Math.floor(Math.random() * possiblePositions.length)];
-      setPowerUpPosition(randomPosition);
-    }
-  }, [setPowerUpPosition]);
 
   /**
    * Randomize the power up button location any time the power up changes visibility
