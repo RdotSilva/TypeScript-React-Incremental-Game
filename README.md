@@ -49,7 +49,7 @@ You can play the game using the base game configuration or edit these values to 
 
 - [x] Resources added and able to be clicked to increase score
 - [x] Resource upgrades added for each resource based individual resource score
-- [x] Randomized power-ups added
+- [x] Randomized power-ups rewards added 
 - [x] Initial prestige system added
 
 ## Partially Complete
@@ -58,7 +58,7 @@ You can play the game using the base game configuration or edit these values to 
 ## Future
 - [] Add new prestige upgrades
 - [] Add new resources upgrades
-- [] Add new power-ups
+- [] Add new power-up rewards
 - [] Add the ability to save/load game data
 
 ## Installation
