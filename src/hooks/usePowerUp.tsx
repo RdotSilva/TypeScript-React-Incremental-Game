@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useMemo, useCallback } from "react";
 import { PowerUpShowTimers } from "../config/config";
 import { StatContext } from "../context/StatContext";
 
@@ -32,6 +32,19 @@ const usePowerUp = (): any => {
     return powerUpShowTimer + powerUpTimer;
   }, [powerUpShowTimer]);
 
+  /**
+   * Randomize the position of the power up button
+   * This can be left, center, or right
+   */
+  const randomizePowerUpLocation = useCallback(() => {
+    {
+      const possiblePositions = ["left", "center", "right"];
+      const randomPosition =
+        possiblePositions[Math.floor(Math.random() * possiblePositions.length)];
+      setPowerUpPosition(randomPosition);
+    }
+  }, [setPowerUpPosition]);
+
   return {
     powerUpShowTimer,
     setPowerUpShowTimer,
@@ -44,6 +57,7 @@ const usePowerUp = (): any => {
     powerUpPosition,
     setPowerUpPosition,
     displayPowerUpInterval,
+    randomizePowerUpLocation,
   };
 };
 
