@@ -1,4 +1,4 @@
-import React, { useState, useEffect }, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import { DoubleXpPowerUpReward } from "../../../config/config";
@@ -15,18 +15,26 @@ const MultiplyXpReward = (props: Props) => {
   const [randomMultiplierAmount, setRandomMultiplierAmount] =
     useState<number>(0);
 
-  useEffect(() => {
-    const randomMultiplier = getRandomObjectProperty(DoubleXpPowerUpReward);
-    setRandomMultiplierAmount(randomMultiplier);
-  }, []);
-
   const {
     powerUpVisible,
     setPowerUpVisible,
     powerUpPosition,
     displayPowerUpInterval,
     displayDoubleXp,
+    randomizePowerUpLocation,
   } = usePowerUp();
+
+  useEffect(() => {
+    const randomMultiplier = getRandomObjectProperty(DoubleXpPowerUpReward);
+    setRandomMultiplierAmount(randomMultiplier);
+  }, []);
+
+  /**
+   * Randomize the power up button location any time the power up changes visibility
+   */
+  useEffect(() => {
+    randomizePowerUpLocation();
+  }, [randomizePowerUpLocation, powerUpVisible]);
 
   const { setTotalStats } = useStat();
 
