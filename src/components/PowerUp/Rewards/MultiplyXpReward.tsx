@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
-import { DoubleXpPowerUpReward } from "../../../config/config";
+import { MultiplyXpPowerUpReward } from "../../../config/config";
 import usePowerUp from "../../../hooks/usePowerUp";
 import { styled } from "@mui/material/styles";
 import { COLORS } from "../../../config/colors";
@@ -25,7 +25,7 @@ const MultiplyXpReward = (props: Props) => {
   } = usePowerUp();
 
   useEffect(() => {
-    const randomMultiplier = getRandomObjectProperty(DoubleXpPowerUpReward);
+    const randomMultiplier = getRandomObjectProperty(MultiplyXpPowerUpReward);
     setRandomMultiplierAmount(randomMultiplier);
   }, []);
 
