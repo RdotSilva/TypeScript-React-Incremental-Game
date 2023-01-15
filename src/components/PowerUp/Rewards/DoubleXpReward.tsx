@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useCallback } from "react";
 import { Container, Box } from "@mui/material";
-import { StatContext } from "../../context/StatContext";
+import { StatContext } from "../../../context/StatContext";
 import Button from "@mui/material/Button";
-import { PowerUpExpireTimers } from "../../config/config";
-import usePowerUp from "../../hooks/usePowerUp";
-import { COLORS } from "../../config/colors";
-import useStat from "../../hooks/useStat";
+import { PowerUpExpireTimers } from "../../../config/config";
+import usePowerUp from "../../../hooks/usePowerUp";
+import { COLORS } from "../../../config/colors";
+import useStat from "../../../hooks/useStat";
 
 type Props = {};
 
-const PowerUp = (props: Props) => {
+const DoubleXpReward = (props: Props) => {
   const {
     powerUpShowTimer,
     powerUpVisible,
@@ -109,4 +109,4 @@ const PowerUp = (props: Props) => {
   );
 };
 
-export default PowerUp;
+export default DoubleXpReward;
