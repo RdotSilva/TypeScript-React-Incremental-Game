@@ -2,7 +2,7 @@ import { Container, styled } from "@mui/system";
 import React from "react";
 import { COLORS } from "../../config/colors";
 import MultiplyXpReward from "./Rewards/MultiplyXpReward";
-import PowerUp from "./PowerUp";
+import DoubleXpReward from "./Rewards/DoubleXpReward";
 
 type Props = {};
 
@@ -13,7 +13,7 @@ const PowerUpContainer = styled(Container)({
 const PowerUpDisplay = (props: Props) => {
   return (
     <PowerUpContainer>
-      <PowerUp />
+      <DoubleXpReward />
       <MultiplyXpReward />
     </PowerUpContainer>
   );
