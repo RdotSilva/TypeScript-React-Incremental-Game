@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Grid, styled } from "@mui/material";
 import TotalScore from "../Score/TotalScore";
-import PowerUpDisplay from "../PowerUp/PowerUpDisplay";
+import PowerUpDisplay from "../PowerUp/PowerUpDisplay/PowerUpDisplay";
 import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
-import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay";
+import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay/PowerUpTimerDisplay";
 import PrestigeDialog from "../Prestige/PrestigeDialog/PrestigeDialog";
 import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeUpgradeMenu from "../Prestige/PrestigeUpgradeMenu/PrestigeUpgradeMenu";
