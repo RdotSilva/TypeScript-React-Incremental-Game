@@ -1,8 +1,8 @@
 import { Container, styled } from "@mui/system";
 import React from "react";
-import { COLORS } from "../../config/colors";
-import MultiplyXpReward from "./Rewards/MultiplyXpReward";
-import DoubleXpReward from "./Rewards/DoubleXpReward";
+import { COLORS } from "../../../config/colors";
+import MultiplyXpReward from "../Rewards/MultiplyXpReward";
+import DoubleXpReward from "../Rewards/DoubleXpReward";
 
 type Props = {};
 
