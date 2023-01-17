@@ -49,8 +49,12 @@ You can play the game using the base game configuration or edit these values to 
 
 - [x] Resources added and able to be clicked to increase score
 - [x] Resource upgrades added for each resource based individual resource score
-- [x] Randomized power-ups rewards added 
+- [x] Randomized power-ups rewards added
 - [x] Initial prestige system added
+
+## In Progress
+
+- [x] Replace React Context with MobX (currently in progress)
 
 ## Partially Complete
 
