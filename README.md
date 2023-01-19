@@ -54,7 +54,8 @@ You can play the game using the base game configuration or edit these values to 
 
 ## In Progress
 
-- [x] Replace React Context with MobX (currently in progress)
+- [x] Implement a store using MobX for stats and prestige
+- [x] Remove PrestigeContext and StatContext when MobX is fully implemented
 
 ## Partially Complete
 
