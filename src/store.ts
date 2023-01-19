@@ -1,8 +1,10 @@
 import { createContext, useContext } from "react";
+import PrestigeStore from "./stores/PrestigeStore";
 import StatStore from "./stores/StatStore";
 
 const store = {
-  statStore: StatStore(),
+  statStore: new StatStore(),
+  prestigeStore: new PrestigeStore(),
 };
 
 export const StoreContext = createContext(store);
