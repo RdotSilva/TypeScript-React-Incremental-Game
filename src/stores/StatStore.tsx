@@ -1,9 +1,13 @@
 import { makeAutoObservable } from "mobx";
 
-const StatStore = () => {
-  return makeAutoObservable({
-    tier: 0,
-  });
-};
+class StatStore {
+  tier = 0;
+  totalStats = 0;
+  powerUpMultiplier = 1;
+  powerUpTimer = 0;
+  prestigeMultiplier = 0;
+
+  constructor() {}
+}
 
 export default StatStore;
