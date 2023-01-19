@@ -7,7 +7,9 @@ class StatStore {
   powerUpTimer = 0;
   prestigeMultiplier = 0;
 
-  constructor() {}
+  constructor() {
+    makeAutoObservable(this);
+  }
 }
 
 export default StatStore;
