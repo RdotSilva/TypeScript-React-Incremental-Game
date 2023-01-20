@@ -10,6 +10,26 @@ class StatStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  setTier(newValue: number) {
+    this.tier = newValue;
+  }
+
+  setTotalStats(newValue: number) {
+    this.totalStats = this.totalStats + newValue;
+  }
+
+  setPowerUpMultiplier(newValue: number) {
+    this.powerUpMultiplier = newValue;
+  }
+
+  setPowerUpTimer(newValue: number) {
+    this.powerUpTimer = newValue;
+  }
+
+  setPrestigeMultiplier(newValue: number) {
+    this.prestigeMultiplier = newValue;
+  }
 }
 
 export default StatStore;
