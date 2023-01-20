@@ -1,12 +1,16 @@
 import { makeAutoObservable } from "mobx";
-import { DefaultPrestigeLevel, prestigeMenuItems } from "../config/prestige";
+import {
+  DefaultPrestigeLevel,
+  PrestigeItem,
+  prestigeMenuItems,
+} from "../config/prestige";
 
 class PrestigeStore {
-  prestigeLevel = DefaultPrestigeLevel;
-  totalPrestigePoints = 0;
-  assignedPrestigePoints = 0;
-  isActivatingPrestige = false;
-  prestigeStats = prestigeMenuItems;
+  prestigeLevel: number = DefaultPrestigeLevel;
+  totalPrestigePoints: number = 0;
+  assignedPrestigePoints: number = 0;
+  isActivatingPrestige: boolean = false;
+  prestigeStats: PrestigeItem[] = prestigeMenuItems;
 
   constructor() {
     makeAutoObservable(this);

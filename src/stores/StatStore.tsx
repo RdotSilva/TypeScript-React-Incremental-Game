@@ -1,11 +1,11 @@
 import { makeAutoObservable } from "mobx";
 
 class StatStore {
-  tier = 0;
-  totalStats = 0;
-  powerUpMultiplier = 1;
-  powerUpTimer = 0;
-  prestigeMultiplier = 0;
+  tier: number = 0;
+  totalStats: number = 0;
+  powerUpMultiplier: number = 1;
+  powerUpTimer: number = 0;
+  prestigeMultiplier: number = 0;
 
   constructor() {
     makeAutoObservable(this);
