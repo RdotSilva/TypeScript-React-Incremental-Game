@@ -8,13 +8,15 @@ import store, { StoreContext } from "./store";
 
 function App() {
   return (
-    <StoreContext.Provider value={store}>
-      <PrestigeProvider>
-        <div className="App">
-          <Main />
-        </div>
-      </PrestigeProvider>
-    </StoreContext.Provider>
+    <StatProvider>
+      <StoreContext.Provider value={store}>
+        <PrestigeProvider>
+          <div className="App">
+            <Main />
+          </div>
+        </PrestigeProvider>
+      </StoreContext.Provider>
+    </StatProvider>
   );
 }
 
