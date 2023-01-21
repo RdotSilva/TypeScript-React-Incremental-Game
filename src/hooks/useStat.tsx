@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { StatContext } from "../context/StatContext";
+import { useStore } from "../store";
 
 /**
  * Main hook used for raising stats and stats per click
@@ -19,6 +20,10 @@ const useStat = (): any => {
     setPrestigeMultiplier,
   } = statContext;
 
+  // TODO: Reactor everything to use the store rather than context
+  const store = useStore();
+  const statStore = store.statStore;
+
   /**
    * Increment a stat
    * @param amount The amount to use when incrementing a stat
@@ -29,7 +34,7 @@ const useStat = (): any => {
 
     const amountWithMultiplier = amount * statPerClick * totalMultiplier;
     setStat((prevStat) => prevStat + amountWithMultiplier);
-    setTotalStats((prevTotalStats) => prevTotalStats + amountWithMultiplier);
+    statStore.setTotalStats(amountWithMultiplier);
   };
 
   /**
