@@ -6,6 +6,7 @@ import { StatContext } from "../../../context/StatContext";
 import { PrestigeContext } from "../../../context/PrestigeContext";
 import { styled } from "@mui/material/styles";
 import usePrestige from "../../../hooks/usePrestige";
+import { observer } from "mobx-react";
 
 const StyledResourceContainer = styled(Grid)({
   display: "flex",
@@ -141,4 +142,4 @@ const ResourceContainer = ({
   );
 };
 
-export default ResourceContainer;
+export default observer(ResourceContainer);

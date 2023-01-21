@@ -3,6 +3,8 @@ import { Box, Grid } from "@mui/material";
 import { StatContext } from "../../context/StatContext";
 import { COLORS } from "../../config/colors";
 import { styled } from "@mui/system";
+import { observer } from "mobx-react";
+import { useStore } from "../../store";
 
 type Props = {};
 
@@ -13,8 +15,11 @@ const StyledScoreContainer = styled(Grid)({
 });
 
 const TotalScore = (props: Props) => {
-  const statContext = useContext(StatContext);
-  const { totalStats } = statContext;
+  const store = useStore();
+
+  const {
+    statStore: { totalStats },
+  } = store;
 
   return (
     <StyledScoreContainer container>
@@ -35,4 +40,4 @@ const TotalScore = (props: Props) => {
   );
 };
 
-export default TotalScore;
+export default observer(TotalScore);
