@@ -15,6 +15,14 @@ class PrestigeStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  setPrestigeLevel(newValue: number) {
+    this.prestigeLevel = newValue;
+  }
+
+  setTotalPrestigePoints(newValue: number) {
+    this.totalPrestigePoints = this.totalPrestigePoints + newValue;
+  }
 }
 
 export default PrestigeStore;
