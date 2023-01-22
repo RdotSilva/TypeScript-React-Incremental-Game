@@ -7,6 +7,7 @@ import { COLORS } from "../../../config/colors";
 import usePrestige from "../../../hooks/usePrestige";
 import PrestigeMenuItem from "../PrestigeMenuItem/PrestigeMenuItem";
 import { PrestigeItem } from "../../../config/prestige";
+import { observer } from "mobx-react";
 
 const PrestigeUpgradeMenu = () => {
   const [showPrestigeMenu, setShowPrestigeMenu] = useState<boolean>(false);
@@ -57,4 +58,4 @@ const PrestigeUpgradeMenu = () => {
   );
 };
 
-export default PrestigeUpgradeMenu;
+export default observer(PrestigeUpgradeMenu);
