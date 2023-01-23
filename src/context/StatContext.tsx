@@ -9,8 +9,6 @@ import React, {
 export type StatContextType = {
   tier: number;
   setTier: Dispatch<SetStateAction<number>>;
-  totalStats: number;
-  setTotalStats: Dispatch<SetStateAction<number>>;
   powerUpMultiplier: number;
   setPowerUpMultiplier: Dispatch<SetStateAction<number>>;
   powerUpTimer: number;
@@ -29,7 +27,6 @@ export const StatContext = createContext<StatContextType>(
 
 const StatProvider = ({ children }: Props) => {
   const [tier, setTier] = useState<number>(0);
-  const [totalStats, setTotalStats] = useState<number>(0);
   const [powerUpMultiplier, setPowerUpMultiplier] = useState<number>(1);
   const [powerUpTimer, setPowerUpTimer] = useState<number>(0);
   const [prestigeMultiplier, setPrestigeMultiplier] = useState<number>(0);
@@ -39,8 +36,6 @@ const StatProvider = ({ children }: Props) => {
       value={{
         tier,
         setTier,
-        totalStats,
-        setTotalStats,
         powerUpMultiplier,
         setPowerUpMultiplier,
         powerUpTimer,

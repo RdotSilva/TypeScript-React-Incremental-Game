@@ -13,8 +13,6 @@ const useStat = (): any => {
   const {
     powerUpMultiplier,
     setPowerUpMultiplier,
-    totalStats,
-    setTotalStats,
     setTier,
     prestigeMultiplier,
     setPrestigeMultiplier,
@@ -73,8 +71,6 @@ const useStat = (): any => {
     autoIncrementStat,
     decrementStatPerClick,
     setStat,
-    setTotalStats,
-    totalStats,
     setPowerUpMultiplier,
     setTier,
     setPrestigeMultiplier,
