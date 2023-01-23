@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
-import { Box, Grid } from "@mui/material";
-import { StatContext } from "../../context/StatContext";
+import React from "react";
+import { Grid } from "@mui/material";
+
 import { COLORS } from "../../config/colors";
 import { styled } from "@mui/system";
 import { observer } from "mobx-react";
