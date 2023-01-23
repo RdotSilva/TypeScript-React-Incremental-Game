@@ -22,7 +22,7 @@ const useStat = (): any => {
 
   // TODO: Reactor everything to use the store rather than context
   const store = useStore();
-  const statStore = store.statStore;
+  const { statStore } = store;
 
   /**
    * Increment a stat
@@ -60,7 +60,7 @@ const useStat = (): any => {
     // TODO: Add powerUpMultiplier to this (consider a separate power up)
     setInterval(() => {
       setStat((prevStat) => prevStat + statPerClick);
-      setTotalStats((prevTotalStats) => prevTotalStats + statPerClick);
+      statStore.setTotalStats(statPerClick);
     }, 1000);
   };
 
