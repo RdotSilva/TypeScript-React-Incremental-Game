@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import React, { useState, useContext } from "react";
 import { StatContext } from "../context/StatContext";
 import { useStore } from "../store";
@@ -10,17 +11,12 @@ const useStat = (): any => {
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
   const statContext = useContext(StatContext);
-  const {
-    powerUpMultiplier,
-    setPowerUpMultiplier,
-    setTier,
-    prestigeMultiplier,
-    setPrestigeMultiplier,
-  } = statContext;
+  const { setTier, prestigeMultiplier, setPrestigeMultiplier } = statContext;
 
   // TODO: Reactor everything to use the store rather than context
   const store = useStore();
   const { statStore } = store;
+  const { powerUpMultiplier, setPowerUpMultiplier } = statStore;
 
   /**
    * Increment a stat

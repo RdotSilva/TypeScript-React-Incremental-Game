@@ -6,6 +6,7 @@ import { PowerUpExpireTimers } from "../../../config/config";
 import usePowerUp from "../../../hooks/usePowerUp";
 import { COLORS } from "../../../config/colors";
 import useStat from "../../../hooks/useStat";
+import { observer } from "mobx-react";
 
 type Props = {};
 
@@ -109,4 +110,4 @@ const DoubleXpReward = (props: Props) => {
   );
 };
 
-export default DoubleXpReward;
+export default observer(DoubleXpReward);
