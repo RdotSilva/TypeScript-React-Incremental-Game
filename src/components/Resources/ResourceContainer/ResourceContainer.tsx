@@ -55,6 +55,8 @@ const ResourceContainer = ({
     incrementStat,
     incrementStatPerClick,
     autoIncrementStat,
+    tier,
+    setTier,
   } = useStat();
 
   const prestigeContext = useContext(PrestigeContext);
@@ -104,8 +106,8 @@ const ResourceContainer = ({
   useEffect(() => {
     if (stat > nextTierThreshold) {
       // Only set the next tier if current tier is below the resource tier
-      if (statContext?.tier! <= resourceTier) {
-        statContext?.setTier(resourceTier + 1);
+      if (tier <= resourceTier) {
+        setTier(resourceTier + 1);
       }
     }
   }, [stat]);
