@@ -11,12 +11,12 @@ const useStat = (): any => {
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
   const statContext = useContext(StatContext);
-  const { setTier, prestigeMultiplier, setPrestigeMultiplier } = statContext;
+  const { prestigeMultiplier, setPrestigeMultiplier } = statContext;
 
   // TODO: Reactor everything to use the store rather than context
   const store = useStore();
   const { statStore } = store;
-  const { powerUpMultiplier, setPowerUpMultiplier } = statStore;
+  const { powerUpMultiplier, setPowerUpMultiplier, tier, setTier } = statStore;
 
   /**
    * Increment a stat
@@ -68,8 +68,9 @@ const useStat = (): any => {
     decrementStatPerClick,
     setStat,
     setPowerUpMultiplier,
-    setTier,
     setPrestigeMultiplier,
+    tier,
+    setTier,
   };
 };
 
