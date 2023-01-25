@@ -7,6 +7,8 @@ import ResourceFour from "../ResourceFour";
 import { Grid, styled } from "@mui/material";
 import { COLORS } from "../../../config/colors";
 import ResourceFive from "../ResourceFive";
+import { observer } from "mobx-react";
+import useStat from "../../../hooks/useStat";
 
 const StyledResourcesContainer = styled(Grid)({
   backgroundColor: COLORS.lightTan,
@@ -17,17 +19,17 @@ const StyledResourcesContainer = styled(Grid)({
 type Props = {};
 
 const ResourcesContainer = (props: Props) => {
-  const statContext = useContext(StatContext);
+  const { tier } = useStat();
 
   return (
     <StyledResourcesContainer>
       <ResourceOne />
-      {statContext?.tier! >= 2 && <ResourceTwo />}
-      {statContext?.tier! >= 3 && <ResourceThree />}
-      {statContext?.tier! >= 4 && <ResourceFour />}
-      {statContext?.tier! >= 5 && <ResourceFive />}
+      {tier >= 2 && <ResourceTwo />}
+      {tier! >= 3 && <ResourceThree />}
+      {tier! >= 4 && <ResourceFour />}
+      {tier! >= 5 && <ResourceFive />}
     </StyledResourcesContainer>
   );
 };
 
-export default ResourcesContainer;
+export default observer(ResourcesContainer);
