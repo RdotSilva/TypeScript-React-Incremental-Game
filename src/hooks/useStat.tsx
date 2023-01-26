@@ -1,6 +1,4 @@
-import { observer } from "mobx-react-lite";
-import React, { useState, useContext } from "react";
-import { StatContext } from "../context/StatContext";
+import React, { useState } from "react";
 import { useStore } from "../store";
 
 /**
@@ -10,13 +8,18 @@ const useStat = (): any => {
   const [stat, setStat] = useState<number>(0);
   const [statPerClick, setStatPerClick] = useState<number>(1);
 
-  const statContext = useContext(StatContext);
-  const { prestigeMultiplier, setPrestigeMultiplier } = statContext;
-
-  // TODO: Reactor everything to use the store rather than context
   const store = useStore();
   const { statStore } = store;
-  const { powerUpMultiplier, setPowerUpMultiplier, tier, setTier } = statStore;
+  const {
+    powerUpMultiplier,
+    setPowerUpMultiplier,
+    tier,
+    setTier,
+    prestigeMultiplier,
+    setPrestigeMultiplier,
+    totalStats,
+    setTotalStats,
+  } = statStore;
 
   /**
    * Increment a stat
@@ -28,7 +31,7 @@ const useStat = (): any => {
 
     const amountWithMultiplier = amount * statPerClick * totalMultiplier;
     setStat((prevStat) => prevStat + amountWithMultiplier);
-    statStore.setTotalStats(amountWithMultiplier);
+    setTotalStats(amountWithMultiplier);
   };
 
   /**
@@ -54,7 +57,7 @@ const useStat = (): any => {
     // TODO: Add powerUpMultiplier to this (consider a separate power up)
     setInterval(() => {
       setStat((prevStat) => prevStat + statPerClick);
-      statStore.setTotalStats(statPerClick);
+      setTotalStats(statPerClick);
     }, 1000);
   };
 
@@ -71,6 +74,7 @@ const useStat = (): any => {
     setPrestigeMultiplier,
     tier,
     setTier,
+    totalStats,
   };
 };
 
