@@ -10,6 +10,7 @@ import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeUpgradeMenu from "../Prestige/PrestigeUpgradeMenu/PrestigeUpgradeMenu";
 import { PrestigeLevelToShowMenu } from "../../config/prestige";
 import usePrestige from "../../hooks/usePrestige";
+import { observer } from "mobx-react";
 
 const StyledMainContainer = styled(Grid)({
   border: "2px solid",
@@ -42,4 +43,4 @@ const Main = (props: Props) => {
   );
 };
 
-export default Main;
+export default observer(Main);
