@@ -5,6 +5,7 @@ import {
   ScoreToShowPrestige,
 } from "../config/prestige";
 import { PrestigeContext } from "../context/PrestigeContext";
+import { useStore } from "../store";
 import usePowerUp from "./usePowerUp";
 import useStat from "./useStat";
 
@@ -13,6 +14,7 @@ import useStat from "./useStat";
  */
 const usePrestige = (): any => {
   const prestigeContext = useContext(PrestigeContext);
+
   const {
     resetStat,
     totalStats,
@@ -25,9 +27,9 @@ const usePrestige = (): any => {
 
   const { setPowerUpShowTimer, setDisplayDoubleXp } = usePowerUp();
 
+  // TODO: Replace context with MobX
+
   const {
-    prestigeLevel,
-    setPrestigeLevel,
     totalPrestigePoints,
     setTotalPrestigePoints,
     assignedPrestigePoints,
@@ -37,6 +39,10 @@ const usePrestige = (): any => {
     prestigeStats,
     setPrestigeStats,
   } = prestigeContext;
+
+  const store = useStore();
+  const { prestigeStore } = store;
+  const { prestigeLevel, setPrestigeLevel } = prestigeStore;
 
   const prestigeScore = 100;
 
