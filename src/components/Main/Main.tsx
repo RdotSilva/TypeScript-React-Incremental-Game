@@ -26,10 +26,7 @@ type Props = {};
  * Main component in charge of displaying the game
  */
 const Main = (props: Props) => {
-  const prestigeContext = useContext(PrestigeContext);
-  const { prestigeLevel } = prestigeContext;
-
-  const { showPrestigeButton } = usePrestige();
+  const { showPrestigeButton, prestigeLevel } = usePrestige();
 
   return (
     <StyledMainContainer container>
