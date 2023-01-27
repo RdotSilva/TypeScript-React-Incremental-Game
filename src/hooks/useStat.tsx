@@ -75,6 +75,7 @@ const useStat = (): any => {
     tier,
     setTier,
     totalStats,
+    setTotalStats,
   };
 };
 
