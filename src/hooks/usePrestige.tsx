@@ -30,8 +30,6 @@ const usePrestige = (): any => {
   // TODO: Replace context with MobX
 
   const {
-    totalPrestigePoints,
-    setTotalPrestigePoints,
     assignedPrestigePoints,
     setAssignedPrestigePoints,
     isActivatingPrestige,
@@ -42,7 +40,12 @@ const usePrestige = (): any => {
 
   const store = useStore();
   const { prestigeStore } = store;
-  const { prestigeLevel, setPrestigeLevel } = prestigeStore;
+  const {
+    prestigeLevel,
+    setPrestigeLevel,
+    totalPrestigePoints,
+    setTotalPrestigePoints,
+  } = prestigeStore;
 
   const prestigeScore = 100;
 
@@ -54,10 +57,7 @@ const usePrestige = (): any => {
       setTotalStats(0);
       setTier(1);
       setPrestigeLevel(1);
-      setTotalPrestigePoints(
-        (prevTotalPrestigePoints: number) =>
-          prevTotalPrestigePoints + PrestigePointsPreLevel.One
-      );
+      setTotalPrestigePoints(PrestigePointsPreLevel.One);
       setIsActivatingPrestige(true);
     }
   };
