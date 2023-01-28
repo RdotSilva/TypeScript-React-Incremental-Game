@@ -19,6 +19,7 @@ const PrestigeUpgradeMenu = () => {
   /**
    * Calculate the total number of unused prestige points and update state
    */
+  // TODO: Test logic around totalPrestigePoints after changing to MobX store
   useEffect(() => {
     const currentUnassignedPrestigePoints =
       totalPrestigePoints - assignedPrestigePoints;
