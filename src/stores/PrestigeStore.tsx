@@ -23,6 +23,10 @@ class PrestigeStore {
   setTotalPrestigePoints = (newValue: number) => {
     this.totalPrestigePoints = this.totalPrestigePoints + newValue;
   };
+
+  setAssignedPrestigePoints = (newValue: number) => {
+    this.assignedPrestigePoints = this.assignedPrestigePoints + newValue;
+  };
 }
 
 export default PrestigeStore;
