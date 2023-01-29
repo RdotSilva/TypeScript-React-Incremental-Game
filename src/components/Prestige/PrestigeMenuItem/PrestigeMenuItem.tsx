@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles";
 import { IconButton } from "@mui/material";
 import usePrestige from "../../../hooks/usePrestige";
 import { PrestigeItem } from "../../../config/prestige";
+import { observer } from "mobx-react";
 
 type Props = {
   isActive: boolean;
@@ -62,10 +63,7 @@ const PrestigeMenuItem = ({
     const unusedPrestigePoints = calculateUnusedPrestigePoints();
 
     if (unusedPrestigePoints >= pointsToActivatePrestige) {
-      setAssignedPrestigePoints(
-        (prevAssignedPrestigePoints: number) =>
-          prevAssignedPrestigePoints + pointsToActivatePrestige
-      );
+      setAssignedPrestigePoints(pointsToActivatePrestige);
 
       currentPrestigeItem.isActive = true;
       setPrestigeItemIsActive(true);
@@ -120,4 +118,4 @@ const PrestigeMenuItem = ({
   );
 };
 
-export default PrestigeMenuItem;
+export default observer(PrestigeMenuItem);
