@@ -15,23 +15,14 @@ import useStat from "./useStat";
 const usePrestige = (): any => {
   const prestigeContext = useContext(PrestigeContext);
 
-  const {
-    resetStat,
-    totalStats,
-    setTotalStats,
-    stat,
-    setTier,
-    setPrestigeMultiplier,
-    setStatPerClick,
-  } = useStat();
+  const { totalStats, setTotalStats, setTier, setPrestigeMultiplier } =
+    useStat();
 
   const { setPowerUpShowTimer, setDisplayDoubleXp } = usePowerUp();
 
   // TODO: Replace context with MobX
 
   const {
-    assignedPrestigePoints,
-    setAssignedPrestigePoints,
     isActivatingPrestige,
     setIsActivatingPrestige,
     prestigeStats,
@@ -45,6 +36,8 @@ const usePrestige = (): any => {
     setPrestigeLevel,
     totalPrestigePoints,
     setTotalPrestigePoints,
+    assignedPrestigePoints,
+    setAssignedPrestigePoints,
   } = prestigeStore;
 
   const prestigeScore = 100;
