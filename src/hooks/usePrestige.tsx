@@ -20,17 +20,10 @@ const usePrestige = (): any => {
 
   const { setPowerUpShowTimer, setDisplayDoubleXp } = usePowerUp();
 
-  // TODO: Replace context with MobX
-
-  const {
-    isActivatingPrestige,
-    setIsActivatingPrestige,
-    prestigeStats,
-    setPrestigeStats,
-  } = prestigeContext;
-
   const store = useStore();
   const { prestigeStore } = store;
+
+  // TODO: Check all logic changed by refactoring from context to Mobx store below
   const {
     prestigeLevel,
     setPrestigeLevel,
@@ -38,6 +31,9 @@ const usePrestige = (): any => {
     setTotalPrestigePoints,
     assignedPrestigePoints,
     setAssignedPrestigePoints,
+    isActivatingPrestige,
+    setIsActivatingPrestige,
+    prestigeStats,
   } = prestigeStore;
 
   const prestigeScore = 100;
