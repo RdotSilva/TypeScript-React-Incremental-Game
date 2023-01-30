@@ -27,6 +27,10 @@ class PrestigeStore {
   setAssignedPrestigePoints = (newValue: number) => {
     this.assignedPrestigePoints = this.assignedPrestigePoints + newValue;
   };
+
+  setIsActivatingPrestige = (newValue: boolean) => {
+    this.isActivatingPrestige = newValue;
+  };
 }
 
 export default PrestigeStore;
