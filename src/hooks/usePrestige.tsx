@@ -112,7 +112,6 @@ const usePrestige = (): any => {
     setIsActivatingPrestige,
     confirmPrestige,
     prestigeStats,
-    setPrestigeStats,
     setPrestigePowerUps,
     calculateUnusedPrestigePoints,
     showPrestigeButton,
