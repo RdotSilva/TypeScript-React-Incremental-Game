@@ -8,6 +8,7 @@ import { COLORS } from "../../../config/colors";
 import useStat from "../../../hooks/useStat";
 import useInterval from "../../../hooks/useInterval";
 import { getRandomObjectProperty } from "../../../utils";
+import { observer } from "mobx-react";
 
 type Props = {};
 
@@ -36,7 +37,7 @@ const MultiplyXpReward = (props: Props) => {
     randomizePowerUpLocation();
   }, [randomizePowerUpLocation, powerUpVisible]);
 
-  const { setTotalStats } = useStat();
+  const { setTotalStatsWithMultiplier } = useStat();
 
   useInterval(() => {
     setPowerUpVisible(true);
@@ -48,9 +49,7 @@ const MultiplyXpReward = (props: Props) => {
    * @param flatRewardMultiplier Multiplier for the flat reward
    */
   const activatePowerUp = (flatRewardMultiplier: number) => {
-    setTotalStats(
-      (prevTotalStats: number) => prevTotalStats * flatRewardMultiplier
-    );
+    setTotalStatsWithMultiplier(flatRewardMultiplier);
     setPowerUpVisible(false);
   };
 
@@ -75,4 +74,4 @@ const MultiplyXpReward = (props: Props) => {
   );
 };
 
-export default MultiplyXpReward;
+export default observer(MultiplyXpReward);
