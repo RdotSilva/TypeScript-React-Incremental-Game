@@ -30,6 +30,10 @@ class StatStore {
   setPrestigeMultiplier = (newValue: number) => {
     this.prestigeMultiplier = newValue;
   };
+
+  setTotalStatsWithMultiplier = (multiplier: number) => {
+    this.totalStats = this.totalStats * multiplier;
+  };
 }
 
 export default StatStore;
