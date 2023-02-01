@@ -23,6 +23,7 @@ export const enum ScoreToShowPrestige {
   Two = One * 2,
   Three = Two * 2,
   Four = Three * 2,
+  Testing = 4,
 }
 
 /**
