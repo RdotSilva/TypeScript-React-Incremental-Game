@@ -36,7 +36,8 @@ const usePrestige = (): any => {
     prestigeStats,
   } = prestigeStore;
 
-  const prestigeScore = 100;
+  // TODO: Using testing value for now, revert this after testing prestige logic
+  const prestigeScore = ScoreToShowPrestige.Testing;
 
   /**
    * Confirm prestige by resetting total stats, resetting tier back to starting tier, and increment prestige level
@@ -88,8 +89,8 @@ const usePrestige = (): any => {
    * TODO: Update this logic to add multiple prestige levels
    */
   const showPrestigeButton = () => {
-    // Prestige level 1
-    if (totalStats > ScoreToShowPrestige.One && prestigeLevel < 1) {
+    // TODO: Revert this value after tweaking prestige logic, using test value for now
+    if (totalStats > ScoreToShowPrestige.Testing && prestigeLevel < 1) {
       return true;
     }
 
