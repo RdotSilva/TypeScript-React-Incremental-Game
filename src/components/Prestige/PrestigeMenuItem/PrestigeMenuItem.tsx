@@ -14,6 +14,7 @@ import { IconButton } from "@mui/material";
 import usePrestige from "../../../hooks/usePrestige";
 import { PrestigeItem } from "../../../config/prestige";
 import { observer } from "mobx-react";
+import { runInAction } from "mobx";
 
 type Props = {
   isActive: boolean;
@@ -65,7 +66,10 @@ const PrestigeMenuItem = ({
     if (unusedPrestigePoints >= pointsToActivatePrestige) {
       setAssignedPrestigePoints(pointsToActivatePrestige);
 
-      currentPrestigeItem.isActive = true;
+      runInAction(() => {
+        currentPrestigeItem.isActive = true;
+      });
+
       setPrestigeItemIsActive(true);
       setPrestigePowerUps();
     }
