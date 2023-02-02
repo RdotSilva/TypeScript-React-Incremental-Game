@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { Container, Box } from "@mui/material";
-import { StatContext } from "../../../context/StatContext";
 import Button from "@mui/material/Button";
 import { PowerUpExpireTimers } from "../../../config/config";
 import usePowerUp from "../../../hooks/usePowerUp";
