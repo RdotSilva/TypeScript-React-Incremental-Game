@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import useStat from "../../../hooks/useStat";
-import { Box, Container, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Upgrade from "../../Upgrade/Upgrade";
-import { StatContext } from "../../../context/StatContext";
 import { PrestigeContext } from "../../../context/PrestigeContext";
 import { styled } from "@mui/material/styles";
 import usePrestige from "../../../hooks/usePrestige";
@@ -46,8 +45,6 @@ const ResourceContainer = ({
   initialStatValue,
   amountToShowUpgradeMultiplier,
 }: Props) => {
-  const statContext = useContext(StatContext);
-
   const {
     stat,
     setStat,
