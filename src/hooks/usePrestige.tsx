@@ -61,6 +61,7 @@ const usePrestige = (): any => {
       (stat) => stat.id === PrestigeMenuItemIds.Two
     );
     if (doubleXpPrestige?.isActive) {
+      // TODO: Check this logic, something seems off when this is activated
       setPrestigeMultiplier(1);
     }
 
