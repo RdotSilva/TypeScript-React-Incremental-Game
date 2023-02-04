@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/system";
-import React, { useContext } from "react";
+import React from "react";
 import { COLORS } from "../../../config/colors";
-import { StatContext } from "../../../context/StatContext";
+import useStat from "../../../hooks/useStat";
 
 const StyledPowerUpTimerDisplayContainer = styled(Grid)({
   backgroundColor: COLORS.lightPurple,
@@ -14,8 +14,7 @@ const StyledPowerUpTimerDisplayContainer = styled(Grid)({
 type Props = {};
 
 const PowerUpTimerDisplay = (props: Props) => {
-  const statContext = useContext(StatContext);
-  const { powerUpTimer } = statContext;
+  const { powerUpTimer } = useStat();
 
   return (
     <StyledPowerUpTimerDisplayContainer container>
