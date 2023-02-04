@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { StatContext } from "../../../context/StatContext";
+import React from "react";
 import ResourceOne from "../ResourceOne";
 import ResourceThree from "../ResourceThree";
 import ResourceTwo from "../ResourceTwo";
