@@ -1,13 +1,12 @@
-import React, { useContext, useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { PowerUpShowTimers } from "../config/config";
-import { StatContext } from "../context/StatContext";
+import useStat from "./useStat";
 
 /**
  * Main hook used for handling power up timer and activation/deactivation
  */
 const usePowerUp = (): any => {
-  const statContext = useContext(StatContext);
-  const { powerUpTimer, setPowerUpTimer } = statContext;
+  const { powerUpTimer, setPowerUpTimer } = useStat();
 
   const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(
     PowerUpShowTimers.One
