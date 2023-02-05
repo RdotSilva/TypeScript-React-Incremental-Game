@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import useStat from "../../../hooks/useStat";
 import { Grid } from "@mui/material";
 import Upgrade from "../../Upgrade/Upgrade";
-import { PrestigeContext } from "../../../context/PrestigeContext";
 import { styled } from "@mui/material/styles";
 import usePrestige from "../../../hooks/usePrestige";
 import { observer } from "mobx-react";
@@ -56,8 +55,7 @@ const ResourceContainer = ({
     setTier,
   } = useStat();
 
-  const prestigeContext = useContext(PrestigeContext);
-  const { isActivatingPrestige, setIsActivatingPrestige } = prestigeContext;
+  const { isActivatingPrestige, setIsActivatingPrestige } = usePrestige();
 
   const [totalUpgrades, setTotalUpgrades] = useState<number>(0);
 
