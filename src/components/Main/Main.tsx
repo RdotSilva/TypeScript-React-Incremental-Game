@@ -6,7 +6,6 @@ import Resources from "../Resources/ResourcesContainer/ResourcesContainer";
 import { COLORS } from "../../config/colors";
 import PowerUpTimerDisplay from "../PowerUp/PowerUpTimerDisplay/PowerUpTimerDisplay";
 import PrestigeDialog from "../Prestige/PrestigeDialog/PrestigeDialog";
-import { PrestigeContext } from "../../context/PrestigeContext";
 import PrestigeUpgradeMenu from "../Prestige/PrestigeUpgradeMenu/PrestigeUpgradeMenu";
 import { PrestigeLevelToShowMenu } from "../../config/prestige";
 import usePrestige from "../../hooks/usePrestige";
