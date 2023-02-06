@@ -1,13 +1,11 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { PowerUpShowTimers } from "../config/config";
-import useStat from "./useStat";
+import { useStore } from "../store";
 
 /**
  * Main hook used for handling power up timer and activation/deactivation
  */
 const usePowerUp = (): any => {
-  const { powerUpTimer, setPowerUpTimer } = useStat();
-
   const [powerUpShowTimer, setPowerUpShowTimer] = useState<number>(
     PowerUpShowTimers.One
   );
@@ -18,6 +16,15 @@ const usePowerUp = (): any => {
   const [displayDoubleXp, setDisplayDoubleXp] = useState<number>(
     PowerUpShowTimers.One
   );
+
+  const store = useStore();
+  const { powerUpStore } = store;
+  const {
+    powerUpMultiplier,
+    setPowerUpMultiplier,
+    powerUpTimer,
+    setPowerUpTimer,
+  } = powerUpStore;
 
   /**
    * This is used to determine how often a power-up button should be shown to the user
@@ -62,6 +69,8 @@ const usePowerUp = (): any => {
     displayDoubleXp,
     setDisplayDoubleXp,
     randomizePowerUpLocation,
+    powerUpMultiplier,
+    setPowerUpMultiplier,
   };
 };
 
