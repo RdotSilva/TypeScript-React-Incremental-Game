@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useStore } from "../store";
+import usePowerUp from "./usePowerUp";
 
 /**
  * Main hook used for raising stats and stats per click
@@ -11,8 +12,6 @@ const useStat = (): any => {
   const store = useStore();
   const { statStore } = store;
   const {
-    powerUpMultiplier,
-    setPowerUpMultiplier,
     tier,
     setTier,
     prestigeMultiplier,
@@ -21,6 +20,8 @@ const useStat = (): any => {
     setTotalStats,
     setTotalStatsWithMultiplier,
   } = statStore;
+
+  const { powerUpMultiplier, setPowerUpMultiplier } = usePowerUp();
 
   /**
    * Increment a stat
