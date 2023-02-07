@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   PrestigeMenuItemIds,
   PrestigePointsPreLevel,
   ScoreToShowPrestige,
 } from "../config/prestige";
-import { PrestigeContext } from "../context/PrestigeContext";
+
 import { useStore } from "../store";
 import usePowerUp from "./usePowerUp";
 import useStat from "./useStat";
@@ -13,8 +13,6 @@ import useStat from "./useStat";
  * Main hook used for handling prestige logic
  */
 const usePrestige = (): any => {
-  const prestigeContext = useContext(PrestigeContext);
-
   const { totalStats, setTotalStats, setTier, setPrestigeMultiplier } =
     useStat();
 
