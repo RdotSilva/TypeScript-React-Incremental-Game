@@ -19,6 +19,7 @@ const PowerUpTimerDisplay = (props: Props) => {
   return (
     <StyledPowerUpTimerDisplayContainer container>
       <Grid
+        className="current-bonus"
         item
         sx={{
           display: "flex",

@@ -119,7 +119,7 @@ const ResourceContainer = ({
 
   return (
     <StyledResourceContainer>
-      <StyledIconScoreContainer>
+      <StyledIconScoreContainer className={`${image}-stat`}>
         <StyledResourceImage
           src={require(`../../../images/resources/${image}.png`)}
           alt={image}

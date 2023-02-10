@@ -24,6 +24,7 @@ const TotalScore = (props: Props) => {
   return (
     <StyledScoreContainer container>
       <Grid
+        className="total-stats"
         xs={2}
         item
         sx={{
