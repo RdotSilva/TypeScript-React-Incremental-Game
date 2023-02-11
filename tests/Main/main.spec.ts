@@ -1,8 +1,11 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Main application", () => {
-  test("has correct title", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000/");
+  });
+
+  test("has correct title", async ({ page }) => {
     await expect(page).toHaveTitle(/Incremental Game/);
 
     // Check default values when new game is started
@@ -16,7 +19,6 @@ test.describe("Main application", () => {
   test("has correct default values when starting a new game", async ({
     page,
   }) => {
-    await page.goto("http://localhost:3000/");
     await expect(page).toHaveTitle(/Incremental Game/);
 
     // Check default values when new game is started
