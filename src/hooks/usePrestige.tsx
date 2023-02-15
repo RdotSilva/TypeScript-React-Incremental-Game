@@ -88,8 +88,7 @@ const usePrestige = (): any => {
    * TODO: Update this logic to add multiple prestige levels
    */
   const showPrestigeButton = () => {
-    // TODO: Revert this value after tweaking prestige logic, using test value for now
-    if (totalStats > ScoreToShowPrestige.Testing && prestigeLevel < 1) {
+    if (totalStats > ScoreToShowPrestige.One && prestigeLevel < 1) {
       return true;
     }
 
