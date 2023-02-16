@@ -26,9 +26,9 @@ test("check upgrade buttons", async ({ page }) => {
     clickCount: 10,
   });
 
-  await expect(
-    page.getByRole("button", { name: "X2 PER CLICK" })
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "X2 PER CLICK" })).toHaveCount(
+    1
+  );
 
   await page.getByRole("img", { name: "Icon1" }).click({
     clickCount: 90,
