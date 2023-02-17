@@ -85,13 +85,23 @@ npm start
 
 ---
 
+## Tests
+E2E tests built using Playwright
+
+Run the tests
+
+```
+npx playwright test
+```
+
 ## Built With
 
 - TypeScript
-- React (React hooks)
+- React
 - Material UI
 - Styled Components
 - VSCode
+- Playwright
 
 ---
 
