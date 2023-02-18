@@ -27,6 +27,8 @@ test.describe("Resource", () => {
       clickCount: 10,
     });
 
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("10");
+
     await expect(
       page.getByRole("button", { name: "X2 PER CLICK" })
     ).toHaveCount(1);
@@ -34,6 +36,8 @@ test.describe("Resource", () => {
     await page.getByRole("img", { name: "Icon1" }).click({
       clickCount: 90,
     });
+
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("100");
 
     await expect(
       page.getByRole("button", { name: "X2 PER CLICK" })
