@@ -61,4 +61,9 @@ test.describe("Resource", () => {
       1
     );
   });
+
+  test.fixme(
+    "check upgrade buttons increase stat per click",
+    async ({ page }) => {}
+  );
 });
