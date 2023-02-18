@@ -42,5 +42,23 @@ test.describe("Resource", () => {
     await expect(
       page.getByRole("button", { name: "X2 PER CLICK" })
     ).toHaveCount(2);
+
+    // TODO: Refactor this using clickCount (tried this before and it was buggy)
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+    await page.getByRole("img", { name: "Icon1" }).click();
+
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("110");
+
+    await expect(page.getByRole("button", { name: "AUTO CLICK" })).toHaveCount(
+      1
+    );
   });
 });
