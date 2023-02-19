@@ -63,16 +63,33 @@ test.describe("Resource", () => {
   });
 
   test("check upgrade buttons increase stat per click", async ({ page }) => {
+    // Click resource 10 times until first upgrade button is shown
     await page.getByRole("img", { name: "Icon1" }).click({
       clickCount: 10,
     });
 
     await expect(page.locator(resourceOneIconSelector)).toHaveText("10");
 
+    // Activate upgrade
     await page.getByRole("button", { name: "X2 PER CLICK" }).click();
 
     await page.getByRole("img", { name: "Icon1" }).click();
 
+    // Check that stat per click is increased
     await expect(page.locator(resourceOneIconSelector)).toHaveText("12");
+
+    await page.getByRole("img", { name: "Icon1" }).click({
+      clickCount: 44,
+    });
+
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("100");
+
+    // Activate upgrade
+    await page.getByRole("button", { name: "X2 PER CLICK" }).click();
+
+    await page.getByRole("img", { name: "Icon1" }).click();
+
+    // Check that stat per click is increased again
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("104");
   });
 });
