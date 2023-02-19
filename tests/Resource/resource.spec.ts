@@ -62,8 +62,17 @@ test.describe("Resource", () => {
     );
   });
 
-  test.fixme(
-    "check upgrade buttons increase stat per click",
-    async ({ page }) => {}
-  );
+  test("check upgrade buttons increase stat per click", async ({ page }) => {
+    await page.getByRole("img", { name: "Icon1" }).click({
+      clickCount: 10,
+    });
+
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("10");
+
+    await page.getByRole("button", { name: "X2 PER CLICK" }).click();
+
+    await page.getByRole("img", { name: "Icon1" }).click();
+
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("12");
+  });
 });
