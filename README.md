@@ -86,7 +86,14 @@ npm start
 ---
 
 ## Tests
+
 E2E tests built using Playwright
+
+Run the client to start localhost (tests will use this host)
+
+```
+npm start
+```
 
 Run the tests
 
