@@ -70,12 +70,12 @@ test.describe("Resource", () => {
 
     await expect(page.locator(resourceOneIconSelector)).toHaveText("10");
 
-    // Activate upgrade
+    // Activate 1st upgrade
     await page.getByRole("button", { name: "X2 PER CLICK" }).click();
 
     await page.getByRole("img", { name: "Icon1" }).click();
 
-    // Check that stat per click is increased
+    // Check that stat per click is increased (should be 2 points per click)
     await expect(page.locator(resourceOneIconSelector)).toHaveText("12");
 
     await page.getByRole("img", { name: "Icon1" }).click({
@@ -84,12 +84,22 @@ test.describe("Resource", () => {
 
     await expect(page.locator(resourceOneIconSelector)).toHaveText("100");
 
-    // Activate upgrade
+    // Activate 2nd upgrade
     await page.getByRole("button", { name: "X2 PER CLICK" }).click();
 
     await page.getByRole("img", { name: "Icon1" }).click();
 
-    // Check that stat per click is increased again
+    // Check that stat per click is increased again (should be 4 points per click)
     await expect(page.locator(resourceOneIconSelector)).toHaveText("104");
+
+    await page.getByRole("img", { name: "Icon1" }).click({
+      clickCount: 2,
+    });
+
+    // Activate the 3rd upgrade
+    await page.getByRole("button", { name: "AUTO CLICK" }).click();
+
+    // Check that stat per click is auto increased (it should jump by 4 points every tick)
+    await expect(page.locator(resourceOneIconSelector)).toHaveText("116");
   });
 });
