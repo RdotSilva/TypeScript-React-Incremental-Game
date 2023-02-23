@@ -1,8 +1,10 @@
 import { getRandomEnumValue, getRandomObjectProperty } from "./utils";
 
-global.Math.random = () => 0.5;
-
 describe("src/utils.ts", () => {
+  beforeAll(() => {
+    global.Math.random = () => 0.5;
+  });
+
   describe("getRandomEnumValue", () => {
     it.todo("should return a random value from an Enum");
   });
@@ -17,8 +19,7 @@ describe("src/utils.ts", () => {
       };
 
       const randomProperty = getRandomObjectProperty(object);
-
-      console.log(randomProperty);
+      expect(randomProperty).toBe(8);
     });
   });
 });
