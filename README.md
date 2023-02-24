@@ -87,6 +87,8 @@ npm start
 
 ## Tests
 
+### E2E tests
+
 E2E tests built using Playwright
 
 Run the client to start localhost (tests will use this host)
@@ -99,6 +101,16 @@ Run the tests
 
 ```
 npx playwright test
+```
+
+### Unit tests
+
+Unit tests built using Jest and React Testing Library
+
+Run the tests
+
+```
+npm test
 ```
 
 ## Built With
