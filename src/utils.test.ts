@@ -1,12 +1,8 @@
-import { getRandomEnumValue, getRandomObjectProperty } from "./utils";
+import { getRandomObjectProperty } from "./utils";
 
 describe("src/utils.ts", () => {
   beforeAll(() => {
     global.Math.random = () => 0.5;
-  });
-
-  describe("getRandomEnumValue", () => {
-    it.todo("should return a random value from an Enum");
   });
 
   describe("getRandomObjectProperty", () => {
